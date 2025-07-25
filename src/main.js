@@ -41,7 +41,7 @@ function initializeNavigation() {
 
             // Update ARIA attributes for accessibility
             const isExpanded = hamburger.classList.contains('active');
-            hamburger.setAttribute('aria-expanded', isExpanded);
+            hamburger.setAttribute('aria-expanded', isExpanded.toString());
         });
 
         // Close mobile menu when clicking on nav links
@@ -94,7 +94,7 @@ function initializeScrollEffects() {
     const navbar = document.getElementById('navbar');
 
     window.addEventListener('scroll', debounce(function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollTop = document.documentElement.scrollTop;
 
         // Add scrolled class to navbar for styling
         if (scrollTop > 50) {

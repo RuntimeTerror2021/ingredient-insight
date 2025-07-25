@@ -10,7 +10,7 @@ body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  -webkit-box-sizing: border-box;
+  /*-webkit-box-sizing: border-box;*/
           box-sizing: border-box;
   background: var(--main-bg-color);
   color: var(--main-accent-color);
@@ -156,13 +156,13 @@ button{
   height: 48px;
   border-radius: 10px;
   border: none;
-  -webkit-box-sizing: border-box;
+  /*-webkit-box-sizing: border-box;*/
           box-sizing: border-box;
   padding: 5px 10px 5px 10px;
   background-color: white;
   font-size: large;
-  -webkit-box-shadow: 5px 5px 4px rgba(0,0,0 0.25);
-          box-shadow: 5px 5px 4px rgba(0,0,0 0.25);
+  -webkit-box-shadow: 5px 5px 4px rgba(0,0,0, 0.25);
+          box-shadow: 5px 5px 4px rgba(0,0,0, 0.25);
 }
 
 button:hover {
@@ -194,7 +194,7 @@ main, main section {
 
 main section {
   display: none;
-  height: calc(100vh-20px);
+  height: calc(100vh - 20px);
   align-items: center;
   align-self: center;
   justify-content: center;

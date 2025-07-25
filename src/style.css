@@ -1,9 +1,4 @@
 /*
-      ==============================================
-      INGREDIENT INSIGHT - REDESIGNED LANDING PAGE
-      ==============================================
-      Modern, sleek design for recipe discovery app
-
       TABLE OF CONTENTS:
       1. CSS Variables & Reset
       2. Typography & Base Styles
@@ -16,7 +11,6 @@
       9. Footer
       10. Animations & Effects
       11. Responsive Design
-      ==============================================
       */
 
 /* =========== 1. CSS Variables & Reset =========== */
@@ -856,9 +850,7 @@ section {
         gap: var(--spacing-2xl);
         text-align: center;
     }
-}
 
-@media (max-width: 1024px) {
     .nav-menu {
         position: fixed;
         top: 0;

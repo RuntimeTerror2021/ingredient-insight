@@ -18,17 +18,17 @@ const db = getFirestore();
 
 
 //Initiate Spoonacular instance
-var defaultClient = Spoonacular.ApiClient.instance;
+const defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
-var aks = defaultClient.authentications['apiKeyScheme'];
-aks.apiKey = ak.replace(/[\Lxqs]/g, lk5633jfnj => {return{"L":"a","x":"146f3a5ccee","q":"2","s":"5"}[lk5633jfnj]});
+let aks = defaultClient.authentications['apiKeyScheme'];
+aks.apiKey = ak.replace(/[Lxqs]/g, lk5633jfnj => {return{"L":"a","x":"146f3a5ccee","q":"2","s":"5"}[lk5633jfnj]});
 
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix['x-api-key'] = "Token"
 
 //Init spoonacular APIs
-var ingredientsAPI = new Spoonacular.IngredientsApi()
-var recipesAPI = new Spoonacular.RecipesApi()
+const ingredientsAPI = new Spoonacular.IngredientsApi()
+const recipesAPI = new Spoonacular.RecipesApi()
 
 
 
@@ -62,8 +62,8 @@ function getRandomInt(min, max) {
 }
 
 /**
- * @param {String} HTML representing a single element.
- * @param {Boolean} flag representing whether or not to trim input whitespace, defaults to true.
+ * @param {String} html representing a single element.
+ * @param {Boolean} trim representing whether to trim input whitespace, defaults to true.
  * @return {Element | HTMLCollection | null}
  */
 function fromHTML(html, trim = true) {
@@ -83,10 +83,10 @@ function fromHTML(html, trim = true) {
 }
 
 //Global vars
-var formData;
-var parentModal = document.querySelector(".modal-overlay")
+let formData;
+const parentModal = document.querySelector(".modal-overlay")
 
-var loadingQuotes = [
+const loadingQuotes = [
   "Crafting your culinary journey...",
   "Nourishing your world, one bite at a time...",
   "Unleashing the chef within you...",
@@ -110,7 +110,6 @@ var loadingQuotes = [
   "Wholesome goodness is on its way...",
   "Unleashing the power of good food...",
 ];
-
 
 
 //When the state of auth changes, on page load, check if user is allowed
@@ -143,11 +142,11 @@ window.addEventListener('load', () => {
   })
 
   //loading screen stuff
-  var quote = document.getElementById("load-quotes");
-  var loadContainer = document.querySelector(".loader-container")
+  const quote = document.getElementById("load-quotes");
+  const loadContainer = document.querySelector(".loader-container")
   let randomIndex = Math.floor(Math.random() * loadingQuotes.length)
   quote.innerText = loadingQuotes[randomIndex]
-  quote.style.opacity = 1;
+  quote.style.opacity = "1";
 
   //random seconds (1.5 to 3.8) converted to ms, and then a delay of 1800 ms after that
   let msArbitrary = getRandomInt(15, 38) * 100;
@@ -172,18 +171,18 @@ window.addEventListener('load', () => {
 // https://youtu.be/s1frrNxq4js?list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb&t=209
 
 // ONBOARDING FLOW
-var currentTab = 0; // Current tab is set to be the first tab (0)
-if(parentModal.style.display != "none"){
+let currentTab = 0; // Current tab is set to be the first tab (0)
+if(parentModal.style.display !== "none"){
   showTab(currentTab); // Display the current tab
 }
 
 //"Next" and "Previous" buttons
-var prevBtn = document.getElementById("prevBtn")
-var nextBtn = document.getElementById("nextBtn")
-var onboardingForm = document.getElementById("onboarding-form");
+const prevBtn = document.getElementById("prevBtn")
+const nextBtn = document.getElementById("nextBtn")
+const onboardingForm = document.getElementById("onboarding-form");
 
 onboardingForm.addEventListener("keypress", e => {
-  if(e.key == "Enter") {
+  if(e.key === "Enter") {
     e.preventDefault();
     return false;
   }
@@ -194,13 +193,13 @@ onboardingForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   //Save userdata with firestore here
-  var fname = document.getElementById("fname").value
-  var lnameInput = document.getElementById("lname")
-  var lname = lnameInput.value? lnameInput.value : "";
-  var birthDate = document.getElementById("date").value;
-  var height = document.getElementById("height-in").value;
-  var weight = document.getElementById("weight-lb").value;
-  var goal = document.getElementById("goal-select").value;
+  let fname = document.getElementById("fname").value
+  let lnameInput = document.getElementById("lname")
+  let lname = lnameInput.value? lnameInput.value : "";
+  let birthDate = document.getElementById("date").value;
+  let height = document.getElementById("height-in").value;
+  let weight = document.getElementById("weight-lb").value;
+  let goal = document.getElementById("goal-select").value;
 
   //Compile user inputs into an Object which can be later used to make the user a Firestore doc
   formData = {
@@ -212,7 +211,7 @@ onboardingForm.addEventListener("submit", async (e) => {
   }
 
   //Append only selected checkboxes to save space
-  var dietCheckboxes = document.querySelectorAll(".checkbox-container>input[type='checkbox']")
+  const dietCheckboxes = document.querySelectorAll(".checkbox-container>input[type='checkbox']")
 
   //checkbox handling since for some reason form doesnt work
   for(let box of dietCheckboxes) {
@@ -222,9 +221,9 @@ onboardingForm.addEventListener("submit", async (e) => {
     }
   }
 
-  //if the last name isnt empty, give them first + last name, otherwise only first
+  //if the last name isn't empty, give them first + last name, otherwise only first
   //which is required
-  let userDispName = lname != ""? fname + " " + lname : fname;
+  let userDispName = lname !== ""? fname + " " + lname : fname;
   
   updateProfile(auth.currentUser, {
     displayName: userDispName
@@ -249,7 +248,7 @@ onboardingForm.addEventListener("submit", async (e) => {
 
 function showTab(n, prev = false) {
   // This function will display the specified tab of the form ...
-  var x = document.getElementsByClassName("tab");
+  const x = document.getElementsByClassName("tab");
 
   if(prev) {
     x[n].style.left = "-105%";
@@ -266,12 +265,12 @@ function showTab(n, prev = false) {
 
 
   // ... and fix the Previous/Next buttons:
-  if (n == 0) {
+  if (n === 0) {
     document.getElementById("prevBtn").style.display = "none";
   } else {
     document.getElementById("prevBtn").style.display = "flex";
   }
-  if (n == (x.length - 1)) {
+  if (n === (x.length - 1)) {
     document.getElementById("nextBtn").style.display = "none";
     document.getElementById("submitBtn").style.display = "flex";
   } else {
@@ -295,19 +294,19 @@ nextBtn.addEventListener("click", (e) => {
 
 function nextPrev(n) {
   // This function will figure out which tab to display
-  var x = document.getElementsByClassName("tab");
+  const x = document.getElementsByClassName("tab");
   // Exit the function if any field in the current tab is invalid:
   //If trying to go to next tab
-  if (n == 1 && !validateForm()){
+  if (n === 1 && !validateForm()){
     return false;
   }
   // Hide the current tab:
   // Increase or decrease the current tab by 1:
 
-  if (n == 1) {
+  if (n === 1) {
     x[currentTab].style.left = "-105%"
     setTimeout(() => x[currentTab-n].style.display = "none", 300)
-  } else { //n == -1
+  } else { //n === -1
     setTimeout(() => x[currentTab-n].style.display = "none", 300)
     x[currentTab].style.left = "105%"
   }
@@ -325,42 +324,42 @@ function nextPrev(n) {
     return false;
   }
   // Otherwise, display the correct tab:
-  n == 1? showTab(currentTab): showTab(currentTab, true);
+  n === 1? showTab(currentTab): showTab(currentTab, true);
 }
 
 
 
 function validateForm() {
   // This function deals with validation of the form fields
-  var tabs, inputs, valid = true;
+  let tabs, inputs, valid = true;
 
   tabs = document.getElementsByClassName("tab");
   inputs = tabs[currentTab].getElementsByTagName("input");
   
-  var dropdown = document.getElementById("goal-select")
+  const dropdown = document.getElementById("goal-select")
 
   
 
   for(let input of inputs) {
     // If a field is empty...
-    if (input.hasAttribute("required") && input.value == "") {
+    if (input.hasAttribute("required") && input.value === "") {
         // add an "invalid" class to the field:
         input.className += " invalid";
         // and set the current valid status to false:
         valid = false;
     }   
 
-    //if its the fourth (BW + Height) tab
+    //if it's the fourth (BW + Height) tab
 
-    if(currentTab == 3) {
+    if(currentTab === 3) {
       
-      if(input.name == "height-in" && (input.valueAsNumber < 48 || input.valueAsNumber > 100) ) {
+      if(input.name === "height-in" && (input.valueAsNumber < 48 || input.valueAsNumber > 100) ) {
         // add an "invalid" class to the field:
         input.className += " invalid";
         // and set the current valid status to false:
         valid = false;
       }
-      if (input.name == "weight-lb" && (input.valueAsNumber < 90 || input.valueAsNumber > 400)) {
+      if (input.name === "weight-lb" && (input.valueAsNumber < 90 || input.valueAsNumber > 400)) {
         // add an "invalid" class to the field:
         input.className += " invalid";
         // and set the current valid status to false:
@@ -368,7 +367,7 @@ function validateForm() {
       }
 
       //Date tab
-    } else if (currentTab == 2) {
+    } else if (currentTab === 2) {
       if(input.valueAsDate >= new Date(input.max) || input.valueAsDate <= new Date(input.min)){
         // add an "invalid" class to the field:
         input.className += " invalid";
@@ -378,8 +377,8 @@ function validateForm() {
     } 
   } 
 
-  if (currentTab == 5) {
-    if(dropdown.value == "" || dropdown.value == "Choose one...") {
+  if (currentTab === 5) {
+    if(dropdown.value === "" || dropdown.value === "Choose one...") {
       // add an "invalid" class to the field:
       dropdown.className += "invalid"
       // and set the current valid status to false:
@@ -398,7 +397,7 @@ function validateForm() {
 
 function fixStepIndicator(n) {
   // This function removes the "active" class of all steps...
-  var i, x = document.getElementsByClassName("step");
+  let i, x = document.getElementsByClassName("step");
   for (i = 0; i < x.length; i++) {
     x[i].className = x[i].className.replace(" active", "");
   }
@@ -419,8 +418,8 @@ function pageLinkCallback () {
     tab.style.display = "none"
   }
   //add -tab to the end of the links relevant class to get the tab class
-  var relTabClass = this.classList[0] + "-tab"
-  var relTab = document.querySelector("." + relTabClass)
+  let relTabClass = this.classList[0] + "-tab"
+  const relTab = document.querySelector("." + relTabClass)
   relTab.style.display = "grid"
   
   for(let link of pageLinks) {
@@ -451,29 +450,29 @@ settingsIcon.addEventListener("click", () => {
 })
 
 //parentUl is the container of the tags in the ingredient search
-var parentUl = document.getElementById('user-choices-container')
-var ingInput = document.getElementById("ingredients-input");
-var mainContainer = document.getElementsByTagName("main")[0];
-var autocorrectContainer = document.querySelector(".autocomplete-results-container")
-var acResultsUl = document.querySelector('.autocomplete-results')
+const parentUl = document.getElementById('user-choices-container')
+const ingInput = document.getElementById("ingredients-input");
+const mainContainer = document.getElementsByTagName("main")[0];
+const autocorrectContainer = document.querySelector(".autocomplete-results-container")
+const acResultsUl = document.querySelector('.autocomplete-results')
 
-var allInput = document.getElementById("all-input")
-var allClearBtn = document.querySelector(".search-all-container .clear-search-icon")
+const allInput = document.getElementById("all-input")
+const allClearBtn = document.querySelector(".search-all-container .clear-search-icon")
 
 // allClearBtn.addEventListener("click", () => {
 //   allInput.value = "";
 // })
 
 //search icon on ingredient search bar
-var searchIngredientsIcon = document.getElementById("searchIngredientsIcon")
+const searchIngredientsIcon = document.getElementById("searchIngredientsIcon")
 
 //search on all-in-one search bar
-var searchAllIcon = document.getElementById("searchAllIcon")
+const searchAllIcon = document.getElementById("searchAllIcon")
 
 function createTag() {
 
     //newIngredient
-    var newIng = fromHTML(`<li id="${ingInput.value}" class='user-ingredient-choice'>
+    const newIng = fromHTML(`<li id="${ingInput.value}" class='user-ingredient-choice'>
         <span id="${ingInput.value}-remove" class="material-symbols-outlined remove-choice">close_small</span>
         ${ingInput.value}
       </li>`) 
@@ -499,7 +498,7 @@ function createTag() {
       x.addEventListener('click', () => {
         try { parentUl.removeChild(document.getElementById(x.parentNode.innerText.replace("close_small", "").replace("\n", ""))) } catch (e) {}
         
-        if(removeChoiceBtns.length - 1 == 0) 
+        if(removeChoiceBtns.length - 1 === 0) 
           ingInput.placeholder = "Enter ingredients..."
       })
     }
@@ -517,14 +516,14 @@ ingInput.addEventListener("keydown", e => {
   ingInput.value = ingInput.value.toLowerCase().trim().replaceAll(/[^a-zA-Z]/g, "")
 
 
-  if ((e.key == "Backspace" || e.code == "Backspace")) {
+  if ((e.key === "Backspace" || e.code === "Backspace")) {
     //select all "x" buttons on tags
-    var removeChoiceBtns = document.querySelectorAll(".remove-choice")
+    const removeChoiceBtns = document.querySelectorAll(".remove-choice")
     
     if(ingInput.value.length === 0) {
       if(removeChoiceBtns.length > 0) parentUl.removeChild(removeChoiceBtns[removeChoiceBtns.length-1].parentElement);
     }
-    if (removeChoiceBtns.length - 1 == 0 || ingInput.value.length - 1 == 0) {
+    if (removeChoiceBtns.length - 1 === 0 || ingInput.value.length - 1 === 0) {
       ingInput.placeholder = "Enter ingredients..."
     }
 
@@ -532,7 +531,7 @@ ingInput.addEventListener("keydown", e => {
       document.querySelector('.autocomplete-results-container').style.left = "unset"
     }
 
-  } else if (e.key == "Enter" && ingInput.value.length > 0) {
+  } else if (e.key === "Enter" && ingInput.value.length > 0) {
     // createTag()
     ingredientsAPI.autocompleteIngredientSearch(ingInput.value, {"number":30,"metaInformation":true}, (error, data, response) => {
       if(error){
@@ -552,7 +551,7 @@ ingInput.addEventListener("keydown", e => {
 
         acResultsUl.appendChild(newAcLi)
 
-        var acLiElement = document.getElementById(el.id)
+        let acLiElement = document.getElementById(el.id)
 
         acLiElement.addEventListener('click', () => {
           ingInput.value = acLiElement.innerText
@@ -572,7 +571,7 @@ ingInput.addEventListener("keydown", e => {
     //     })
     //   } 
 
-    if(acResultsUl.children.length == 0) {
+    if(acResultsUl.children.length === 0) {
 
       let noneLabel = fromHTML(`<li class="ac-result">No items found</li>`)
 
@@ -581,7 +580,7 @@ ingInput.addEventListener("keydown", e => {
 
       autocorrectContainer.style.display = "unset"
 
-      autocorrectContainer.scrollTop = "0px";
+      autocorrectContainer.scrollTop = 0;
 
     })
 
@@ -600,7 +599,7 @@ searchIngredientsIcon.addEventListener("click", () => {
   */
   let userChoiceSet = new Set(Array.from(document.querySelectorAll(".user-ingredient-choice")).map(_=>_.id))
   
-  if(userChoiceSet.size == 0) return;
+  if(userChoiceSet.size === 0) return;
 
 
 
@@ -623,14 +622,14 @@ searchIngredientsIcon.addEventListener("click", () => {
     }
 
 
-    if(data.length == 0) {
+    if(data.length === 0) {
       alert("No results found :/")
     }
 
     data.forEach(el => {
-      var newResultCard = fromHTML(
+      let newResultCard = fromHTML(
         `<div class="result-card">
-          <img draggable="false" src="${el.image}" class="result-img" />
+          <img draggable="false" src="${el.image}" class="result-img"  alt="Food Result - ${el.title}"/>
           <h3>${el.title}</h3>
         </div>`)
 
@@ -649,13 +648,13 @@ searchIngredientsIcon.addEventListener("click", () => {
 
 
 searchAllIcon.addEventListener("click", () => {
-  if(allInput.value.length == 0) return;
+  if(allInput.value.length === 0) return;
 
   const searchResultsContainer = document.querySelector(".search-results-container")
 
   searchResultsContainer.innerHTML = "<h1>Search Results</h1>";
 
-  var query = allInput.value;
+  let query = allInput.value;
   
 
 
@@ -669,7 +668,7 @@ allInput.addEventListener("keydown", e => {
     allClearBtn.style.visibility = "visible"
     allClearBtn.style.opacity = "1"
   }
-  if (((e.key == "Backspace" || e.code == "Backspace") && allInput.value.length - 1 == 0) || ((e.key == "Backspace" || e.code == "Backspace") && e.metaKey)) {
+  if (((e.key === "Backspace" || e.code === "Backspace") && allInput.value.length - 1 === 0) || ((e.key === "Backspace" || e.code === "Backspace") && e.metaKey)) {
     // allClearBtn.innerText = ""
     allClearBtn.style.visibility = "hidden"
     allClearBtn.style.opacity = "0"
@@ -678,9 +677,9 @@ allInput.addEventListener("keydown", e => {
 })
 
 allInput.addEventListener("keyup", () => {
-  var regex = /[^a-zA-Z\ \-]/gm
+  const regex = /[^a-zA-Z \-]/gm
 
-  if(allInput.value.search(regex) != -1){
+  if(allInput.value.search(regex) !== -1){
     allInput.value = allInput.value.replaceAll(regex, "")
   }
 })

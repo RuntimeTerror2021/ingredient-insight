@@ -65,7 +65,7 @@ main section.search-tab .search-bar .search-input {
 	width: 100%;
 	height: calc(100% - 1rem);
 	padding: 0;
-	border-radius: 0px;
+	border-radius: 0;
 	border: none;
 	/* grid-column: 2 / 3; */
 	background: transparent;
@@ -356,7 +356,6 @@ summary span.tooltip span.tooltiptext::after {
 	justify-self: stretch;
 	width: 100%;
 	height: calc(100% - 1rem);
-	padding: 0;
 	border-radius: 12px;
 	border: none;
 	padding: 0.5rem 2rem;

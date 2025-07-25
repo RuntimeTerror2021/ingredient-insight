@@ -17,7 +17,7 @@ const loginLink = document.getElementById('switch-to-login-link');
 const joinLink = document.getElementById('switch-to-join-link');
 
 
-if (localStorage.getItem("login") == "true") {
+if (localStorage.getItem("login") === "true") {
     loginForm.style.display = 'flex';
     joinForm.style.display = 'none';
 } else {

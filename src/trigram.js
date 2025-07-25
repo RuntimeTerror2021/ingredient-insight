@@ -7,7 +7,7 @@
      * @returns {Number} - Percent match of user input to s1 (0-1)
      */
         Trigram  = function (s1, s2) {
-        var m = 0;
+        let m = 0;
 
         // Exit early if either are empty.
         if ( s1.length === 0 || s2.length === 0 ) {
@@ -19,12 +19,12 @@
             return 1;
         }
 
-        var range     = (Math.floor(Math.max(s1.length, s2.length) / 2)) - 1,
+        let range     = (Math.floor(Math.max(s1.length, s2.length) / 2)) - 1,
             s1Matches = new Array(s1.length),
             s2Matches = new Array(s2.length);
 
         for ( i = 0; i < s1.length; i++ ) {
-            var low  = (i >= range) ? i - range : 0,
+            let low  = (i >= range) ? i - range : 0,
                 high = (i + range <= s2.length) ? (i + range) : (s2.length - 1);
 
             for ( j = low; j <= high; j++ ) {
@@ -42,7 +42,7 @@
         }
 
         // Count the transpositions.
-        var k = n_trans = 0;
+        let k = n_trans = 0;
 
         for ( i = 0; i < s1.length; i++ ) {
             if ( s1Matches[i] === true ) {
@@ -59,7 +59,7 @@
             }
         }
 
-        var weight = (m / s1.length + m / s2.length + (m - (n_trans / 2)) / m) / 3,
+        let weight = (m / s1.length + m / s2.length + (m - (n_trans / 2)) / m) / 3,
             l      = 0,
             p      = 0.1;
 
