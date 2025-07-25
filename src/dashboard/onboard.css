@@ -1,0 +1,402 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+.modal-overlay {
+position: fixed;
+top: 0%;
+left: 0%;
+width: 100%;
+height: 100%;
+z-index: 1001;
+background-color: rgba(0,0,0, 0.55);
+display: none;
+-webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+opacity: 1;
+-webkit-box-align: center;
+    -ms-flex-align: center;
+        align-items: center;
+-webkit-box-pack: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+}
+
+/* Style the form */
+#onboarding-form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    background-color: #ffffff;
+    margin: 100px auto;
+    padding: 40px;
+    width: 20vw;
+    min-width: 350px;
+    height: 75vh;
+    border-radius: 25px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#onboarding-form h1 {
+    font-size: calc(100% + 20px);
+    color: black;
+}
+
+#onboarding-form hr {
+    width: 80%;
+    padding: 0;
+    margin: 1.5rem;
+}
+
+form#onboarding-form div.tab.checkboxes p.checkbox-container>label {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 0.4rem;
+}
+
+form#onboarding-form div.tab.checkboxes p.checkbox-container>label>span {
+    color: gray;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    display: none;
+    width: 85%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    text-wrap: wrap;
+    background-color: black;
+    color: #fff !important;
+    text-align: center;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 6px;
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 37;
+    -webkit-transform: translate(-50.6%, -105%);
+        -ms-transform: translate(-50.6%, -105%);
+            transform: translate(-50.6%, -105%);
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext,
+.tooltip:active .tooltiptext {
+    display: inline-block;
+}
+
+.tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    /* At the bottom of the tooltip */
+    left: calc(50% - 10px);
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+p:has(input),
+p:has(select) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 90%;
+    flex: 0 0 90%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+
+/* Mark input boxes that gets an error on validation: */
+.invalid {
+    background-color: #ffdddd;
+}
+
+
+p:has(input:not(input[required])):not(.radio-container):after {
+    content: "*";
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    color: white;
+}
+
+p:has(input[required])::after {
+    content: '*';
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    color: red;
+}
+
+
+.radio-container,
+.checkbox-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 50px;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: -webkit-min-content;
+    width: -moz-min-content;
+    width: min-content;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+}
+
+.radio-container>input,
+.checkbox-container>input {
+    height: -webkit-min-content;
+    height: -moz-min-content;
+    height: min-content;
+    width: -webkit-min-content;
+    width: -moz-min-content;
+    width: min-content;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 0px;
+    flex: 0 0 0;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center;
+    -ms-grid-column-align: center;
+    justify-self: center;
+    margin: 0;
+    margin-right: 15px;
+}
+
+.radio-container>* {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 80%;
+    flex: 1 1 80%;
+    font-size: 2rem;
+
+}
+
+.radio-container>input {
+    -webkit-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+            transform: scale(1.5);
+    accent-color: var(--main-theme);
+}
+
+.radio-container>input:focus {
+    color: red;
+}
+
+
+.radio-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 0.2fr 1fr;
+    grid-template-columns: 0.2fr 1fr;
+    -ms-grid-rows: 1fr 3rem 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 3rem;
+    margin-top: 5rem;
+}
+
+
+.radio-container > *:nth-child(1) {
+-ms-grid-row: 1;
+-ms-grid-column: 1;
+}
+
+
+.radio-container > *:nth-child(2) {
+-ms-grid-row: 1;
+-ms-grid-column: 2;
+}
+
+
+.radio-container > *:nth-child(3) {
+-ms-grid-row: 3;
+-ms-grid-column: 1;
+}
+
+
+.radio-container > *:nth-child(4) {
+-ms-grid-row: 3;
+-ms-grid-column: 2;
+}
+
+
+.checkbox-container>* {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 50%;
+    flex: 1 1 50%;
+    color: black;
+}
+
+.checkbox-container>input {
+    -webkit-transform: scale(2);
+    -ms-transform: scale(2);
+    transform: scale(2);
+    accent-color: #48b86e;
+}
+
+
+.checkbox-container,
+p {
+    margin: 5px;
+    margin-top: 10px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 50%;
+            flex: 1 1 50%;
+}
+
+.checkbox-container>label {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 60%;
+            flex: 0 0 60%;
+}
+
+
+/* Hide all steps by default: */
+.tab {
+    display: none;
+    width: 300%;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-size: x-large;
+    margin-bottom: 2em;
+    position: relative;
+}
+
+.tab p:has(select) {
+    -webkit-transform: scale(2);
+        -ms-transform: scale(2);
+            transform: scale(2);
+    margin-bottom: 2rem;
+}
+
+label[for="goals"] {
+    margin: 0;
+    margin-bottom: 6rem;
+    padding: 0;
+}
+
+p:has(#goal-select) {
+    color: red;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+#goal-select {
+    padding: 0.25rem;
+    border: 1px solid #48B86E;
+    border-radius: 20px;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+}
+
+.checkboxes {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.checkboxes>label {
+    margin-bottom: 1.5rem;
+}
+
+.checkboxes p:last-of-type {
+    color: black;
+    text-align: center;
+}
+
+.checkboxes p:last-of-type a {
+    color: #112b1a;
+}
+
+
+.pagebtns,
+.pagebtns div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
+    gap: 3rem;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+
+.pagebtns button,
+p button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-color: black;
+    color: white;
+}
+
+
+.pagebtns #submitBtn {
+    display: none;
+    background-color: var(--main-theme);
+    color: black;
+}
+
+
+/* Make circles that indicate the steps of the form: */
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.7;
+}
+
+/* Mark the active step: */
+.step.active {
+    opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+    background-color: var(--main-accent-color);
+}

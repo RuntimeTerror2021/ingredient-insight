@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/dashboard/app.css">
+    <link rel="stylesheet" href="/src/dashboard/onboard.css">
+    <link rel="stylesheet" href="/src/dashboard/sidenav.css">
+    <link rel="stylesheet" href="/src/dashboard/search.css">
+    <link rel="stylesheet" href="/src/dashboard/home.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="shortcut icon" href="media/logo/favicon/bkg-ingredient-insight-favicon-white.png" type="image/x-icon">
+    <link rel="mask-icon" href="media/logo/favicon/bkg-ingredient-insight-favicon-white.png" color="#000000">
+
+    <!-- run ASAP -->
+    <script async type="module" src="src/app.js"></script>
+    <script src="src/trigram.js"></script>
+    
+
+    <title>dashboard - ingredient insight.</title>
+</head>
+<body ontouchstart="">
+
+  
+  <div class="loader-container">
+    <div class="loader"></div>
+    <p id="load-quotes">&nbsp;</p>
+  </div>
+
+    <nav id="sidebar">
+      <section class="logo-container">
+        <img draggable="false" src="media/logo/favicon/ingredient-insight-favicon.png" />
+        <h1>dashboard.</h1>
+        <hr>
+      </section>
+      <section class="home page-link link-selected">
+        <span class='material-symbols-outlined'>home</span>
+        <h2>Home</h2>
+      </section>
+      <section class="search page-link">
+        <span class='material-symbols-outlined'>search</span>
+        <h2>Search</h2>
+      </section>
+      <section class="articles page-link">
+        <span class='material-symbols-outlined'>article</span>
+        <h2>Stories</h2>
+      </section>
+      <section class="grocery page-link">
+        <span class='material-symbols-outlined'>shopping_cart</span>
+        <h2>Grocery Lists</h2>
+      </section>
+      <section class="meal page-link">
+        <span class='material-symbols-outlined'>restaurant</span>
+        <h2>Meal Planner</h2>
+      </section>
+      <section class="separator">
+        <hr>
+      </section>
+      <section class="feedback page-link">
+        <span class='material-symbols-outlined'>feedback</span>
+        <h2>Feedback</h2>
+      </section>
+      <section class="legal page-link">
+        <span class='material-symbols-outlined'>policy</span>
+        <h2>Legal</h2>
+      </section>
+
+      <section class="user-container">
+        <!-- replace profile icon with user image, image selection? like veenit -->
+        <div class="profile-container">
+          <span id="profile-icon" class="material-symbols-outlined">account_circle</span>
+          <h3 id="username">&lt;user_name&gt;</h3>
+        </div>
+        <hr>
+        <span id="settings-icon" class='settings material-symbols-outlined'>settings</span>
+      </section>
+      
+    </nav>
+
+        
+    <!-- add the logout button (with id) somewhere else as well, likely settings -->
+    <!-- <button id="log-out-btn">Log Out</button> -->
+    
+
+     <div class="modal-overlay">
+       <form id="onboarding-form" action="" autocomplete="on">
+   
+           <h1>finish onboarding:</h1>
+           
+           <hr>
+           
+           
+           <!-- One "tab" for each step in the form: -->
+           <div class="tab"><label for="name">what should we call you?</label>
+             <p><input maxlength="15" id="fname" name="fname" required placeholder="First name" oninput="this.className = ''" autocapitalize="words" autocomplete="given-name"></p>
+             <p><input maxlength="15" id="lname" name="lname" placeholder="Last name" oninput="this.className = ''" autocapitalize="words" autocomplete="family-name"></p>
+           </div> 
+           
+           <div class="tab"><label for="birthday">when's your birthday?</label>
+            <p><input type="date" min="1907-03-04" max="2012-12-31" title="You must be 12 or older to use this app." name="date" id="date" required tabindex="0" autocomplete="bday"></p>
+          </div>
+   
+          <div class="tab"><label for="weight">what's your height and weight?</label>
+             
+             <p><input type="number" maxlength="2" placeholder="Height in inches" name="height-in" id="height-in" required></p>
+   
+             <p><input type="number" maxlength="3" placeholder="Weight in pounds" name="weight-lb" id="weight-lb" required></p>
+             
+           </div>  
+           
+
+           <div class="tab checkboxes"><label>do you have any dietary preferences?</label>
+            <p class="checkbox-container"><input type="checkbox" name="vegan"><label for="vegan">Vegan<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">No ingredients may contain meat or meat by-products, such as bones or gelatin, nor may they contain eggs, dairy, or honey.</span></span></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="veg"><label>Vegetarian<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">No ingredients may contain meat or meat by-products, such as bones or gelatin.</span></span></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="o-veg"><label>Ovo-Vegetarian<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">All ingredients must be vegetarian and none of the ingredients can be or contain dairy.</span></span></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="l-veg"><label>Lacto-Vegetarian<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">All ingredients must be vegetarian and none of the ingredients can be or contain egg.</span></span></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="pescetarian"><label>Pescetarian<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">Everything including seafood is allowed, except for meat and meat by-products; some pescetarians eat eggs and dairy, and some do not.</span></span></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="kosher"><label>Kashrut/Kosher<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">Kashrut laws dictate consuming only fish with fins and scales, animals with split hooves and that chew cud, and kosher wine, while prohibiting pork, shellfish, and mixing meat with dairy, requiring a six-hour wait between the two, and mandating kosher slaughter by a qualified Shochet.</span></span></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="halal"><label>Halal<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">Halal dietary laws prohibit pork, carnivorous animals, and alcohol, while mandating specific slaughter methods (Zabihah) for permissible meats. Sea creatures without fins and scales are generally avoided. Additionally, Muslims abstain from consuming products derived from pork or improperly slaughtered animals, such as lard, gelatin, and rennet. Strict separation of utensils and avoidance of cross-contamination between Halal and non-Halal foods are essential.</span></span></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="hindu"><label>Hindu<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">Hindu dietary practices vary widely but often include vegetarianism, avoidance of beef due to the cow's sacred status, and specific food preparation methods.</span></span></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="glutenfree"><label>Gluten Free<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">Eliminating gluten means avoiding wheat, barley, rye, and other gluten-containing grains and foods made from them (or that may have been cross contaminated).</span></span></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="keto"><label>Ketogenic<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">The keto diet is based more on the ratio of fat, protein, and carbs in the diet rather than specific ingredients. Generally speaking, high fat, protein-rich foods are acceptable and high carbohydrate foods are not. The formula we use is 55-80% fat content, 15-35% protein content, and under 10% of carbohydrates.</span></span></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="peanutfree"><label>Peanut Allergy</label></p>
+             <p class="checkbox-container"><input type="checkbox" name="nutfree"><label>Other Nut Allergies<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">Other nuts like tree nuts, almonds, etc.</span></span></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="shellfishfree"><label>Shellfish Allergy<span class='material-symbols-outlined tooltip'>info<span class="tooltiptext">Shellfish allergy is an immune system overreaction to proteins found in crustaceans (like shrimp, crab, lobster) and mollusks (like clams, oysters, mussels).</span></span> </label></p>
+             <p class="checkbox-container"><input type="checkbox" name="milkfree"><label>Lactose Allergy<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">Lactose intolerance is a digestive disorder caused by the body's inability to break down lactose in dairy products, leading to symptoms like bloating, gas, and diarrhea.</span></span></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="low-fodmap"><label>Low FODMAP<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">FODMAP stands for "fermentable oligo-, di-, mono-saccharides and polyols". Our ontology knows which foods are considered high in these types of carbohydrates (e.g. legumes, wheat, and dairy products)</span></span></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="primal"><label>Primal<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">Very similar to Paleo, except dairy is allowed - think raw and full fat milk, butter, ghee, etc.</span></span></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="paleo"><label>Paleo<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">Allowed ingredients include meat (especially grass fed), fish, eggs, vegetables, some oils (e.g. coconut and olive oil), and in smaller quantities, fruit, nuts, and sweet potatoes. We also allow honey and maple syrup (popular in Paleo desserts, but strict Paleo followers may disagree). Ingredients not allowed include legumes (e.g. beans and lentils), grains, dairy, refined sugar, and processed foods.</span></span></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="whole30"><label>Whole30<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">Allowed ingredients include meat, fish/seafood, eggs, vegetables, fresh fruit, coconut oil, olive oil, small amounts of dried fruit and nuts/seeds. Ingredients not allowed include added sweeteners (natural and artificial, except small amounts of fruit juice), dairy (except clarified butter or ghee), alcohol, grains, legumes (except green beans, sugar snap peas, and snow peas), and food additives, such as carrageenan, MSG, and sulfites.
+
+             </span></span></label></p>
+             
+            <hr>
+
+             <h2>missing something?</h3>
+             
+            <p>if you think there's a diet or allergy missing from this list, feel free to reach out to <a href="mailto:insightingredient@gmail.com?subject=Ingredient Insight Inquiry" target="_blank">insightingredient@gmail.com</a></p>
+
+           </div>
+           
+           <div class="tab"><label for="goals">finally, do you have any fitness goals?</label>
+             <p><select name="goal-select" class="goal-select" id="goal-select" required>
+               <option disabled selected>Choose one...</option>
+               <option value="Cutting">Cutting</option>
+               <option value="Bulking">Bulking</option>
+               <option value="Weight Loss">Weight Loss</option>
+               <option value="Muscle Gain">Muscle Gain</option>
+               <option value="Maintain Weight">Maintain Weight</option>
+             </select>*</p>
+           </div>
+
+
+           
+           <div class="tab"><h1>you're all set!</h1></div>
+           
+           <div class="pagebtns" style="overflow:auto;">
+             <div style="float:right;">
+               <button type="button" id="prevBtn"><span class='material-symbols-outlined'>arrow_back</span> Previous</button>
+               <button type="button" id="nextBtn">Next <span class='material-symbols-outlined'>arrow_forward</span></button>
+               <button type="submit" id="submitBtn">Submit</button>
+             </div>
+            </div>
+           
+           <!-- Circles which indicates the steps of the form: -->
+           <div class="steps" style="text-align:center;margin-top:40px;">
+             <span class="step"></span>
+             <span class="step"></span>
+             <span class="step"></span>
+             <span class="step"></span>
+             <span class="step"></span>
+             <span class="step"></span>
+           </div>
+           
+       </form>
+     </div>
+
+    <main class="dashboard-content">
+      <section class="home-tab dash-tab">
+        <h1>Provide insights on this tab to users.</h1>
+      </section>
+      <section class="search-tab dash-tab">
+
+
+        <h1>Ingredient Search</h1>
+        <p class="search-desc">Search for recipes containing the ingredients you have at home...</p>
+        <div class="search-ingredients-container">
+          <!-- <div class="search-bar">
+            <span class='search-icon material-symbols-outlined'>search</span>
+            <input type="text" name="search" id="search-input" placeholder="Enter ingredients...">
+            <span class='clear-search-icon material-symbols-outlined'>close</span>
+          </div> -->
+          
+
+          
+          
+          <div class="search-bar">
+            <span class="search-items-container">
+              <ul id="user-choices-container">
+                <li class="user-ingredient-input">
+                  <span class="autocomplete-results-container">
+                    <ul class="autocomplete-results">
+                      <!-- li.ac-result{food-name} -->
+                       <!-- <li class="ac-result">Apple</li>
+                       <li class="ac-result">Banana</li>
+                       <li class="ac-result">Carrot</li> -->
+                    </ul>
+                  </span>
+                  <input autocomplete="off" type="text" name="search" id="ingredients-input" class="search-input" maxlength="25" tabindex="0" placeholder="Enter ingredients...">
+                </li>
+              </ul>
+            </span>
+            
+            <span id="searchIngredientsIcon" class='search-icon material-symbols-outlined'>search</span>
+          </div>
+          <label class="tip" for="hint">Tip: <span class='material-symbols-outlined tooltip'>info<span class="tooltiptext">After you type in the name of an ingredient, <br> press Enter / Return to autocomplete your search item. <br> Then, pick an item from the list of results.</span></span> </label>
+        </div>
+        <p class="search-desc" >...or use Ingredient Insight's all-in-one advanced recipe search to find your new favorite dish.</p>
+        <div class="search-all-container">
+          <div class="search-bar">
+            <span class='clear-search-icon material-symbols-outlined'>close</span>
+            <input type="text" name="search" id="all-input" class="search-input" placeholder="Search for recipes by name...">
+            <span id="searchAllIcon" class='search-icon material-symbols-outlined'>search</span>
+          </div>
+
+          <div class="other-search-options">
+            <!-- <span class="material-symbols-outlined tooltip">info<span class="tooltiptext">If you want to specify multiple options, just separate them with a comma.</span></span> -->
+            <details>
+              <summary>Cuisine(s)</summary>
+              <!-- <input list="cuisines" placeholder="Enter cuisines..." type="text" name="cuisine" id="cuisine" class="search-opt-input"> -->
+              <!-- <select id="cuisines">
+                <option value='African'>African</option>
+                <option value='Asian'>Asian</option>
+                <option value='American'>American</option>
+                <option value='British'>British</option>
+                <option value='Cajun'>Cajun</option>
+                <option value='Caribbean'>Caribbean</option>
+                <option value='Chinese'>Chinese</option>
+                <option value='Eastern European'>Eastern European</option>
+                <option value='European'>European</option>
+                <option value='French'>French</option>
+                <option value='German'>German</option>
+                <option value='Greek'>Greek</option>
+                <option value='Indian'>Indian</option>
+                <option value='Irish'>Irish</option>
+                <option value='Italian'>Italian</option>
+                <option value='Japanese'>Japanese</option>
+                <option value='Jewish'>Jewish</option>
+                <option value='Korean'>Korean</option>
+                <option value='Latin American'>Latin American</option>
+                <option value='Mediterranean'>Mediterranean</option>
+                <option value='Mexican'>Mexican</option>
+                <option value='Middle Eastern'>Middle Eastern</option>
+                <option value='Nordic'>Nordic</option>
+                <option value='Southern'>Southern</option>
+                <option value='Spanish'>Spanish</option>
+                <option value='Thai'>Thai</option>
+                <option value='Vietnamese'>Vietnamese</option> -->
+
+                <div class="checkbox-opts-container cuisines">
+                  <p class="check-opt-block" ><input type="checkbox"><label for='African'>African</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='Asian'>Asian</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='American'>American</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='British'>British</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='Cajun'>Cajun</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='Caribbean'>Caribbean</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='Chinese'>Chinese</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='Eastern European'>Eastern European</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='European'>European</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='French'>French</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='German'>German</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='Greek'>Greek</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='Indian'>Indian</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='Irish'>Irish</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='Italian'>Italian</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='Japanese'>Japanese</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='Jewish'>Jewish</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='Korean'>Korean</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='Latin American'>Latin American</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='Mediterranean'>Mediterranean</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='Mexican'>Mexican</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='Middle Eastern'>Middle Eastern</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='Nordic'>Nordic</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='Southern'>Southern</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='Spanish'>Spanish</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='Thai'>Thai</label></p>
+                  <p class="check-opt-block" ><input type="checkbox"><label for='Vietnamese'>Vietnamese</label></p>
+                </div>
+
+
+            </details>
+
+            <details>
+              <summary>Exclude Cusine(s)</summary>
+              <!-- <input list="excuisines" placeholder="Enter cuisines..." type="text" name="excuisine" id="excuisine" class="search-opt-input">
+              <datalist id="excuisines">
+                <option value='African'></option>
+                <option value='Asian'></option>
+                <option value='American'></option>
+                <option value='British'></option>
+                <option value='Cajun'></option>
+                <option value='Caribbean'></option>
+                <option value='Chinese'></option>
+                <option value='Eastern European'></option>
+                <option value='European'></option>
+                <option value='French'></option>
+                <option value='German'></option>
+                <option value='Greek'></option>
+                <option value='Indian'></option>
+                <option value='Irish'></option>
+                <option value='Italian'></option>
+                <option value='Japanese'></option>
+                <option value='Jewish'></option>
+                <option value='Korean'></option>
+                <option value='Latin American'></option>
+                <option value='Mediterranean'></option>
+                <option value='Mexican'></option>
+                <option value='Middle Eastern'></option>
+                <option value='Nordic'></option>
+                <option value='Southern'></option>
+                <option value='Spanish'></option>
+                <option value='Thai'></option>
+                <option value='Vietnamese'></option>
+              </datalist> -->
+
+              <div class="checkbox-opts-container excuisines">
+                <p class="check-opt-block" ><input type="checkbox"><label for='African'>African</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='Asian'>Asian</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='American'>American</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='British'>British</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='Cajun'>Cajun</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='Caribbean'>Caribbean</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='Chinese'>Chinese</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='Eastern European'>Eastern European</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='European'>European</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='French'>French</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='German'>German</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='Greek'>Greek</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='Indian'>Indian</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='Irish'>Irish</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='Italian'>Italian</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='Japanese'>Japanese</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='Jewish'>Jewish</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='Korean'>Korean</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='Latin American'>Latin American</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='Mediterranean'>Mediterranean</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='Mexican'>Mexican</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='Middle Eastern'>Middle Eastern</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='Nordic'>Nordic</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='Southern'>Southern</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='Spanish'>Spanish</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='Thai'>Thai</label></p>
+                <p class="check-opt-block" ><input type="checkbox"><label for='Vietnamese'>Vietnamese</label></p>
+              </div>
+
+            </details>
+
+            <details>
+              <summary>Diet <span class='material-symbols-outlined tooltip'>info <span class="tooltiptext">This will override your current diet preferences.</span></span></summary>
+            </details>
+
+            <details>
+              <summary>Intolerances</summary>
+              <input list="intol" placeholder="Enter intolerances..." type="text" class="search-opt-input" name="intolerances" id="intolerances">
+              <datalist id="intol">
+                <option value='Dairy'></option>
+                <option value='Egg'></option>
+                <option value='Gluten'></option>
+                <option value='Grain'></option>
+                <option value='Peanut'></option>
+                <option value='Seafood'></option>
+                <option value='Sesame'></option>
+                <option value='Shellfish'></option>
+                <option value='Soy'></option>
+                <option value='Sulfite'></option>
+                <option value='Tree Nut'></option>
+                <option value='Wheat'></option>
+              </datalist>
+
+              <div class="checkbox-opts-container intol">
+                <p class="check-opt-block"><input type="checkbox"></p>
+              </div>
+
+            </details>
+          </div>
+
+        </div>
+
+        <!-- just position this under both other ones -->
+        <div class="search-results-container">
+          <h1>Search Results</h1>
+
+          <!-- <div class="result-card">
+            <img src="https://img.spoonacular.com/recipes/716429-312x231.jpg" class="result-img">
+            <h3>Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs</h3>
+          </div> -->
+
+        </div>
+
+      </section>
+      <section class="grocery-tab dash-tab">
+        <h1>Grocery Lists</h1>
+      </section>
+      <section class="meal-tab dash-tab">
+        <h1>Meal Planner</h1>
+      </section>
+      <section class="articles-tab dash-tab">
+        <h1>Stories</h1>
+      </section>
+      <section class="feedback-tab dash-tab">
+        <h1>Feedback</h1>
+      </section>
+      
+      <section class="legal-tab dash-tab">
+        <h1>Legal</h1>
+      </section>
+      <section class="settings-tab dash-tab">
+        <h1>Settings</h1>
+      </section>
+    </main>
+
+    
+</body>
+</html>

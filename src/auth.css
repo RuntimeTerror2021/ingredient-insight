@@ -1,0 +1,336 @@
+:root {
+  --text-color: #ffffff;
+  --text-shadow: 5px 5px 4px rgba(0,0,0, 0.25);
+  --main-theme: #48B86E;
+  --accent: #ffffff;
+  font-family: "JockeyOne", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* color-scheme: light dark; */
+  /* color: rgba(255, 255, 255, 0.87); */
+  /* background-color: #242424; */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --main-bg-color: #ffffff;
+  --main-form-bg-color: #d4d4d4;
+  --main-link-color: #adadad;
+  --main-accent-color: #48B86E;
+  --logo-font-weight: 800;
+}
+
+
+@font-face {
+  font-family: "JockeyOne";
+  src: url("../fonts/JockeyOne-Regular.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  background: var(--main-bg-color);
+  color: black;
+}
+
+
+body {
+  background-color: #06100a;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main > a {
+  color: white;
+}
+
+form {
+  background: white;
+  padding: 35px;
+  border-radius: 25px;
+
+}
+
+main #join-form {
+  position: relative;
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+main #join-form h1 {
+  font-size: 42px;
+}
+
+main p {
+  margin-bottom: 42px;
+  font-size: large;
+  color:rgba(0,0,0, 0.55);
+}
+
+main #join-form input {
+  background: var(--main-form-bg-color);
+  font-family: "JockeyOne", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: black;
+  border: 1px solid transparent;
+  outline: 1px solid transparent;
+  padding: 16px 16px 16px;
+  border-radius: 15px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  transition: 0.3s ease;
+}
+
+main #join-form input:hover {
+  filter: brightness(0.9);
+}
+
+main #join-form input:focus {
+  border: 1px solid var(--main-accent-color);
+}
+
+
+main #join-form button {
+  background: var(--main-accent-color);
+  font-family: "JockeyOne", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: black;
+  border: 1px solid transparent;
+  outline: 1px solid transparent;
+  cursor: pointer;
+  padding: 16px 16px 16px;
+  border-radius: 15px;
+  font-size: 15px;
+  margin-top: 12px;
+  font-weight: 700;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  filter: brightness(0.9);
+  cursor: pointer;
+}
+
+main #join-form a {
+  font-size: 15px;
+  margin-top: 8px;
+}
+
+a {
+  text-decoration: underline;
+  color: black;
+}
+
+main #join-form a:hover {
+  cursor: pointer;
+}
+
+main #join-form span.or {
+  display: block;
+  margin: auto;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  color: var(--main-link-color);
+  font-weight: 700;
+  word-spacing: 15px;
+}
+
+main #join-form span.or::before {
+  content: "——————————— ";
+}
+main #join-form span.or::after {
+  content: " ———————————";
+}
+
+main #join-form #join-with-google-btn {
+  background: var(--main-form-bg-color);
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+main #join-form #join-with-google-btn img {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+}
+
+main #login-form {
+  display: none;
+}
+
+main #login-form #login-with-google-btn {
+  background: var(--main-form-bg-color);
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+main #login-form #login-with-google-btn:hover {
+  filter: brightness(0.9);
+  cursor: pointer;
+}
+
+main #login-form #login-with-google-btn img {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+}
+
+main #login-form {
+  position: relative;
+  display: none;
+  height: fit-content;
+  width: fit-content;
+  flex-direction: column;
+}
+
+main #login-form h1 {
+  font-size: 42px;
+}
+
+main #login-form p {
+  margin-bottom: 42px;
+  font-size: large;
+}
+
+main #login-form input {
+  background: var(--main-form-bg-color);
+  color: black;
+  border: 1px solid transparent;
+  outline: 1px solid transparent;
+  padding: 16px 16px 16px;
+  border-radius: 15px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  transition: 0.3s ease;
+  font-family: "JockeyOne", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+main #login-form input:hover {
+  filter: brightness(1.2);
+}
+
+main #login-form input:focus {
+  border: 1px solid var(--main-accent-color);
+}
+
+main #login-form button {
+  background: var(--main-accent-color);
+  color: black;
+  border: 1px solid transparent;
+  outline: 1px solid transparent;
+  cursor: pointer;
+  padding: 16px 16px 16px;
+  border-radius: 15px;
+  font-size: 15px;
+  margin-top: 12px;
+  font-weight: 700;
+  transition: 0.3s ease;
+  font-family: "JockeyOne", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+main #login-form a {
+  font-size: 15px;
+  margin-top: 8px;
+}
+
+main #login-form a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+main #login-form span.or {
+  display: block;
+  margin: auto;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  color: var(--main-link-color);
+  word-spacing: 15px;
+}
+
+main #login-form span.or::before {
+  content: "——————————— ";
+}
+main #login-form span.or::after {
+  content: " ———————————";
+}
+
+button, .home-btn > a {
+  display: flex;
+  justify-content: center;
+  justify-self: stretch;
+  align-items: center;
+  text-decoration: none;
+  
+}
+
+.home-btn > a {
+  color: white;
+  flex: 0 0 100%;
+  width: 100%;
+  height: calc(100% - 12px);
+  padding: 1rem 1rem 1rem;
+}
+
+main #login-form button.home-btn, main #join-form button.home-btn {
+  background-color: #06100a;
+  height: fit-content;
+  padding: 0;
+  
+}
+
+button.home-btn:hover {
+  background-color: black !important;
+}
+
+button.home-btn a:hover, button.home-btn a:active {
+  text-decoration: none !important; 
+}
+
+@media only screen and (max-width: 600px) {
+  /* mobile media queries */
+
+  body {
+    background: white;
+  }
+
+  main #login-form {
+    width: 85dvw;
+    height: 95dvh;
+    transform: scale(0.95);
+  }
+
+  main #join-form span.or::before,
+  main #join-form span.or::after,
+  main #login-form span.or::before, 
+  main #login-form span.or::after {
+    content: "";
+  }
+
+}

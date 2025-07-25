@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="src/auth.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="shortcut icon" href="media/logo/favicon/bkg-ingredient-insight-favicon-white.png" type="image/x-icon">
+    <link rel="mask-icon" href="media/logo/favicon/bkg-ingredient-insight-favicon-white.png" color="#000000">
+
+    <script async type="module" src="src/auth.js"></script>
+
+
+    <title>auth - ingredient insight.</title>
+</head>
+<body>
+
+    <main>
+        <form id="join-form">
+            <h1>get started.</h1>
+            <p>fill out the information below and cook up something amazing!</p>
+            <label for="email">email</label>
+            <input type="email" name="email" placeholder="Email" autocomplete="on">
+            <label for="password">password</label>
+            <input type="password" name="password" placeholder="Password" autocomplete="on">
+            <button type="submit">create account.</button>
+            <a id="switch-to-login-link">already have an account? login.</a>
+            <span class="or">or</span>
+            <button id="join-with-google-btn">
+                <img src="media/search.png" alt="Join with Google Button">
+                Join with Google
+            </button>
+            <span class="or">or</span>
+            <button type="button" class="home-btn">
+                <a href="/"><span class="material-symbols-outlined">arrow_back</span> &nbsp; Back to Home</a>
+            </button>
+        </form>
+        <form id="login-form">
+            <h1>welcome back.</h1>
+            <p>fill out the information below and get back to discovering <br> delicious recipes!</p>
+            <label for="email">email</label>
+            <input type="email" name="email" placeholder="Email" autocomplete="email">
+            <label for="password">password</label>
+            <input type="password" name="password" placeholder="Password" autocomplete="current-password">
+            <button type="submit">login.</button>
+            <a id="switch-to-join-link">don't have an account? create one.</a>
+            <span class="or">or</span>
+            <button id="login-with-google-btn">
+                <img src="media/search.png" alt="Login with Google Button">
+                Login with Google
+            </button>
+            <span class="or" >or</span>
+
+            <button type="button" class="home-btn">
+                <a href="/"><span class="material-symbols-outlined">arrow_back</span> &nbsp; Back to Home</a>
+            </button>
+
+        </form>
+    </main>
+
+    
+</body>
+</html>
