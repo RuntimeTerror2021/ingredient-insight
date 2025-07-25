@@ -273,10 +273,10 @@ div#heightModal span {
   }
 
   #onboarding-form {
-    margin: 0px;
+    margin: 0;
     width: 95vw;
     height: 95%;
-    border-radius: 0px;
+    border-radius: 0;
   }
 
   .loader {

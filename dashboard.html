@@ -19,7 +19,7 @@
 
     <title>dashboard - ingredient insight.</title>
 </head>
-<body ontouchstart="">
+<body>
 
   
   <div class="loader-container">
@@ -29,7 +29,7 @@
 
     <nav id="sidebar">
       <section class="logo-container">
-        <img draggable="false" src="media/logo/favicon/ingredient-insight-favicon.png" />
+        <img draggable="false" src="media/logo/favicon/ingredient-insight-favicon.png"  alt="ingredient insight icon"/>
         <h1>dashboard.</h1>
         <hr>
       </section>
@@ -91,16 +91,16 @@
            
            
            <!-- One "tab" for each step in the form: -->
-           <div class="tab"><label for="name">what should we call you?</label>
+           <div class="tab" id="name"><label for="name">what should we call you?</label>
              <p><input maxlength="15" id="fname" name="fname" required placeholder="First name" oninput="this.className = ''" autocapitalize="words" autocomplete="given-name"></p>
              <p><input maxlength="15" id="lname" name="lname" placeholder="Last name" oninput="this.className = ''" autocapitalize="words" autocomplete="family-name"></p>
            </div> 
            
-           <div class="tab"><label for="birthday">when's your birthday?</label>
+           <div class="tab" id="birthday"><label for="birthday">when's your birthday?</label>
             <p><input type="date" min="1907-03-04" max="2012-12-31" title="You must be 12 or older to use this app." name="date" id="date" required tabindex="0" autocomplete="bday"></p>
           </div>
    
-          <div class="tab"><label for="weight">what's your height and weight?</label>
+          <div class="tab" id="weight"><label for="weight">what's your height and weight?</label>
              
              <p><input type="number" maxlength="2" placeholder="Height in inches" name="height-in" id="height-in" required></p>
    
@@ -110,7 +110,7 @@
            
 
            <div class="tab checkboxes"><label>do you have any dietary preferences?</label>
-            <p class="checkbox-container"><input type="checkbox" name="vegan"><label for="vegan">Vegan<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">No ingredients may contain meat or meat by-products, such as bones or gelatin, nor may they contain eggs, dairy, or honey.</span></span></label></p>
+            <p class="checkbox-container"><input type="checkbox" name="vegan" id="vegan"><label for="vegan">Vegan<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">No ingredients may contain meat or meat by-products, such as bones or gelatin, nor may they contain eggs, dairy, or honey.</span></span></label></p>
              <p class="checkbox-container"><input type="checkbox" name="veg"><label>Vegetarian<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">No ingredients may contain meat or meat by-products, such as bones or gelatin.</span></span></label></p>
              <p class="checkbox-container"><input type="checkbox" name="o-veg"><label>Ovo-Vegetarian<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">All ingredients must be vegetarian and none of the ingredients can be or contain dairy.</span></span></label></p>
              <p class="checkbox-container"><input type="checkbox" name="l-veg"><label>Lacto-Vegetarian<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">All ingredients must be vegetarian and none of the ingredients can be or contain egg.</span></span></label></p>
@@ -133,13 +133,13 @@
              
             <hr>
 
-             <h2>missing something?</h3>
+             <h3>missing something?</h3>
              
             <p>if you think there's a diet or allergy missing from this list, feel free to reach out to <a href="mailto:insightingredient@gmail.com?subject=Ingredient Insight Inquiry" target="_blank">insightingredient@gmail.com</a></p>
 
            </div>
            
-           <div class="tab"><label for="goals">finally, do you have any fitness goals?</label>
+           <div class="tab"><label for="goal-select">finally, do you have any fitness goals?</label>
              <p><select name="goal-select" class="goal-select" id="goal-select" required>
                <option disabled selected>Choose one...</option>
                <option value="Cutting">Cutting</option>
@@ -213,7 +213,7 @@
             
             <span id="searchIngredientsIcon" class='search-icon material-symbols-outlined'>search</span>
           </div>
-          <label class="tip" for="hint">Tip: <span class='material-symbols-outlined tooltip'>info<span class="tooltiptext">After you type in the name of an ingredient, <br> press Enter / Return to autocomplete your search item. <br> Then, pick an item from the list of results.</span></span> </label>
+          <label class="tip" for="hint">Tip: <span class='material-symbols-outlined tooltip'>info<span class="tooltiptext" id="hint">After you type in the name of an ingredient, <br> press Enter / Return to autocomplete your search item. <br> Then, pick an item from the list of results.</span></span> </label>
         </div>
         <p class="search-desc" >...or use Ingredient Insight's all-in-one advanced recipe search to find your new favorite dish.</p>
         <div class="search-all-container">
@@ -258,33 +258,33 @@
                 <option value='Vietnamese'>Vietnamese</option> -->
 
                 <div class="checkbox-opts-container cuisines">
-                  <p class="check-opt-block" ><input type="checkbox"><label for='African'>African</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='Asian'>Asian</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='American'>American</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='British'>British</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='Cajun'>Cajun</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='Caribbean'>Caribbean</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='Chinese'>Chinese</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='Eastern European'>Eastern European</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='European'>European</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='French'>French</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='German'>German</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='Greek'>Greek</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='Indian'>Indian</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='Irish'>Irish</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='Italian'>Italian</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='Japanese'>Japanese</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='Jewish'>Jewish</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='Korean'>Korean</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='Latin American'>Latin American</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='Mediterranean'>Mediterranean</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='Mexican'>Mexican</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='Middle Eastern'>Middle Eastern</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='Nordic'>Nordic</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='Southern'>Southern</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='Spanish'>Spanish</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='Thai'>Thai</label></p>
-                  <p class="check-opt-block" ><input type="checkbox"><label for='Vietnamese'>Vietnamese</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='African'><label for='African'>African</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='Asian'><label for='Asian'>Asian</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='American'><label for='American'>American</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='British'><label for='British'>British</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='Cajun'><label for='Cajun'>Cajun</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='Caribbean'><label for='Caribbean'>Caribbean</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='Chinese'><label for='Chinese'>Chinese</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='Eastern European'><label for='Eastern European'>Eastern European</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='European'><label for='European'>European</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='French'><label for='French'>French</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='German'><label for='German'>German</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='Greek'><label for='Greek'>Greek</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='Indian'><label for='Indian'>Indian</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='Irish'><label for='Irish'>Irish</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='Italian'><label for='Italian'>Italian</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='Japanese'><label for='Japanese'>Japanese</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='Jewish'><label for='Jewish'>Jewish</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='Korean'><label for='Korean'>Korean</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='Latin American'><label for='Latin American'>Latin American</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='Mediterranean'><label for='Mediterranean'>Mediterranean</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='Mexican'><label for='Mexican'>Mexican</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='Middle Eastern'><label for='Middle Eastern'>Middle Eastern</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='Nordic'><label for='Nordic'>Nordic</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='Southern'><label for='Southern'>Southern</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='Spanish'><label for='Spanish'>Spanish</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='Thai'><label for='Thai'>Thai</label></p>
+                  <p class="check-opt-block" ><input type="checkbox" id='Vietnamese'><label for='Vietnamese'>Vietnamese</label></p>
                 </div>
 
 
