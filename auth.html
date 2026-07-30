@@ -4,60 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="src/auth.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
     <link rel="shortcut icon" href="media/logo/favicon/bkg-ingredient-insight-favicon-white.png" type="image/x-icon">
-    <link rel="mask-icon" href="media/logo/favicon/bkg-ingredient-insight-favicon-white.png" color="#000000">
-
     <script async type="module" src="src/auth.js"></script>
-
-
-    <title>auth - ingredient insight.</title>
+    <title>Sign In — Ingredient Insight</title>
 </head>
 <body>
 
     <main>
+        <a href="/" class="auth-back"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+
         <form id="join-form">
-            <h1>get started.</h1>
-            <p>fill out the information below and cook up something amazing!</p>
-            <label for="email">email</label>
-            <input id="email" type="email" name="email" placeholder="Email" autocomplete="on">
-            <label for="password">password</label>
-            <input id="password" type="password" name="password" placeholder="Password" autocomplete="on">
-            <button type="submit">create account.</button>
-            <a id="switch-to-login-link">already have an account? login.</a>
-            <span class="or">or</span>
-            <button id="join-with-google-btn">
-                <img src="media/search.png" alt="Join with Google Button">
-                Join with Google
+            <div class="auth-header">
+                <div class="auth-logo">🍳</div>
+                <h1>Create your account</h1>
+                <p>Start discovering recipes made for your kitchen.</p>
+            </div>
+
+            <div class="auth-fields">
+                <label for="join-email">Email</label>
+                <input id="join-email" type="email" name="email" placeholder="you@example.com" autocomplete="email">
+
+                <label for="join-password">Password</label>
+                <input id="join-password" type="password" name="password" placeholder="Create a password" autocomplete="new-password">
+
+                <button type="submit" class="auth-submit">Create account</button>
+            </div>
+
+            <div class="auth-divider"><span>or</span></div>
+
+            <button type="button" id="join-with-google-btn" class="auth-google">
+                <img src="media/search.png" alt="">
+                Continue with Google
             </button>
-            <span class="or">or</span>
-            <button type="button" class="home-btn">
-                <a href="/"><span class="material-symbols-outlined">arrow_back</span> &nbsp; Back to Home</a>
-            </button>
+
+            <p class="auth-switch">
+                Already have an account? <a id="switch-to-login-link">Sign in</a>
+            </p>
         </form>
+
         <form id="login-form">
-            <h1>welcome back.</h1>
-            <p>fill out the information below and get back to discovering <br> delicious recipes!</p>
-            <label for="email">email</label>
-            <input type="email" name="email" placeholder="Email" autocomplete="email">
-            <label for="password">password</label>
-            <input type="password" name="password" placeholder="Password" autocomplete="current-password">
-            <button type="submit">login.</button>
-            <a id="switch-to-join-link">don't have an account? create one.</a>
-            <span class="or">or</span>
-            <button id="login-with-google-btn">
-                <img src="media/search.png" alt="Login with Google Button">
-                Login with Google
-            </button>
-            <span class="or" >or</span>
+            <div class="auth-header">
+                <div class="auth-logo">🍳</div>
+                <h1>Welcome back</h1>
+                <p>Sign in to pick up where you left off.</p>
+            </div>
 
-            <button type="button" class="home-btn">
-                <a href="/"><span class="material-symbols-outlined">arrow_back</span> &nbsp; Back to Home</a>
+            <div class="auth-fields">
+                <label for="login-email">Email</label>
+                <input id="login-email" type="email" name="email" placeholder="you@example.com" autocomplete="email">
+
+                <label for="login-password">Password</label>
+                <input id="login-password" type="password" name="password" placeholder="Enter your password" autocomplete="current-password">
+
+                <button type="submit" class="auth-submit">Sign in</button>
+            </div>
+
+            <div class="auth-divider"><span>or</span></div>
+
+            <button type="button" id="login-with-google-btn" class="auth-google">
+                <img src="media/search.png" alt="">
+                Continue with Google
             </button>
 
+            <p class="auth-switch">
+                Don't have an account? <a id="switch-to-join-link">Create one</a>
+            </p>
         </form>
     </main>
 
-    
 </body>
 </html>

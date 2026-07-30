@@ -8,18 +8,29 @@
     <link rel="stylesheet" href="src/dashboard/sidenav.css">
     <link rel="stylesheet" href="src/dashboard/search.css">
     <link rel="stylesheet" href="src/dashboard/home.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="src/dashboard/stories.css">
+    <link rel="stylesheet" href="src/dashboard/grocery.css">
+    <link rel="stylesheet" href="src/dashboard/meals.css">
+	<link rel="stylesheet" href="src/dashboard/support.css">
+	<link rel="stylesheet" href="src/dashboard/profile.css">
+	<link rel="stylesheet" href="src/dashboard/reader.css">
+	<link rel="stylesheet" href="src/dashboard/recipes.css">
+	<link rel="stylesheet" href="src/dashboard/detail.css">
+	<link rel="stylesheet" href="src/dashboard/filters.css">
     <link rel="shortcut icon" href="media/logo/favicon/bkg-ingredient-insight-favicon-white.png" type="image/x-icon">
     <link rel="mask-icon" href="media/logo/favicon/bkg-ingredient-insight-favicon-white.png" color="#000000">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/70b8bf7978.js" crossorigin="anonymous"></script>
+
 
     <!-- run ASAP -->
     <script async type="module" src="src/app.js"></script>
-    <script src="src/trigram.js"></script>
+<!--    <script src="src/trigram.js" type="module"></script>-->
     
 
-    <title>dashboard - ingredient insight.</title>
+    <title>Dashboard - Ingredient Insight.</title>
 </head>
-<body>
+<body ontouchstart="">
 
   
   <div class="loader-container">
@@ -29,116 +40,116 @@
 
     <nav id="sidebar">
       <section class="logo-container">
-        <img draggable="false" src="media/logo/favicon/ingredient-insight-favicon.png"  alt="ingredient insight icon"/>
-        <h1>dashboard.</h1>
-        <hr>
+        <img draggable="false" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><text y='1.1em' x='.2em' font-size='60'>🍳</text></svg>"  alt="ingredient insight icon"/>
+        <h1>Ingredient Insight</h1>
+
       </section>
-      <section class="home page-link link-selected">
-        <span class='material-symbols-outlined'>home</span>
-        <h2>Home</h2>
-      </section>
-      <section class="search page-link">
-        <span class='material-symbols-outlined'>search</span>
+<!--      <section class="home page-link">-->
+<!--          <i class="fas fa-home"></i>-->
+<!--        <h2>Home</h2>-->
+<!--      </section>-->
+      <section class="search page-link link-selected">
+          <i class="fas fa-search"></i>
         <h2>Search</h2>
       </section>
       <section class="articles page-link">
-        <span class='material-symbols-outlined'>article</span>
+        <i class="fas fa-newspaper"></i>
         <h2>Stories</h2>
       </section>
       <section class="grocery page-link">
-        <span class='material-symbols-outlined'>shopping_cart</span>
+        <i class="fas fa-cart-shopping"></i>
         <h2>Grocery Lists</h2>
       </section>
       <section class="meal page-link">
-        <span class='material-symbols-outlined'>restaurant</span>
+        <i class="fas fa-utensils"></i>
         <h2>Meal Planner</h2>
       </section>
-      <section class="separator">
-        <hr>
+      <section class="recipes page-link">
+        <i class="fas fa-bookmark"></i>
+        <h2>Saved Recipes</h2>
       </section>
+      <hr class="support-nav-separator" aria-hidden="true">
       <section class="feedback page-link">
-        <span class='material-symbols-outlined'>feedback</span>
+        <i class="fas fa-comment-dots"></i>
         <h2>Feedback</h2>
       </section>
       <section class="legal page-link">
-        <span class='material-symbols-outlined'>policy</span>
+        <i class="fas fa-shield-alt"></i>
         <h2>Legal</h2>
       </section>
 
       <section class="user-container">
         <!-- replace profile icon with user image, image selection? like veenit -->
-        <div class="profile-container">
-          <span id="profile-icon" class="material-symbols-outlined">account_circle</span>
+        <div data-content="user_name" class="profile-container" id="profile-link">
+            <i id="profile-icon" class="fas fa-circle-user"></i>
           <h3 id="username">&lt;user_name&gt;</h3>
         </div>
-        <hr>
-        <span id="settings-icon" class='settings material-symbols-outlined'>settings</span>
+
+          <i class="fas fa-gear settings" id="settings-icon"></i>
       </section>
-      
+
     </nav>
 
-        
-    <!-- add the logout button (with id) somewhere else as well, likely settings -->
-    <!-- <button id="log-out-btn">Log Out</button> -->
-    
+
+
+
 
      <div class="modal-overlay">
        <form id="onboarding-form" action="" autocomplete="on">
-   
+
            <h1>finish onboarding:</h1>
-           
+
            <hr>
-           
-           
+
+
            <!-- One "tab" for each step in the form: -->
            <div class="tab" id="name"><label for="name">what should we call you?</label>
              <p><input maxlength="15" id="fname" name="fname" required placeholder="First name" oninput="this.className = ''" autocapitalize="words" autocomplete="given-name"></p>
              <p><input maxlength="15" id="lname" name="lname" placeholder="Last name" oninput="this.className = ''" autocapitalize="words" autocomplete="family-name"></p>
-           </div> 
-           
+           </div>
+
            <div class="tab" id="birthday"><label for="birthday">when's your birthday?</label>
             <p><input type="date" min="1907-03-04" max="2012-12-31" title="You must be 12 or older to use this app." name="date" id="date" required tabindex="0" autocomplete="bday"></p>
           </div>
-   
+
           <div class="tab" id="weight"><label for="weight">what's your height and weight?</label>
-             
+
              <p><input type="number" maxlength="2" placeholder="Height in inches" name="height-in" id="height-in" required></p>
-   
+
              <p><input type="number" maxlength="3" placeholder="Weight in pounds" name="weight-lb" id="weight-lb" required></p>
-             
-           </div>  
-           
+
+           </div>
 
            <div class="tab checkboxes"><label>do you have any dietary preferences?</label>
-            <p class="checkbox-container"><input type="checkbox" name="vegan" id="vegan"><label for="vegan">Vegan<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">No ingredients may contain meat or meat by-products, such as bones or gelatin, nor may they contain eggs, dairy, or honey.</span></span></label></p>
-             <p class="checkbox-container"><input type="checkbox" name="veg"><label>Vegetarian<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">No ingredients may contain meat or meat by-products, such as bones or gelatin.</span></span></label></p>
-             <p class="checkbox-container"><input type="checkbox" name="o-veg"><label>Ovo-Vegetarian<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">All ingredients must be vegetarian and none of the ingredients can be or contain dairy.</span></span></label></p>
-             <p class="checkbox-container"><input type="checkbox" name="l-veg"><label>Lacto-Vegetarian<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">All ingredients must be vegetarian and none of the ingredients can be or contain egg.</span></span></label></p>
-             <p class="checkbox-container"><input type="checkbox" name="pescetarian"><label>Pescetarian<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">Everything including seafood is allowed, except for meat and meat by-products; some pescetarians eat eggs and dairy, and some do not.</span></span></label></p>
-             <p class="checkbox-container"><input type="checkbox" name="kosher"><label>Kashrut/Kosher<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">Kashrut laws dictate consuming only fish with fins and scales, animals with split hooves and that chew cud, and kosher wine, while prohibiting pork, shellfish, and mixing meat with dairy, requiring a six-hour wait between the two, and mandating kosher slaughter by a qualified Shochet.</span></span></label></p>
-             <p class="checkbox-container"><input type="checkbox" name="halal"><label>Halal<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">Halal dietary laws prohibit pork, carnivorous animals, and alcohol, while mandating specific slaughter methods (Zabihah) for permissible meats. Sea creatures without fins and scales are generally avoided. Additionally, Muslims abstain from consuming products derived from pork or improperly slaughtered animals, such as lard, gelatin, and rennet. Strict separation of utensils and avoidance of cross-contamination between Halal and non-Halal foods are essential.</span></span></label></p>
-             <p class="checkbox-container"><input type="checkbox" name="hindu"><label>Hindu<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">Hindu dietary practices vary widely but often include vegetarianism, avoidance of beef due to the cow's sacred status, and specific food preparation methods.</span></span></label></p>
-             <p class="checkbox-container"><input type="checkbox" name="glutenfree"><label>Gluten Free<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">Eliminating gluten means avoiding wheat, barley, rye, and other gluten-containing grains and foods made from them (or that may have been cross contaminated).</span></span></label></p>
-             <p class="checkbox-container"><input type="checkbox" name="keto"><label>Ketogenic<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">The keto diet is based more on the ratio of fat, protein, and carbs in the diet rather than specific ingredients. Generally speaking, high fat, protein-rich foods are acceptable and high carbohydrate foods are not. The formula we use is 55-80% fat content, 15-35% protein content, and under 10% of carbohydrates.</span></span></label></p>
+            <p class="checkbox-container"><input type="checkbox" name="vegan" id="vegan"><label for="vegan">Vegan<i class="fas fa-circle-question tooltip"><span class="tooltiptext">No ingredients may contain meat or meat by-products, such as bones or gelatin, nor may they contain eggs, dairy, or honey.</span></i></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="veg"><label>Vegetarian<i class="fas fa-circle-question tooltip"><span class="tooltiptext">No ingredients may contain meat or meat by-products, such as bones or gelatin.</span></i></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="o-veg"><label>Ovo-Vegetarian<i class="fas fa-circle-question tooltip"><span class="tooltiptext">All ingredients must be vegetarian and none of the ingredients can be or contain dairy.</span></i></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="l-veg"><label>Lacto-Vegetarian<i class="fas fa-circle-question tooltip"><span class="tooltiptext">All ingredients must be vegetarian and none of the ingredients can be or contain egg.</span></i></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="pescetarian"><label>Pescetarian<i class="fas fa-circle-question tooltip"><span class="tooltiptext">Everything including seafood is allowed, except for meat and meat by-products; some pescetarians eat eggs and dairy, and some do not.</span></i></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="kosher"><label>Kashrut/Kosher<i class="fas fa-circle-question tooltip"><span class="tooltiptext">Kashrut laws dictate consuming only fish with fins and scales, animals with split hooves and that chew cud, and kosher wine, while prohibiting pork, shellfish, and mixing meat with dairy, requiring a six-hour wait between the two, and mandating kosher slaughter by a qualified Shochet.</span></i></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="halal"><label>Halal<i class="fas fa-circle-question tooltip"><span class="tooltiptext">Halal dietary laws prohibit pork, carnivorous animals, and alcohol, while mandating specific slaughter methods (Zabihah) for permissible meats. Sea creatures without fins and scales are generally avoided. Additionally, Muslims abstain from consuming products derived from pork or improperly slaughtered animals, such as lard, gelatin, and rennet. Strict separation of utensils and avoidance of cross-contamination between Halal and non-Halal foods are essential.</span></i></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="hindu"><label>Hindu<i class="fas fa-circle-question tooltip"><span class="tooltiptext">Hindu dietary practices vary widely but often include vegetarianism, avoidance of beef due to the cow's sacred status, and specific food preparation methods.</span></i></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="glutenfree"><label>Gluten Free<i class="fas fa-circle-question tooltip"><span class="tooltiptext">Eliminating gluten means avoiding wheat, barley, rye, and other gluten-containing grains and foods made from them (or that may have been cross contaminated).</span></i></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="keto"><label>Ketogenic<i class="fas fa-circle-question tooltip"><span class="tooltiptext">The keto diet is based more on the ratio of fat, protein, and carbs in the diet rather than specific ingredients. Generally speaking, high fat, protein-rich foods are acceptable and high carbohydrate foods are not. The formula we use is 55-80% fat content, 15-35% protein content, and under 10% of carbohydrates.</span></i></label></p>
              <p class="checkbox-container"><input type="checkbox" name="peanutfree"><label>Peanut Allergy</label></p>
-             <p class="checkbox-container"><input type="checkbox" name="nutfree"><label>Other Nut Allergies<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">Other nuts like tree nuts, almonds, etc.</span></span></label></p>
-             <p class="checkbox-container"><input type="checkbox" name="shellfishfree"><label>Shellfish Allergy<span class='material-symbols-outlined tooltip'>info<span class="tooltiptext">Shellfish allergy is an immune system overreaction to proteins found in crustaceans (like shrimp, crab, lobster) and mollusks (like clams, oysters, mussels).</span></span> </label></p>
-             <p class="checkbox-container"><input type="checkbox" name="milkfree"><label>Lactose Allergy<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">Lactose intolerance is a digestive disorder caused by the body's inability to break down lactose in dairy products, leading to symptoms like bloating, gas, and diarrhea.</span></span></label></p>
-             <p class="checkbox-container"><input type="checkbox" name="low-fodmap"><label>Low FODMAP<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">FODMAP stands for "fermentable oligo-, di-, mono-saccharides and polyols". Our ontology knows which foods are considered high in these types of carbohydrates (e.g. legumes, wheat, and dairy products)</span></span></label></p>
-             <p class="checkbox-container"><input type="checkbox" name="primal"><label>Primal<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">Very similar to Paleo, except dairy is allowed - think raw and full fat milk, butter, ghee, etc.</span></span></label></p>
-             <p class="checkbox-container"><input type="checkbox" name="paleo"><label>Paleo<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">Allowed ingredients include meat (especially grass fed), fish, eggs, vegetables, some oils (e.g. coconut and olive oil), and in smaller quantities, fruit, nuts, and sweet potatoes. We also allow honey and maple syrup (popular in Paleo desserts, but strict Paleo followers may disagree). Ingredients not allowed include legumes (e.g. beans and lentils), grains, dairy, refined sugar, and processed foods.</span></span></label></p>
-             <p class="checkbox-container"><input type="checkbox" name="whole30"><label>Whole30<span class="material-symbols-outlined tooltip">info<span class="tooltiptext">Allowed ingredients include meat, fish/seafood, eggs, vegetables, fresh fruit, coconut oil, olive oil, small amounts of dried fruit and nuts/seeds. Ingredients not allowed include added sweeteners (natural and artificial, except small amounts of fruit juice), dairy (except clarified butter or ghee), alcohol, grains, legumes (except green beans, sugar snap peas, and snow peas), and food additives, such as carrageenan, MSG, and sulfites.
+             <p class="checkbox-container"><input type="checkbox" name="nutfree"><label>Other Nut Allergies<i class="fas fa-circle-question tooltip"><span class="tooltiptext">Other nuts like tree nuts, almonds, etc.</span></i></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="shellfishfree"><label>Shellfish Allergy<i class='fas fa-circle-question tooltip'>info<span class="tooltiptext">Shellfish allergy is an immune system overreaction to proteins found in crustaceans (like shrimp, crab, lobster) and mollusks (like clams, oysters, mussels).</span></i> </label></p>
+             <p class="checkbox-container"><input type="checkbox" name="milkfree"><label>Lactose Allergy<i class="fas fa-circle-question tooltip"><span class="tooltiptext">Lactose intolerance is a digestive disorder caused by the body's inability to break down lactose in dairy products, leading to symptoms like bloating, gas, and diarrhea.</span></i></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="low-fodmap"><label>Low FODMAP<i class="fas fa-circle-question tooltip"><span class="tooltiptext">FODMAP stands for "fermentable oligo-, di-, mono-saccharides and polyols". Our ontology knows which foods are considered high in these types of carbohydrates (e.g. legumes, wheat, and dairy products)</span></i></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="primal"><label>Primal<i class="fas fa-circle-question tooltip"><span class="tooltiptext">Very similar to Paleo, except dairy is allowed - think raw and full fat milk, butter, ghee, etc.</span></i></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="paleo"><label>Paleo<i class="fas fa-circle-question tooltip"><span class="tooltiptext">Allowed ingredients include meat (especially grass fed), fish, eggs, vegetables, some oils (e.g. coconut and olive oil), and in smaller quantities, fruit, nuts, and sweet potatoes. We also allow honey and maple syrup (popular in Paleo desserts, but strict Paleo followers may disagree). Ingredients not allowed include legumes (e.g. beans and lentils), grains, dairy, refined sugar, and processed foods.</span></i></label></p>
+             <p class="checkbox-container"><input type="checkbox" name="whole30"><label>Whole30<i class="fas fa-circle-question tooltip"><span class="tooltiptext">Allowed ingredients include meat, fish/seafood, eggs, vegetables, fresh fruit, coconut oil, olive oil, small amounts of dried fruit and nuts/seeds. Ingredients not allowed include added sweeteners (natural and artificial, except small amounts of fruit juice), dairy (except clarified butter or ghee), alcohol, grains, legumes (except green beans, sugar snap peas, and snow peas), and food additives, such as carrageenan, MSG, and sulfites.
 
-             </span></span></label></p>
-             
+             </span></i></label></p>
+
             <hr>
 
              <h3>missing something?</h3>
-             
+
             <p>if you think there's a diet or allergy missing from this list, feel free to reach out to <a href="mailto:insightingredient@gmail.com?subject=Ingredient Insight Inquiry" target="_blank">insightingredient@gmail.com</a></p>
 
            </div>
-           
+
            <div class="tab"><label for="goal-select">finally, do you have any fitness goals?</label>
              <p><select name="goal-select" class="goal-select" id="goal-select" required>
                <option disabled selected>Choose one...</option>
@@ -150,18 +161,16 @@
              </select>*</p>
            </div>
 
-
-           
            <div class="tab"><h1>you're all set!</h1></div>
-           
-           <div class="pagebtns" style="overflow:auto;">
+
+           <div class="pagebtns">
              <div style="float:right;">
-               <button type="button" id="prevBtn"><span class='material-symbols-outlined'>arrow_back</span> Previous</button>
-               <button type="button" id="nextBtn">Next <span class='material-symbols-outlined'>arrow_forward</span></button>
+               <button type="button" id="prevBtn"><i class='fas fa-arrow-left'></i> Back</button>
+               <button type="button" id="nextBtn">Next <i class='fas fa-arrow-right'></i></button>
                <button type="submit" id="submitBtn">Submit</button>
              </div>
             </div>
-           
+
            <!-- Circles which indicates the steps of the form: -->
            <div class="steps" style="text-align:center;margin-top:40px;">
              <span class="step"></span>
@@ -171,254 +180,966 @@
              <span class="step"></span>
              <span class="step"></span>
            </div>
-           
+
        </form>
      </div>
 
+
+
     <main class="dashboard-content">
       <section class="home-tab dash-tab">
-        <h1>Provide insights on this tab to users.</h1>
+<!--        <h1>Provide insights on this tab to users.</h1>-->
+          <div class="bento-container">
+              <div class="bento"></div>
+              <div class="bento"></div>
+              <div class="bento"></div>
+              <div class="bento"></div>
+              <div class="bento"></div>
+              <div class="bento"></div>
+          </div>
       </section>
       <section class="search-tab dash-tab">
 
-
-        <h1>Ingredient Search</h1>
-        <p class="search-desc">Search for recipes containing the ingredients you have at home...</p>
-        <div class="search-ingredients-container">
-          <!-- <div class="search-bar">
-            <span class='search-icon material-symbols-outlined'>search</span>
-            <input type="text" name="search" id="search-input" placeholder="Enter ingredients...">
-            <span class='clear-search-icon material-symbols-outlined'>close</span>
-          </div> -->
-          
-
-          
-          
-          <div class="search-bar">
-            <span class="search-items-container">
-              <ul id="user-choices-container">
-                <li class="user-ingredient-input">
-                  <span class="autocomplete-results-container">
-                    <ul class="autocomplete-results">
-                      <!-- li.ac-result{food-name} -->
-                       <!-- <li class="ac-result">Apple</li>
-                       <li class="ac-result">Banana</li>
-                       <li class="ac-result">Carrot</li> -->
-                    </ul>
-                  </span>
-                  <input autocomplete="off" type="text" name="search" id="ingredients-input" class="search-input" maxlength="25" tabindex="0" placeholder="Enter ingredients...">
-                </li>
+<!--          <h1>test</h1>-->
+          <div class="search-group">
+              <ul class="autocomplete-container">
+                <li>Autocomplete Result 1</li>
+                <li>Autocomplete Result 2</li>
+                <li>Autocomplete Result 3</li>
+                <li>Autocomplete Result 4</li>
+                <li>Autocomplete Result 5</li>
+                <li>Autocomplete Result 6</li>
+                <li>Autocomplete Result 7</li>
+                <li>Autocomplete Result 8</li>
+                <li>Autocomplete Result 9</li>
+                <li>Autocomplete Result 10</li>
+                <li>Autocomplete Result 11</li>
+                <li>Autocomplete Result 12</li>
+                <li>Autocomplete Result 13</li>
+                <li>Autocomplete Result 14</li>
+                <li>Autocomplete Result 15</li>
+                <li>Autocomplete Result 16</li>
+                <li>Autocomplete Result 17</li>
+                <li>Autocomplete Result 18</li>
+                <li>Autocomplete Result 19</li>
+                <li>Autocomplete Result 20</li>
               </ul>
-            </span>
-            
-            <span id="searchIngredientsIcon" class='search-icon material-symbols-outlined'>search</span>
-          </div>
-          <label class="tip" for="hint">Tip: <span class='material-symbols-outlined tooltip'>info<span class="tooltiptext" id="hint">After you type in the name of an ingredient, <br> press Enter / Return to autocomplete your search item. <br> Then, pick an item from the list of results.</span></span> </label>
-        </div>
-        <p class="search-desc" >...or use Ingredient Insight's all-in-one advanced recipe search to find your new favorite dish.</p>
-        <div class="search-all-container">
-          <div class="search-bar">
-            <span class='clear-search-icon material-symbols-outlined'>close</span>
-            <input type="text" name="search" id="all-input" class="search-input" placeholder="Search for recipes by name...">
-            <span id="searchAllIcon" class='search-icon material-symbols-outlined'>search</span>
+
+              <div class="search-bar-container">
+                <button class="filters" id="open-filters-btn">
+                    <i class="fas fa-sliders"></i>
+                    FILTERS
+                    <span class="filter-badge" id="filter-badge" hidden></span>
+                </button>
+                <div class="user-choices-scroll-container">
+                  <ul id="user-choices-container">
+<!--                    <li>Ing 1 <i class="fas fa-close"></i></li>-->
+<!--                    <li>Ing 2 <i class="fas fa-close"></i></li>-->
+<!--                    <li>Ing 3 <i class="fas fa-close"></i></li>-->
+<!--                    <li>Ing 4 <i class="fas fa-close"></i></li>-->
+<!--                    <li>Ing 5 <i class="fas fa-close"></i></li>-->
+<!--                    <li>Ing 6 <i class="fas fa-close"></i></li>-->
+<!--                    <li>Ing 7 <i class="fas fa-close"></i></li>-->
+<!--                    <li>Ing 8 <i class="fas fa-close"></i></li>-->
+<!--                    <li>Ing 9 <i class="fas fa-close"></i></li>-->
+<!--                    <li>Ing 10 <i class="fas fa-close"></i></li>-->
+                  </ul>
+                </div>
+                  <input id="ingredients-input" type="text" class="search-bar" placeholder="Search..." autocorrect="on" autocomplete="on">
+                    <i class="fas fa-search"></i>
+              </div>
+              <div class="search-topics">
+                  <p>Search By:</p>
+                  <div class="search-topic-opts-container">
+<!--                      add selected appendage-->
+<!--                      add onclick to select-->
+                      <button class="search-topic-opt selected"><span>INGREDIENTS</span></button>
+                      <button class="search-topic-opt"><span>NUTRIENTS</span></button>
+                      <button class="search-topic-opt"><span>RECIPES</span></button>
+                      <button class="search-topic-opt"><span>VIDEOS</span></button>
+                      <button class="search-topic-opt"><span>OTHER</span></button>
+                  </div>
+              </div>
+
+
+
           </div>
 
-          <div class="other-search-options">
-            <!-- <span class="material-symbols-outlined tooltip">info<span class="tooltiptext">If you want to specify multiple options, just separate them with a comma.</span></span> -->
-            <details>
-              <summary>Cuisine(s)</summary>
-              <!-- <input list="cuisines" placeholder="Enter cuisines..." type="text" name="cuisine" id="cuisine" class="search-opt-input"> -->
-              <!-- <select id="cuisines">
-                <option value='African'>African</option>
-                <option value='Asian'>Asian</option>
-                <option value='American'>American</option>
-                <option value='British'>British</option>
-                <option value='Cajun'>Cajun</option>
-                <option value='Caribbean'>Caribbean</option>
-                <option value='Chinese'>Chinese</option>
-                <option value='Eastern European'>Eastern European</option>
-                <option value='European'>European</option>
-                <option value='French'>French</option>
-                <option value='German'>German</option>
-                <option value='Greek'>Greek</option>
-                <option value='Indian'>Indian</option>
-                <option value='Irish'>Irish</option>
-                <option value='Italian'>Italian</option>
-                <option value='Japanese'>Japanese</option>
-                <option value='Jewish'>Jewish</option>
-                <option value='Korean'>Korean</option>
-                <option value='Latin American'>Latin American</option>
-                <option value='Mediterranean'>Mediterranean</option>
-                <option value='Mexican'>Mexican</option>
-                <option value='Middle Eastern'>Middle Eastern</option>
-                <option value='Nordic'>Nordic</option>
-                <option value='Southern'>Southern</option>
-                <option value='Spanish'>Spanish</option>
-                <option value='Thai'>Thai</option>
-                <option value='Vietnamese'>Vietnamese</option> -->
+          <div class="search-results-container">
+              <div class="search-results-scroll-container">
 
-                <div class="checkbox-opts-container cuisines">
-                  <p class="check-opt-block" ><input type="checkbox" id='African'><label for='African'>African</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='Asian'><label for='Asian'>Asian</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='American'><label for='American'>American</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='British'><label for='British'>British</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='Cajun'><label for='Cajun'>Cajun</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='Caribbean'><label for='Caribbean'>Caribbean</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='Chinese'><label for='Chinese'>Chinese</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='Eastern European'><label for='Eastern European'>Eastern European</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='European'><label for='European'>European</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='French'><label for='French'>French</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='German'><label for='German'>German</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='Greek'><label for='Greek'>Greek</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='Indian'><label for='Indian'>Indian</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='Irish'><label for='Irish'>Irish</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='Italian'><label for='Italian'>Italian</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='Japanese'><label for='Japanese'>Japanese</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='Jewish'><label for='Jewish'>Jewish</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='Korean'><label for='Korean'>Korean</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='Latin American'><label for='Latin American'>Latin American</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='Mediterranean'><label for='Mediterranean'>Mediterranean</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='Mexican'><label for='Mexican'>Mexican</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='Middle Eastern'><label for='Middle Eastern'>Middle Eastern</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='Nordic'><label for='Nordic'>Nordic</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='Southern'><label for='Southern'>Southern</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='Spanish'><label for='Spanish'>Spanish</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='Thai'><label for='Thai'>Thai</label></p>
-                  <p class="check-opt-block" ><input type="checkbox" id='Vietnamese'><label for='Vietnamese'>Vietnamese</label></p>
+                <div class="search-empty-state" id="search-empty-state">
+                  <i class="fas fa-search"></i>
+                  <p>Start searching for recipes</p>
+                  <span>Type ingredients above or browse by category to find recipes.</span>
                 </div>
 
-
-            </details>
-
-            <details>
-              <summary>Exclude Cusine(s)</summary>
-              <!-- <input list="excuisines" placeholder="Enter cuisines..." type="text" name="excuisine" id="excuisine" class="search-opt-input">
-              <datalist id="excuisines">
-                <option value='African'></option>
-                <option value='Asian'></option>
-                <option value='American'></option>
-                <option value='British'></option>
-                <option value='Cajun'></option>
-                <option value='Caribbean'></option>
-                <option value='Chinese'></option>
-                <option value='Eastern European'></option>
-                <option value='European'></option>
-                <option value='French'></option>
-                <option value='German'></option>
-                <option value='Greek'></option>
-                <option value='Indian'></option>
-                <option value='Irish'></option>
-                <option value='Italian'></option>
-                <option value='Japanese'></option>
-                <option value='Jewish'></option>
-                <option value='Korean'></option>
-                <option value='Latin American'></option>
-                <option value='Mediterranean'></option>
-                <option value='Mexican'></option>
-                <option value='Middle Eastern'></option>
-                <option value='Nordic'></option>
-                <option value='Southern'></option>
-                <option value='Spanish'></option>
-                <option value='Thai'></option>
-                <option value='Vietnamese'></option>
-              </datalist> -->
-
-              <div class="checkbox-opts-container excuisines">
-                <p class="check-opt-block" ><input type="checkbox"><label for='African'>African</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='Asian'>Asian</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='American'>American</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='British'>British</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='Cajun'>Cajun</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='Caribbean'>Caribbean</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='Chinese'>Chinese</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='Eastern European'>Eastern European</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='European'>European</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='French'>French</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='German'>German</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='Greek'>Greek</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='Indian'>Indian</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='Irish'>Irish</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='Italian'>Italian</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='Japanese'>Japanese</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='Jewish'>Jewish</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='Korean'>Korean</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='Latin American'>Latin American</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='Mediterranean'>Mediterranean</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='Mexican'>Mexican</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='Middle Eastern'>Middle Eastern</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='Nordic'>Nordic</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='Southern'>Southern</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='Spanish'>Spanish</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='Thai'>Thai</label></p>
-                <p class="check-opt-block" ><input type="checkbox"><label for='Vietnamese'>Vietnamese</label></p>
               </div>
-
-            </details>
-
-            <details>
-              <summary>Diet <span class='material-symbols-outlined tooltip'>info <span class="tooltiptext">This will override your current diet preferences.</span></span></summary>
-            </details>
-
-            <details>
-              <summary>Intolerances</summary>
-              <input list="intol" placeholder="Enter intolerances..." type="text" class="search-opt-input" name="intolerances" id="intolerances">
-              <datalist id="intol">
-                <option value='Dairy'></option>
-                <option value='Egg'></option>
-                <option value='Gluten'></option>
-                <option value='Grain'></option>
-                <option value='Peanut'></option>
-                <option value='Seafood'></option>
-                <option value='Sesame'></option>
-                <option value='Shellfish'></option>
-                <option value='Soy'></option>
-                <option value='Sulfite'></option>
-                <option value='Tree Nut'></option>
-                <option value='Wheat'></option>
-              </datalist>
-
-              <div class="checkbox-opts-container intol">
-                <p class="check-opt-block"><input type="checkbox"></p>
-              </div>
-
-            </details>
           </div>
 
+<!--          <div class="other-search-options">-->
+<!--            &lt;!&ndash; <i class="fas fa-circle-question tooltip"><span class="tooltiptext">If you want to specify multiple options, just separate them with a comma.</span></i> &ndash;&gt;-->
+<!--            <details>-->
+<!--              <summary>Cuisine(s)</summary>-->
+<!--                <div class="checkbox-opts-container cuisines">-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='African'><label for='African'>African</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='Asian'><label for='Asian'>Asian</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='American'><label for='American'>American</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='British'><label for='British'>British</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='Cajun'><label for='Cajun'>Cajun</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='Caribbean'><label for='Caribbean'>Caribbean</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='Chinese'><label for='Chinese'>Chinese</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='Eastern European'><label for='Eastern European'>Eastern European</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='European'><label for='European'>European</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='French'><label for='French'>French</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='German'><label for='German'>German</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='Greek'><label for='Greek'>Greek</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='Indian'><label for='Indian'>Indian</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='Irish'><label for='Irish'>Irish</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='Italian'><label for='Italian'>Italian</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='Japanese'><label for='Japanese'>Japanese</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='Jewish'><label for='Jewish'>Jewish</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='Korean'><label for='Korean'>Korean</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='Latin American'><label for='Latin American'>Latin American</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='Mediterranean'><label for='Mediterranean'>Mediterranean</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='Mexican'><label for='Mexican'>Mexican</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='Middle Eastern'><label for='Middle Eastern'>Middle Eastern</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='Nordic'><label for='Nordic'>Nordic</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='Southern'><label for='Southern'>Southern</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='Spanish'><label for='Spanish'>Spanish</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='Thai'><label for='Thai'>Thai</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='Vietnamese'><label for='Vietnamese'>Vietnamese</label></p>-->
+<!--                </div>-->
+<!--            </details>-->
+
+<!--            <details>-->
+<!--              <summary>Exclude Cusine(s)</summary>-->
+<!--              <div class="checkbox-opts-container excuisines">-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2African'><label for='2African'>African</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2Asian'><label for='2Asian'>Asian</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2American'><label for='2American'>American</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2British'><label for='2British'>British</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2Cajun'><label for='2Cajun'>Cajun</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2Caribbean'><label for='2Caribbean'>Caribbean</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2Chinese'><label for='2Chinese'>Chinese</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2Eastern European'><label for='2Eastern European'>Eastern European</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2European'><label for='2European'>European</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2French'><label for='2French'>French</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2German'><label for='2German'>German</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2Greek'><label for='2Greek'>Greek</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2Indian'><label for='2Indian'>Indian</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2Irish'><label for='2Irish'>Irish</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2Italian'><label for='2Italian'>Italian</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2Japanese'><label for='2Japanese'>Japanese</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2Jewish'><label for='2Jewish'>Jewish</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2Korean'><label for='2Korean'>Korean</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2Latin American'><label for='2Latin American'>Latin American</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2Mediterranean'><label for='2Mediterranean'>Mediterranean</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2Mexican'><label for='2Mexican'>Mexican</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2Middle Eastern'><label for='2Middle Eastern'>Middle Eastern</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2Nordic'><label for='2Nordic'>Nordic</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2Southern'><label for='2Southern'>Southern</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2Spanish'><label for='2Spanish'>Spanish</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2Thai'><label for='2Thai'>Thai</label></p>-->
+<!--                  <p class="check-opt-block" ><input type="checkbox" id='2Vietnamese'><label for='2Vietnamese'>Vietnamese</label></p>-->
+<!--              </div>-->
+<!--            </details>-->
+
+<!--            <details>-->
+<!--              <summary>Diet <i class='fas fa-circle-question tooltip'>info <span class="tooltiptext">This will override your current diet preferences.</span></i></summary>-->
+<!--            </details>-->
+
+<!--            <details>-->
+<!--              <summary>Intolerances</summary>-->
+<!--              <input list="intol" placeholder="Enter intolerances..." type="text" class="search-opt-input" name="intolerances" id="intolerances">-->
+<!--              <datalist id="intol">-->
+<!--                  <option value='Dairy'></option>-->
+<!--                <option value='Egg'></option>-->
+<!--                <option value='Gluten'></option>-->
+<!--                <option value='Grain'></option>-->
+<!--                <option value='Peanut'></option>-->
+<!--                <option value='Seafood'></option>-->
+<!--                <option value='Sesame'></option>-->
+<!--                <option value='Shellfish'></option>-->
+<!--                <option value='Soy'></option>-->
+<!--                <option value='Sulfite'></option>-->
+<!--                <option value='Tree Nut'></option>-->
+<!--                <option value='Wheat'></option>-->
+<!--              </datalist>-->
+
+<!--              <div class="checkbox-opts-container intol">-->
+<!--                <p class="check-opt-block"><input type="checkbox"></p>-->
+<!--              </div>-->
+
+<!--            </details>-->
+<!--          </div>-->
+
+<!--        </div>-->
+
+<!--        &lt;!&ndash; just position this under both other ones &ndash;&gt;-->
+<!--        <div class="search-results-container">-->
+<!--          <h1>Search Results</h1>-->
+
+<!--          &lt;!&ndash; <div class="result-card">-->
+<!--            <img src="https://img.spoonacular.com/recipes/716429-312x231.jpg" class="result-img">-->
+<!--            <h3>Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs</h3>-->
+<!--          </div> &ndash;&gt;-->
+
+<!--        </div>-->
+
+      <!-- Filter Modal -->
+      <div id="filter-modal" class="filter-overlay" aria-hidden="true">
+        <div class="filter-modal">
+          <header class="filter-header">
+            <h3>Filters</h3>
+            <button type="button" class="filter-close" id="filter-close-btn"><i class="fas fa-times"></i></button>
+          </header>
+          <div class="filter-body">
+            <div class="filter-section">
+              <h4>Cuisine</h4>
+              <div class="filter-chips" id="cuisine-chips">
+                <button class="filter-chip" data-value="African">African</button>
+                <button class="filter-chip" data-value="American">American</button>
+                <button class="filter-chip" data-value="British">British</button>
+                <button class="filter-chip" data-value="Cajun">Cajun</button>
+                <button class="filter-chip" data-value="Caribbean">Caribbean</button>
+                <button class="filter-chip" data-value="Chinese">Chinese</button>
+                <button class="filter-chip" data-value="French">French</button>
+                <button class="filter-chip" data-value="German">German</button>
+                <button class="filter-chip" data-value="Greek">Greek</button>
+                <button class="filter-chip" data-value="Indian">Indian</button>
+                <button class="filter-chip" data-value="Irish">Irish</button>
+                <button class="filter-chip" data-value="Italian">Italian</button>
+                <button class="filter-chip" data-value="Japanese">Japanese</button>
+                <button class="filter-chip" data-value="Korean">Korean</button>
+                <button class="filter-chip" data-value="Mediterranean">Mediterranean</button>
+                <button class="filter-chip" data-value="Mexican">Mexican</button>
+                <button class="filter-chip" data-value="Middle Eastern">Middle Eastern</button>
+                <button class="filter-chip" data-value="Spanish">Spanish</button>
+                <button class="filter-chip" data-value="Thai">Thai</button>
+                <button class="filter-chip" data-value="Vietnamese">Vietnamese</button>
+              </div>
+            </div>
+            <div class="filter-section">
+              <h4>Diet</h4>
+              <div class="filter-chips" id="diet-chips">
+                <button class="filter-chip" data-value="Vegetarian">Vegetarian</button>
+                <button class="filter-chip" data-value="Vegan">Vegan</button>
+                <button class="filter-chip" data-value="Gluten Free">Gluten Free</button>
+                <button class="filter-chip" data-value="Ketogenic">Ketogenic</button>
+                <button class="filter-chip" data-value="Paleo">Paleo</button>
+                <button class="filter-chip" data-value="Whole30">Whole30</button>
+                <button class="filter-chip" data-value="Pescetarian">Pescetarian</button>
+                <button class="filter-chip" data-value="Low FODMAP">Low FODMAP</button>
+              </div>
+            </div>
+            <div class="filter-section">
+              <h4>Intolerances</h4>
+              <div class="filter-chips" id="intolerance-chips">
+                <button class="filter-chip" data-value="Dairy">Dairy</button>
+                <button class="filter-chip" data-value="Egg">Egg</button>
+                <button class="filter-chip" data-value="Gluten">Gluten</button>
+                <button class="filter-chip" data-value="Grain">Grain</button>
+                <button class="filter-chip" data-value="Peanut">Peanut</button>
+                <button class="filter-chip" data-value="Seafood">Seafood</button>
+                <button class="filter-chip" data-value="Sesame">Sesame</button>
+                <button class="filter-chip" data-value="Shellfish">Shellfish</button>
+                <button class="filter-chip" data-value="Soy">Soy</button>
+                <button class="filter-chip" data-value="Sulfite">Sulfite</button>
+                <button class="filter-chip" data-value="Tree Nut">Tree Nut</button>
+                <button class="filter-chip" data-value="Wheat">Wheat</button>
+              </div>
+            </div>
+            <div class="filter-section">
+              <h4>Meal Type</h4>
+              <div class="filter-chips" id="type-chips">
+                <button class="filter-chip" data-value="main course">Main Course</button>
+                <button class="filter-chip" data-value="side dish">Side Dish</button>
+                <button class="filter-chip" data-value="dessert">Dessert</button>
+                <button class="filter-chip" data-value="appetizer">Appetizer</button>
+                <button class="filter-chip" data-value="salad">Salad</button>
+                <button class="filter-chip" data-value="bread">Bread</button>
+                <button class="filter-chip" data-value="breakfast">Breakfast</button>
+                <button class="filter-chip" data-value="soup">Soup</button>
+                <button class="filter-chip" data-value="snack">Snack</button>
+                <button class="filter-chip" data-value="beverage">Beverage</button>
+              </div>
+            </div>
+            <div class="filter-section">
+              <h4>Sort By</h4>
+              <div class="filter-sort-row">
+                <select id="filter-sort" class="filter-select">
+                  <option value="">Relevance</option>
+                  <option value="popularity">Popularity</option>
+                  <option value="healthiness">Healthiness</option>
+                  <option value="time">Cook Time</option>
+                  <option value="calories">Calories</option>
+                  <option value="protein">Protein</option>
+                  <option value="price">Price</option>
+                  <option value="random">Random</option>
+                </select>
+                <button class="filter-sort-dir" id="filter-sort-dir" data-dir="desc" title="Sort direction">
+                  <i class="fas fa-arrow-down-wide-short"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <footer class="filter-footer">
+            <button class="filter-clear-btn" id="filter-clear-btn">Clear All</button>
+            <button class="filter-apply-btn" id="filter-apply-btn">Show Results</button>
+          </footer>
         </div>
-
-        <!-- just position this under both other ones -->
-        <div class="search-results-container">
-          <h1>Search Results</h1>
-
-          <!-- <div class="result-card">
-            <img src="https://img.spoonacular.com/recipes/716429-312x231.jpg" class="result-img">
-            <h3>Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs</h3>
-          </div> -->
-
-        </div>
+      </div>
 
       </section>
+        <section class="articles-tab dash-tab">
+            <div class="scroll-container">
+                <div class="featured-content">
+                    <h1>Featured Today</h1>
+                    <!--                featured article here-->
+                    <div class="cards-container">
+                        <div class="story-card">
+                            <div class="story-img-container">
+                                <img src="./placeholder.svg" width="300" height="200" alt="Story Image" class="story-img">
+                            </div>
+                            <div class="story-info">
+                                <h4>Featured Story</h4>
+                                <p>story description lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+                        <div class="story-card">
+                            <div class="story-img-container">
+                                <img src="./placeholder.svg" width="300" height="200" alt="Story Image" class="story-img">
+                            </div>
+                            <div class="story-info">
+                                <h4>Featured Story</h4>
+                                <p>story description lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+                        <div class="story-card">
+                            <div class="story-img-container">
+                                <img src="./placeholder.svg" width="300" height="200" alt="Story Image" class="story-img">
+                            </div>
+                            <div class="story-info">
+                                <h4>Featured Story</h4>
+                                <p>story description lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+                        <div class="story-card">
+                            <div class="story-img-container">
+                                <img src="./placeholder.svg" width="300" height="200" alt="Story Image" class="story-img">
+                            </div>
+                            <div class="story-info">
+                                <h4>Featured Story</h4>
+                                <p>story description lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="suggested-content">
+                    <h2>Suggested Reads</h2>
+                    <!--                other cards to scroll here, possibly in genres?-->
+                    <div class="cards-container">
+                        <div class="story-card">
+                            <div class="story-img-container">
+                                <img src="./placeholder.svg" width="300" height="200" alt="Story Image" class="story-img">
+                            </div>
+                            <div class="story-info">
+                                <h4>Story</h4>
+                                <p>story description lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+                        <div class="story-card">
+                            <div class="story-img-container">
+                                <img src="./placeholder.svg" width="300" height="200" alt="Story Image" class="story-img">
+                            </div>
+                            <div class="story-info">
+                                <h4>Story</h4>
+                                <p>story description lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+                        <div class="story-card">
+                            <div class="story-img-container">
+                                <img src="./placeholder.svg" width="300" height="200" alt="Story Image" class="story-img">
+                            </div>
+                            <div class="story-info">
+                                <h4>Story</h4>
+                                <p>story description lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+                        <div class="story-card">
+                            <div class="story-img-container">
+                                <img src="./placeholder.svg" width="300" height="200" alt="Story Image" class="story-img">
+                            </div>
+                            <div class="story-info">
+                                <h4>Story</h4>
+                                <p>story description lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+                        <div class="story-card">
+                            <div class="story-img-container">
+                                <img src="./placeholder.svg" width="300" height="200" alt="Story Image" class="story-img">
+                            </div>
+                            <div class="story-info">
+                                <h4>Story</h4>
+                                <p>story description lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+                        <div class="story-card">
+                            <div class="story-img-container">
+                                <img src="./placeholder.svg" width="300" height="200" alt="Story Image" class="story-img">
+                            </div>
+                            <div class="story-info">
+                                <h4>Story</h4>
+                                <p>story description lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+                        <div class="story-card">
+                            <div class="story-img-container">
+                                <img src="./placeholder.svg" width="300" height="200" alt="Story Image" class="story-img">
+                            </div>
+                            <div class="story-info">
+                                <h4>Story</h4>
+                                <p>story description lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+                        <div class="story-card">
+                            <div class="story-img-container">
+                                <img src="./placeholder.svg" width="300" height="200" alt="Story Image" class="story-img">
+                            </div>
+                            <div class="story-info">
+                                <h4>Story</h4>
+                                <p>story description lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+      <div id="reader-modal" class="reader-overlay" aria-hidden="true">
+        <div class="reader-container">
+          <header class="reader-header">
+            <button class="reader-close" type="button" aria-label="Close article"><i class="fas fa-times"></i></button>
+            <h3 class="reader-title"></h3>
+            <div class="reader-mode-toggle">
+              <button class="reader-mode active" data-mode="scraped" type="button"><i class="fas fa-file-alt"></i> Content</button>
+              <button class="reader-mode" data-mode="iframe" type="button"><i class="fas fa-globe"></i> Original</button>
+            </div>
+          </header>
+          <div class="reader-body">
+            <div class="reader-scraped"></div>
+            <iframe class="reader-iframe" sandbox="allow-same-origin allow-scripts allow-popups" src="about:blank"></iframe>
+            <div class="reader-loading">
+              <div class="reader-spinner"></div>
+              <p>Loading article…</p>
+            </div>
+          </div>
+          <footer class="reader-footer">
+            <a class="reader-source-link" href="#" target="_blank" rel="noopener noreferrer">Open original <i class="fas fa-external-link-alt"></i></a>
+          </footer>
+        </div>
+      </div>
+
       <section class="grocery-tab dash-tab">
-        <h1>Grocery Lists</h1>
+          <div class="grocery-container">
+            <header class="grocery-header">
+              <div>
+                <h1>Grocery Lists</h1>
+                <p class="grocery-subtitle">Keep your shopping organized, saved, and ready for your next meal.</p>
+              </div>
+              <button class="grocery-primary-action" type="button" id="new-grocery-list"><i class="fas fa-plus"></i> New list</button>
+            </header>
+
+            <div class="grocery-search-row">
+              <label class="grocery-search" for="grocery-list-search"><i class="fas fa-search"></i><input id="grocery-list-search" type="search" placeholder="Search foods across all lists" autocomplete="off"></label>
+              <!-- <button class="grocery-filter-button" type="button"><i class="fas fa-sliders"></i><span>All lists</span></button> -->
+            </div>
+
+            <div class="grocery-workspace">
+              <aside class="grocery-lists-panel" aria-label="Your grocery lists">
+                <div class="grocery-panel-heading"><h2>Your lists</h2><span id="grocery-list-count">0 lists</span></div>
+                <div class="grocery-list-switcher" role="list">
+                  <p class="grocery-empty-lists" id="grocery-empty-lists" style="color:var(--dashboard-text-muted);text-align:center;padding:1.5rem 1rem;font-size:0.85rem;">No lists yet. Create one to get started.</p>
+                </div>
+                <div class="grocery-saved-foods">
+                  <div class="grocery-panel-heading"><h2>Saved foods</h2><button type="button" aria-label="Add saved food"><i class="fas fa-plus"></i></button></div>
+                  <div class="saved-food-chips"></div>
+                </div>
+              </aside>
+
+              <div class="grocery-items-panel" aria-label="Select a list">
+                <div class="grocery-list-title">
+                  <div>
+                    <h2 id="current-grocery-list">Select a list</h2>
+                    <p><span id="grocery-progress">0 of 0</span> picked up</p>
+                  </div>
+                  <button class="grocery-more-button" type="button" aria-label="List options" disabled><i class="fas fa-ellipsis"></i></button>
+                </div>
+                <form class="grocery-add-item" id="grocery-add-item"><input id="grocery-item-input" type="text" placeholder="Add an item to this list..." autocomplete="off"><button type="submit" aria-label="Add item"><i class="fas fa-plus"></i></button></form>
+                <div class="grocery-item-groups">
+                  <div class="grocery-empty-state" id="grocery-no-list-selected"><i class="fas fa-cart-shopping"></i><p>No list selected</p><span>Choose a list from the sidebar or create a new one.</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grocery-modal-overlay" id="grocery-modal-overlay" hidden>
+            <div class="grocery-modal">
+              <div class="grocery-modal-header">
+                <h3 id="grocery-modal-title"></h3>
+              </div>
+              <div class="grocery-modal-body">
+                <div class="grocery-modal-field" id="grocery-modal-name-field" hidden>
+                  <label>Name</label>
+                  <input type="text" id="grocery-modal-name-input" placeholder="e.g. Weekly shop" autocomplete="off">
+                </div>
+                <div class="grocery-modal-field" id="grocery-modal-icon-field" hidden>
+                  <label>Icon</label>
+                  <div class="icon-picker" id="grocery-modal-icon-picker"></div>
+                </div>
+                <div class="grocery-modal-field" id="grocery-modal-color-field" hidden>
+                  <label>Color</label>
+                  <div class="color-picker" id="grocery-modal-color-picker"></div>
+                </div>
+                <button type="button" class="grocery-delete-btn" id="grocery-modal-delete-btn" hidden>Delete this list</button>
+              </div>
+              <div class="grocery-modal-footer">
+                <button type="button" class="grocery-modal-btn grocery-modal-cancel" id="grocery-modal-cancel">Cancel</button>
+                <button type="button" class="grocery-modal-btn grocery-modal-save" id="grocery-modal-save"></button>
+              </div>
+            </div>
+          </div>
       </section>
       <section class="meal-tab dash-tab">
-        <h1>Meal Planner</h1>
+        <div class="meal-planner">
+          <header class="meal-planner-header">
+            <div>
+              <h1>Meal Planner</h1>
+              <p class="meal-subtitle">Choose a day, then add a recipe you’ll be excited to make.</p>
+            </div>
+            <button type="button" class="meal-grocery-action"><i class="fas fa-cart-shopping"></i> Make grocery list</button>
+          </header>
+
+          <div class="meal-planner-grid">
+            <div class="meal-calendar-panel" aria-label="Meal calendar">
+              <div class="meal-calendar-toolbar">
+                <div class="meal-month-nav">
+                  <button type="button" class="meal-icon-button" id="meal-prev-month" aria-label="Previous month"><i class="fas fa-chevron-left"></i></button>
+                  <h2 id="meal-month-label">This month</h2>
+                  <button type="button" class="meal-icon-button" id="meal-next-month" aria-label="Next month"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <button type="button" class="meal-today-button" id="meal-today">Today</button>
+              </div>
+              <div class="meal-weekdays" aria-hidden="true"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+              <div class="meal-calendar" id="meal-calendar" role="grid" aria-label="Select a day to plan a meal"></div>
+              <div class="meal-calendar-legend"><span><i class="meal-legend-dot planned"></i> Planned meal</span><span><i class="meal-legend-dot selected"></i> Selected day</span></div>
+            </div>
+
+            <aside class="meal-day-panel" aria-live="polite">
+              <div class="meal-day-heading">
+                <div><p class="meal-eyebrow">Plan for</p><h2 id="meal-selected-date">Select a day</h2></div>
+                <span class="meal-day-icon"><i class="fas fa-utensils"></i></span>
+              </div>
+              <div class="meal-empty-state" id="meal-empty-state"><i class="fas fa-calendar-plus"></i><p>No meal planned yet.</p><span>Pick one from your saved recipes below.</span></div>
+              <article class="meal-assignment" id="meal-assignment" hidden>
+                <div class="meal-assignment-image"><img id="meal-assignment-image" src="" alt=""><span id="meal-assignment-type">Dinner</span></div>
+                <div><h3 id="meal-assignment-name"></h3><p id="meal-assignment-meta"></p></div>
+                <button type="button" class="meal-remove-button" id="meal-remove" aria-label="Remove planned meal"><i class="fas fa-xmark"></i></button>
+              </article>
+              <div class="meal-meal-type"><span>Meal: </span><div id="meal-type-options"><button class="active" type="button" data-meal-type="Dinner">Dinner</button><button type="button" data-meal-type="Lunch">Lunch</button><button type="button" data-meal-type="Breakfast">Breakfast</button><button type="button" data-meal-type="Snack">Snack</button></div></div>
+            </aside>
+          </div>
+
+          <div class="meal-recipes" aria-label="Saved recipes">
+            <div class="meal-recipes-heading">
+              <div>
+<!--                <p class="meal-eyebrow">Ready when you are</p>-->
+                <h2>Saved recipes</h2>
+              </div>
+              <button type="button" class="meal-view-all">View all <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="meal-recipe-list" id="meal-recipe-list">
+              <button type="button" class="meal-recipe-card" data-recipe="Lemony chicken bowl" data-meta="35 min &bull; 540 cal" data-image="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=500&q=80"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=500&q=80" alt="Lemony chicken bowl"><span><strong>Lemony chicken bowl</strong><small><i class="fas fa-clock"></i> 35 min &bull; 540 cal</small></span><i class="fas fa-plus"></i></button>
+              <button type="button" class="meal-recipe-card" data-recipe="Miso glazed salmon" data-meta="25 min &bull; 460 cal" data-image="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=500&q=80"><img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=500&q=80" alt="Miso glazed salmon"><span><strong>Miso glazed salmon</strong><small><i class="fas fa-clock"></i> 25 min &bull; 460 cal</small></span><i class="fas fa-plus"></i></button>
+              <button type="button" class="meal-recipe-card" data-recipe="Creamy tomato pasta" data-meta="30 min &bull; 510 cal" data-image="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=500&q=80"><img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=500&q=80" alt="Creamy tomato pasta"><span><strong>Creamy tomato pasta</strong><small><i class="fas fa-clock"></i> 30 min &bull; 510 cal</small></span><i class="fas fa-plus"></i></button>
+            </div>
+          </div>
+        </div>
       </section>
-      <section class="articles-tab dash-tab">
-        <h1>Stories</h1>
+
+      <section class="recipes-tab dash-tab">
+        <div class="recipes-container">
+          <header class="recipes-header">
+            <div>
+              <h1>Saved Recipes</h1>
+              <p class="recipes-subtitle">Your collection of favorite recipes, ready to cook.</p>
+            </div>
+          </header>
+          <div class="recipes-grid" id="recipes-grid"></div>
+          <div class="recipes-empty-state" id="recipes-empty-state" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:3rem;text-align:center;color:var(--dashboard-text-muted);">
+            <i class="far fa-bookmark" style="font-size:2.5rem;margin-bottom:1rem;"></i>
+            <p style="margin:0 0 0.5rem;font-weight:600;">No saved recipes yet</p>
+            <span style="font-size:0.9rem;">Search for recipes and tap the bookmark icon to save them here.</span>
+          </div>
+        </div>
       </section>
+
+      <div id="recipe-detail-modal" class="reader-overlay" aria-hidden="true">
+        <div class="reader-container">
+          <header class="reader-header">
+            <button class="recipe-detail-close reader-close" type="button" aria-label="Close recipe"><i class="fas fa-times"></i></button>
+            <h3 class="reader-title">Recipe Details</h3>
+          </header>
+          <div class="reader-body recipe-detail-body"></div>
+        </div>
+      </div>
+
       <section class="feedback-tab dash-tab">
-        <h1>Feedback</h1>
+        <div class="support-page feedback-page">
+          <header class="support-page-header">
+            <div>
+              <h1>Feedback</h1>
+              <p>Tell us what’s working, what isn’t, or what would make using the app feel better.</p>
+            </div>
+<!--            <span class="support-header-icon" aria-hidden="true">-->
+<!--              <i class="fas fa-comment-dots"></i>-->
+<!--            </span>-->
+          </header>
+
+          <div class="feedback-layout">
+            <form class="feedback-form" id="feedback-form">
+              <div class="support-card-heading">
+                <div>
+                  <h2>Share your thoughts</h2>
+                  <p>Your feedback helps us prioritize what to build next.</p>
+                </div>
+                <span><i class="fa-regular fa-clock"></i>About 2 mins</span>
+              </div>
+
+              <fieldset class="feedback-type">
+                <legend>What would you like to share?</legend>
+                <div class="feedback-type-options">
+                  <label>
+                    <input type="radio" name="feedback-type" value="Idea" checked>
+                    <span><i class="fas fa-lightbulb"></i> Idea</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="feedback-type" value="Issue">
+                    <span><i class="fas fa-bug"></i> Issue</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="feedback-type" value="Praise">
+                    <span><i class="fas fa-heart"></i> Praise</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <label class="feedback-field" for="feedback-subject">
+                <span>Subject</span>
+                <input id="feedback-subject" name="subject" type="text" placeholder="What’s on your mind?" required>
+              </label>
+
+              <label class="feedback-field" for="feedback-message">
+                <span>Message</span>
+                <textarea id="feedback-message" name="message" rows="6" placeholder="Share as much detail as you can..." required></textarea>
+                <small><span id="feedback-count">0</span>/1,000</small>
+              </label>
+
+              <label class="feedback-field" for="feedback-email">
+                <span>Email <em> (optional)</em></span>
+                <input id="feedback-email" name="email" type="email" placeholder="you@example.com">
+                <small>Only used if we need to follow up.</small>
+              </label>
+
+              <div class="feedback-form-footer">
+                <p id="feedback-status" role="status" aria-live="polite"></p>
+                <button type="submit"><i class="fas fa-paper-plane"></i> Send feedback</button>
+              </div>
+            </form>
+
+            <aside class="feedback-aside">
+              <div class="feedback-note">
+                <span class="feedback-note-icon"><i class="fas fa-seedling"></i></span>
+                <div>
+                  <h2>Every note counts</h2>
+                  <p>We read every submission and use your input to make Ingredient Insight more useful.</p>
+                </div>
+              </div>
+
+              <div class="feedback-guidance">
+                <h2>Helpful details</h2>
+                <ul>
+                  <li><i class="fas fa-check"></i> What were you trying to do?</li>
+                  <li><i class="fas fa-check"></i> What happened instead?</li>
+                  <li><i class="fas fa-check"></i> Which device or browser were you using?</li>
+                </ul>
+              </div>
+
+              <div class="feedback-contact">
+                <i class="far fa-life-ring"></i>
+                <div>
+                  <h2>Need help with your account?</h2>
+                  <a href="mailto:insightingredient@gmail.com">Contact support <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
       </section>
-      
+
       <section class="legal-tab dash-tab">
-        <h1>Legal</h1>
+        <div class="support-page legal-page">
+          <header class="support-page-header">
+            <div>
+              <h1>Legal Center</h1>
+              <p>Info about your rights, your data, and how to use Ingredient Insight responsibly.</p>
+            </div>
+<!--            <span class="support-header-icon" aria-hidden="true">-->
+<!--              <i class="fas fa-scale-balanced"></i>-->
+<!--            </span>-->
+          </header>
+
+          <div class="legal-layout">
+            <!--
+            <aside class="legal-nav" aria-label="Legal documents">
+              <p>On this page</p>
+              <a href="#terms"><i class="fas fa-file-signature"></i> Terms of use</a>
+              <a href="#privacy"><i class="fas fa-user-shield"></i> Privacy notice</a>
+              <a href="#cookies"><i class="fas fa-cookie-bite"></i> Cookie notice</a>
+              <a href="#guidelines"><i class="fas fa-handshake"></i> Community guidelines</a>
+              <a href="mailto:legal@ingredientinsight.app"><i class="fas fa-envelope"></i> Contact legal</a>
+            </aside>
+            -->
+            <div class="legal-documents">
+              <div class="legal-update">
+                <span><i class="fas fa-clock"></i> Last updated July 20, 2026</span>
+                <span>Version 1.0</span>
+              </div>
+
+              <article class="legal-document" id="terms">
+                <span class="legal-document-icon"><i class="fas fa-file-signature"></i></span>
+                <div>
+                  <h2>Terms of use</h2>
+                  <p>Use Ingredient Insight for personal meal planning and food discovery. Recipe and nutrition information is for general informational purposes and is not medical advice.</p>
+                  <a href="#terms">Read terms of use <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </article>
+
+              <article class="legal-document" id="privacy">
+                <span class="legal-document-icon"><i class="fas fa-user-shield"></i></span>
+                <div>
+                  <h2>Privacy notice</h2>
+                  <p>Learn what information we collect, why we collect it, and the choices you have over your account and personal data.</p>
+                  <a href="#privacy">Read privacy notice <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </article>
+
+              <article class="legal-document" id="cookies">
+                <span class="legal-document-icon"><i class="fas fa-cookie-bite"></i></span>
+                <div>
+                  <h2>Cookie notice</h2>
+                  <p>We use essential cookies to keep Ingredient Insight working and limited analytics to understand how people use the app.</p>
+                  <a href="#cookies">Read cookie notice <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </article>
+
+              <!--
+              <article class="legal-document" id="guidelines">
+                <span class="legal-document-icon"><i class="fas fa-handshake"></i></span>
+                <div>
+                  <h2>Community guidelines</h2>
+                  <p>Help keep our community welcoming, respectful, and useful by sharing accurate, kind, and constructive feedback.</p>
+                  <a href="#guidelines">Read community guidelines <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </article>
+              -->
+
+              <div class="legal-help">
+                <i class="far fa-circle-question"></i>
+                <div>
+                  <h2>Questions about these documents?</h2>
+                  <p>Our team is here to help clarify your rights and choices.</p>
+                </div>
+                <a href="mailto:legal@ingredientinsight.app">Email <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
+      <section class="profile-tab dash-tab">
+        <h1>My Profile</h1>
+        <div class="profile-container-section">
+          <div class="profile-header">
+            <div class="profile-avatar">👤</div>
+            <div class="profile-info">
+              <h2 id="profile-display-name">Loading...</h2>
+              <p id="profile-email">user@example.com</p>
+              <p id="profile-member-since">Member since: --</p>
+            </div>
+          </div>
+
+          <div class="profile-stats">
+            <div class="stat-card">
+              <div class="stat-value" id="stat-age">--</div>
+              <div class="stat-label">Age</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="stat-height">--</div>
+              <div class="stat-label">Height</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="stat-weight">--</div>
+              <div class="stat-label">Weight</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="stat-goal">--</div>
+              <div class="stat-label">Goal</div>
+            </div>
+          </div>
+
+          <div class="settings-group">
+            <h2>Profile Customization</h2>
+            
+            <div class="setting-item">
+              <label for="profile-fname">First Name</label>
+              <input type="text" id="profile-fname" placeholder="Enter first name" maxlength="15">
+            </div>
+
+            <div class="setting-item">
+              <label for="profile-lname">Last Name</label>
+              <input type="text" id="profile-lname" placeholder="Enter last name (optional)" maxlength="15">
+            </div>
+
+            <div class="setting-item">
+              <label for="profile-bio">Bio</label>
+              <textarea id="profile-bio" placeholder="Tell us about yourself..." maxlength="500" rows="3"></textarea>
+            </div>
+
+            <div class="setting-item">
+              <label for="profile-age">Age</label>
+              <input type="number" id="profile-age" placeholder="Your age" min="12" max="150">
+            </div>
+
+            <div class="setting-item">
+              <label for="profile-height">Height (inches)</label>
+              <input type="number" id="profile-height" placeholder="Height in inches" min="48" max="100">
+            </div>
+
+            <div class="setting-item">
+              <label for="profile-weight">Weight (pounds)</label>
+              <input type="number" id="profile-weight" placeholder="Weight in pounds" min="90" max="400">
+            </div>
+
+            <div class="setting-item">
+              <label for="profile-goal">Fitness Goal</label>
+              <select id="profile-goal">
+                <option value="">Select a goal...</option>
+                <option value="Cutting">Cutting</option>
+                <option value="Bulking">Bulking</option>
+                <option value="Weight Loss">Weight Loss</option>
+                <option value="Muscle Gain">Muscle Gain</option>
+                <option value="Maintain Weight">Maintain Weight</option>
+              </select>
+            </div>
+
+            <div class="setting-item">
+              <label>Dietary Preferences</label>
+              <div class="dietary-prefs" id="profile-dietary-prefs">
+                <span class="pref-tag" data-diet="vegan">Vegan</span>
+                <span class="pref-tag" data-diet="vegetarian">Vegetarian</span>
+                <span class="pref-tag" data-diet="pescetarian">Pescetarian</span>
+                <span class="pref-tag" data-diet="glutenfree">Gluten Free</span>
+                <span class="pref-tag" data-diet="keto">Ketogenic</span>
+                <span class="pref-tag" data-diet="paleo">Paleo</span>
+                <span class="pref-tag" data-diet="kosher">Kosher</span>
+                <span class="pref-tag" data-diet="halal">Halal</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="status-message" id="profile-status-message"></div>
+
+          <div class="button-group">
+            <button class="save-btn" id="profile-save-btn">Save Changes</button>
+            <button class="cancel-btn" id="profile-cancel-btn">Cancel</button>
+          </div>
+        </div>
+      </section>
+
       <section class="settings-tab dash-tab">
         <h1>Settings</h1>
+        <div class="settings-container">
+          <div class="settings-group">
+            <h2>Account Settings</h2>
+            
+            <div class="setting-item">
+              <label for="settings-email">Email Address</label>
+              <input type="email" id="settings-email" placeholder="Your email" disabled>
+            </div>
+
+            <div class="setting-item">
+              <label for="settings-password">Change Password</label>
+              <input type="password" id="settings-password" placeholder="Enter new password">
+            </div>
+
+            <div class="setting-item">
+              <label for="settings-confirm-password">Confirm Password</label>
+              <input type="password" id="settings-confirm-password" placeholder="Confirm new password">
+            </div>
+
+            <div class="button-group">
+              <button class="save-btn" id="password-save-btn">Update Password</button>
+            </div>
+          </div>
+
+          <div class="settings-group">
+            <h2>Preferences</h2>
+            
+            <div class="toggle-switch">
+              <label for="notifications-toggle">Email Notifications</label>
+              <label class="switch">
+                <input type="checkbox" id="notifications-toggle" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="toggle-switch">
+              <label for="personalization-toggle">Personalized Recommendations</label>
+              <label class="switch">
+                <input type="checkbox" id="personalization-toggle" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="toggle-switch">
+              <label for="data-sharing-toggle">Allow Data Sharing for Improvements</label>
+              <label class="switch">
+                <input type="checkbox" id="data-sharing-toggle" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="settings-group">
+            <h2>Danger Zone</h2>
+            
+            <div class="setting-item" style="background: rgba(220, 38, 38, 0.1); border-color: rgba(220, 38, 38, 0.3);">
+              <label style="color: #fca5a5;">Delete Account</label>
+              <p style="font-size: 0.85rem; color: rgba(220, 38, 38, 0.8); margin-top: 0.5rem;">This action cannot be undone. All your data will be permanently deleted.</p>
+              <button class="cancel-btn" id="delete-account-btn" style="background: rgba(220, 38, 38, 0.3); color: #fca5a5; border-color: #fca5a5; margin-top: 0.75rem;">Request Account Deletion</button>
+            </div>
+          </div>
+
+          <div class="status-message" id="settings-status-message"></div>
+
+          <div class="button-group">
+            <button id="log-out-btn">Log Out</button>
+          </div>
+        </div>
       </section>
     </main>
-
-    
 </body>
 </html>

@@ -1,0 +1,281 @@
+/* =========== Filter Modal =========== */
+
+.filter-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 99px;
+    background: var(--deep-green);
+    color: var(--off-white);
+    font-size: 0.6rem;
+    font-weight: 700;
+    line-height: 16px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.filter-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-modal);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.55);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.filter-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.filter-modal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: 85vh;
+    background: var(--deep-green);
+    border-radius: 1.25rem 1.25rem 0 0;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.4);
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filter-overlay.open .filter-modal {
+    transform: translateY(0);
+}
+
+.filter-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.filter-header h3 {
+    margin: 0;
+    color: #fff;
+    font-family: 'Jockey One', sans-serif;
+    font-size: 1.35rem;
+    letter-spacing: 0.5px;
+}
+
+.filter-close {
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--off-white);
+    font-size: 0.85rem;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.filter-close:hover {
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.filter-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem 1.5rem;
+    scrollbar-color: rgba(182, 236, 157, 0.4) transparent;
+    scrollbar-width: thin;
+}
+
+.filter-body::-webkit-scrollbar {
+    width: 5px;
+}
+
+.filter-body::-webkit-scrollbar-thumb {
+    border-radius: 99px;
+    background: rgba(182, 236, 157, 0.4);
+}
+
+.filter-section {
+    margin-bottom: 1.5rem;
+}
+
+.filter-section:last-child {
+    margin-bottom: 0;
+}
+
+.filter-section h4 {
+    margin: 0 0 0.65rem;
+    color: var(--off-white);
+    font-family: 'Jockey One', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.75px;
+    text-transform: uppercase;
+    opacity: 0.75;
+}
+
+.filter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+.filter-chip {
+    padding: 0.4rem 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 99px;
+    background: transparent;
+    color: var(--off-white);
+    font-family: 'OPTIFranklinGothic-Medium', sans-serif;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+
+.filter-chip:hover {
+    border-color: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.filter-chip.active {
+    background: var(--dashboard-accent);
+    color: var(--deep-green);
+    border-color: var(--dashboard-accent);
+    font-weight: 700;
+}
+
+.filter-sort-row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.filter-select {
+    flex: 1;
+    padding: 0.55rem 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--off-white);
+    font-family: 'OPTIFranklinGothic-Medium', sans-serif;
+    font-size: 0.82rem;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23f9f9f9' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    padding-right: 2rem;
+}
+
+.filter-select:focus {
+    outline: 2px solid var(--dashboard-accent);
+    outline-offset: -1px;
+}
+
+.filter-select option {
+    background: var(--deep-green);
+    color: var(--off-white);
+}
+
+.filter-sort-dir {
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 0.5rem;
+    background: transparent;
+    color: var(--off-white);
+    font-size: 0.85rem;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.filter-sort-dir:hover {
+    border-color: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/*.filter-sort-dir[data-dir="asc"] i::before {*/
+/*    !*content: "\f160";*!*/
+/*}*/
+
+.filter-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.filter-clear-btn {
+    flex: 0 0 auto;
+    padding: 0.6rem 1.1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+    background: transparent;
+    color: var(--off-white);
+    font-family: 'OPTIFranklinGothic-Medium', sans-serif;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.filter-clear-btn:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.filter-apply-btn {
+    flex: 1;
+    padding: 0.65rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: var(--dashboard-accent);
+    color: var(--deep-green);
+    font-family: 'OPTIFranklinGothic-Medium', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+}
+
+.filter-apply-btn:hover {
+    opacity: 0.9;
+}
+
+/* Desktop: centered card */
+@media (min-width: 768px) {
+    .filter-overlay {
+        align-items: center;
+    }
+
+    .filter-modal {
+        max-width: 480px;
+        max-height: 75vh;
+        border-radius: 1.25rem;
+    }
+}
+
+/* Mobile: fullscreen */
+@media (max-width: 767px) {
+    .filter-modal {
+        max-height: 100vh;
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    .filter-overlay {
+        align-items: stretch;
+    }
+}

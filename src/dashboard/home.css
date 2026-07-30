@@ -1,0 +1,52 @@
+
+
+main section.home-tab {
+	/*!*display: flex;*! TODO: remove comment*/
+	justify-content: space-evenly !important;
+	width: 100%;
+	align-items: flex-start;
+	flex-direction: row;
+	padding: 1rem;
+	max-height: 91.5vh;
+}
+
+section.home-tab .bento-container {
+	padding: 0;
+	/*margin: 1rem;*/
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	row-gap: 1rem;
+	column-gap: 1rem;
+}
+
+section.home-tab .bento-container .bento {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--dark-green);
+	border-radius: 1.125rem;
+	box-shadow: 0.1rem 0.1rem .5rem var(--darker-green);
+}
+
+section.home-tab .bento-container .bento:nth-child(1),
+section.home-tab .bento-container .bento:nth-child(2) {
+	grid-column: span 3;
+
+}
+
+section.home-tab .bento-container .bento:nth-child(3){
+	grid-column: span 2;
+}
+
+section.home-tab .bento-container .bento:nth-child(4) {
+	grid-column: span 4;
+}
+
+section.home-tab .bento-container .bento:nth-child(5) {
+	grid-column: span 4;
+}
+
+section.home-tab .bento-container .bento:nth-child(6) {
+	grid-column: span 2;
+}

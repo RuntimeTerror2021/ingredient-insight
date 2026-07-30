@@ -9,10 +9,14 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^5.4.0"
+    "vite": "^8.0.10"
   },
   "dependencies": {
-    "node": "^22.6.0",
-    "spoonacular": "^2.0.1"
+    "axios": "^1.18.1",
+    "cheerio": "^1.2.0",
+    "motion": "^12.24.12",
+    "node": "^26.3.0",
+    "spoonacular": "^2.0.1",
+    "web-haptics": "^0.0.6"
   }
 }

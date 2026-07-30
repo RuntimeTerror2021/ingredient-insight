@@ -3,106 +3,298 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Privacy Policy</title>
+    <title>Privacy Policy - Ingredient Insight</title>
+    <link rel="stylesheet" href="src/style.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #ffffff;
-            color: #000000;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
+            padding-top: 80px;
         }
 
-        .container {
+        .privacy-container {
             max-width: 800px;
-            margin: 40px 80px;
-            padding: 20px;
+            margin: 0 20px;
+            padding: var(--spacing-3xl) var(--spacing-xl);
         }
 
-        h1, h2 {
-            color: #000000;
-            border-left: 6px solid #1f8000;
+        .privacy-container h1, .privacy-container h2 {
+            color: var(--black);
+            border-left: 6px solid var(--green);
             padding-left: 12px;
             margin-top: 40px;
         }
 
-        h1 {
+        .privacy-container h1 {
             font-size: 2rem;
         }
 
-        h2 {
+        .privacy-container h2 {
             font-size: 1.3rem;
         }
 
-        p {
+        .privacy-container p {
             margin-bottom: 16px;
+            color: var(--gray-700);
+            font-size: 1rem;
+        }
+
+        .privacy-container ul {
+            margin-bottom: 16px;
+            padding-left: 24px;
+            color: var(--gray-700);
+            font-size: 1rem;
+            line-height: 1.8;
         }
 
         .highlight {
-            color: #1f8000;
+            color: var(--green);
             font-weight: bold;
         }
 
-        @media (max-width: 600px) {
-            .container {
-                padding: 15px;
+        @media (max-width: 768px) {
+            .privacy-container {
+                padding: var(--spacing-2xl) var(--spacing-md);
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding-top: 60px;
+            }
+
+            .privacy-container {
+                padding: var(--spacing-xl) var(--spacing-sm);
+            }
+
+            .privacy-container h1 {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <h1>Privacy Policy</h1>
-    <p><span class="highlight">Effective Date:</span> 11 July 2024</p>
+<a href="#privacy-content" class="skip-link" style="position: absolute; top: -40px; left: 6px; background: var(--darker-green); color: var(--white); padding: 8px; text-decoration: none; border-radius: var(--radius-md); z-index: 10000; transition: top var(--transition-fast);">Skip to main content</a>
 
-    <p><strong>Ingredient Insight</strong> ("we", "our", or "us") respects your privacy and is committed to protecting any personal information you share with us through this website.</p>
+<nav class="navbar" id="navbar">
+    <div class="container">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-icon">🍳</div>
+                <span>Ingredient Insight</span>
+            </a>
 
-    <h2>1. Information We Collect</h2>
-    <p>When you use our app to create an account and use our services, we may collect the following information:</p>
-    <ul>
-        <li>First and Last Name</li>
-        <li>Email Address</li>
-        <li>Phone Number</li>
-        <li>Type of Service Requested</li>
-        <li>Personal identifiers including gender, race, and demographic info including broad location (continent/country)</li>
-        <li>Information about your dietary restrictions</li>
-        <li>Any additional message or information you include</li>
-    </ul>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#features" class="nav-link">Features</a></li>
+                <li><a href="index.html#waitlist" class="nav-link">Waitlist</a></li>
+                <li><a href="https://theoctane.studio/about" class="nav-link" target="_blank" rel="noopener noreferrer">About</a></li>
+                <li class="nav-menu-cta"><a href="index.html#waitlist" class="btn btn-primary nav-waitlist-btn">Join the Waitlist</a></li>
+            </ul>
 
-    <h2>2. How We Use Your Information</h2>
-    <p>We use the information you provide to:</p>
-    <ul>
-        <li>Contact you regarding your inquiry or quote request</li>
-        <li>Better understand your service needs</li>
-        <li>Improve our services and customer support</li>
-        <li>Improve our site and app designs and functions</li>
-    </ul>
-    <p>We do <strong>not</strong> sell, rent, or trade your personal information to any third parties, or use your personal information and identifiers to make income.</p>
+            <div class="nav-actions">
+                <a href="index.html#waitlist" class="btn btn-primary">Join the Waitlist</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
 
-    <h2>3. Email and Communication</h2>
-    <p>By submitting the form, you consent to being contacted by us regarding any inquiry or updates to this Privacy Policy. We will only use your information for direct communication related to your request.</p>
+<main id="main-content">
+    <div class="privacy-container" id="privacy-content">
+        <h1>Privacy Policy</h1>
+        <p><span class="highlight">Effective Date:</span> 30 July 2026</p>
 
-    <h2>4. Data Retention</h2>
-    <p>We retain the information you provide only as long as necessary to fulfill your request and for basic business records. You may request we delete your information at any time by contacting us.</p>
+        <p><strong>Ingredient Insight</strong> ("we", "our", or "us") respects your privacy and is committed to protecting any personal information you share with us through this website and application.</p>
 
-    <h2>5. Security</h2>
-    <p>We take reasonable steps to protect your personal information but we cannot guarantee complete security.</p>
+        <h2>1. Information We Collect</h2>
+        <p>When you create an account or use our services, we may collect the following information:</p>
+        <ul>
+            <li>Email address (required for account creation)</li>
+            <li>Display name (optional, used to personalize your experience)</li>
+            <li>Dietary restrictions, allergies, and food preferences you choose to save</li>
+            <li>Grocery lists, meal plans, and saved recipes you create</li>
+            <li>Search queries and ingredient entries</li>
+            <li>Usage data such as pages visited and features used</li>
+        </ul>
 
-    <h2>6. Third-Party Links</h2>
-    <p>Our website may contain links to third-party sites. We are not responsible for the privacy practices of those websites.</p>
+        <h2>2. How We Use Your Information</h2>
+        <p>We use the information you provide to:</p>
+        <ul>
+            <li>Create and manage your account</li>
+            <li>Personalize recipe recommendations and search results</li>
+            <li>Save your grocery lists, meal plans, and preferences</li>
+            <li>Improve our recipe matching and dietary filtering algorithms</li>
+            <li>Send occasional product updates and feature announcements (only with your consent)</li>
+            <li>Respond to support inquiries</li>
+        </ul>
+        <p>We do <strong>not</strong> sell, rent, or trade your personal information to any third parties, or use your personal information to generate revenue through advertising or data brokerage.</p>
 
-    <h2>7. Changes to This Policy</h2>
-    <p>We may update this privacy policy from time to time. Any changes will be posted on this page with the updated effective date. Any signed-up user will receive email updates regarding changes to this policy.</p>
+        <h2>3. How We Store Your Data</h2>
+        <p>Your account information and saved data (grocery lists, meal plans, preferences) are stored securely in Firebase Firestore, a cloud database by Google. Authentication is handled through Firebase Authentication. We take reasonable measures to protect your data in transit and at rest.</p>
 
-    <h2>8. Contact Us</h2>
-    <p>If you have any questions or concerns about this Privacy Policy, please contact us at:</p>
-    <p>
-        Ingredient Insight<br />
-        insightingredient@gmail.com<br />
-        (630) 447-8491<br />
-        Based in Chicago, IL
-    </p>
-</div>
+        <h2>4. Email and Communication</h2>
+        <p>By creating an account or joining our waitlist, you may receive occasional emails related to product updates, feature announcements, or changes to this Privacy Policy. You can opt out of marketing emails at any time by contacting us. Transactional emails related to your account or data requests may still be sent.</p>
+
+        <h2>5. Data Retention</h2>
+        <p>We retain your information only as long as necessary to provide our services. You may request deletion of your account and associated data at any time by contacting us. Upon deletion, your data will be removed from our active systems within a reasonable timeframe.</p>
+
+        <h2>6. Third-Party Services</h2>
+        <p>We use the following third-party services:</p>
+        <ul>
+            <li><strong>Firebase (Google)</strong> — Authentication, database (Firestore), and hosting</li>
+            <li><strong>Spoonacular API</strong> — Recipe search and nutritional data (no personal data is shared; only ingredient names and search terms)</li>
+        </ul>
+        <p>These services have their own privacy policies governing the use of your data. We do not share your personal information with them beyond what is necessary to operate the application.</p>
+
+        <h2>7. Third-Party Links</h2>
+        <p>Our website may contain links to third-party sites. We are not responsible for the privacy practices of those websites.</p>
+
+        <h2>8. Changes to This Policy</h2>
+        <p>We may update this privacy policy from time to time. Any changes will be posted on this page with the updated effective date. Account holders will be notified of material changes via email.</p>
+
+        <h2>9. Contact Us</h2>
+        <p>If you have any questions or concerns about this Privacy Policy, or to request access to or deletion of your data, please contact us at:</p>
+        <p>
+            Ingredient Insight<br />
+            insightingredient@gmail.com<br />
+            (630) 447-8491<br />
+            Based in Chicago, IL
+        </p>
+    </div>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    initializeNavigation();
+    initializeScrollEffects();
+    initSmoothScroll();
+    initEscapeKey();
+    initSkipLink();
+});
+
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+function initializeNavigation() {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.style.overflow = hamburger.classList.contains('active') ? 'hidden' : '';
+            const isExpanded = hamburger.classList.contains('active');
+            hamburger.setAttribute('aria-expanded', isExpanded.toString());
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+}
+
+function initializeScrollEffects() {
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', debounce(function() {
+        const scrollTop = document.documentElement.scrollTop;
+
+        if (scrollTop > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+
+        if (scrollTop > lastScroll && scrollTop > 80) {
+            navbar.classList.add('nav-hidden');
+        } else {
+            navbar.classList.remove('nav-hidden');
+        }
+        lastScroll = scrollTop;
+    }, 10));
+}
+
+function initSmoothScroll() {
+    document.addEventListener('click', function(e) {
+        const target = e.target.closest('a[href^="#"]');
+        if (target && target.getAttribute('href') !== '#') {
+            e.preventDefault();
+            const targetId = target.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const offsetTop = targetElement.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    });
+}
+
+function initEscapeKey() {
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+            if (hamburger && navMenu && navMenu.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        }
+    });
+}
+
+function initSkipLink() {
+    const skipLink = document.querySelector('.skip-link');
+    if (skipLink) {
+        skipLink.addEventListener('focus', function() {
+            this.style.top = '6px';
+        });
+        skipLink.addEventListener('blur', function() {
+            this.style.top = '-40px';
+        });
+        skipLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.focus();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+}
+</script>
 </body>
 </html>

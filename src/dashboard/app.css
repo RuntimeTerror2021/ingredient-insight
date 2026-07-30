@@ -1,108 +1,34 @@
 /*
 * Prefixed by https://autoprefixer.github.io
 * PostCSS: v8.4.14,
+  /*color: var(--main-accent-color);
 * Autoprefixer: v10.4.7
 * Browsers: last 4 version
 */
 
+
+@import url("../root.css");
+
 html,
 body {
+  scroll-behavior: smooth;
   height: 100%;
   width: 100%;
   overflow-x: hidden;
   /*-webkit-box-sizing: border-box;*/
           box-sizing: border-box;
-  background: var(--main-bg-color);
-  color: var(--main-accent-color);
+  /*background: var(--main-bg-color);*/
 }
 
 body {
-  background: #06100a;
+  background: var(--deep-green);
   height: 100%;
-  display: grid;
-  grid-template-columns: 18.75rem auto;
+  display: flex;
   overflow: hidden;
   position: relative;
   padding: 0;
   margin: 0;
   column-gap: 1rem;
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: .25rem;
-  height: .5rem;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #48B86E;
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #48b86dec;
-}
-
-::-webkit-scrollbar-thumb:active {
-  filter: brightness(0.95)
-}
-
-@font-face {
-  font-family: "JockeyOne";
-  src: url("../../fonts/JockeyOne-Regular.ttf");
-}
-
-@font-face {
-  font-family: "FM";
-  src: url("../../fonts/FM.otf");
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  font-family: "JockeyOne", "Franklin Gothic Medium", "FM", Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  -moz-user-select: none;
-       user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
-
-:root {
-  --text-color: #ffffff;
-  --text-shadow: 5px 5px 4px rgba(0,0,0, 0.25);
-  --main-theme: #48B86E;
-  --light-theme: #48b86d3d;
-  --accent: #ffffff;
-  --tab-selected: #48b86d9a;
-  font-family: "JockeyOne", system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  /* color-scheme: light dark; */
-  /* color: rgba(255, 255, 255, 0.87); */
-  /* background-color: #242424; */
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-
-  --main-bg-color: #ffffff;
-  --main-form-bg-color: #d4d4d4;
-  --main-link-color: #adadad;
-  --main-accent-color: #48B86E;
-  --logo-font-weight: 800;
 }
 
 .loader-container {
@@ -111,8 +37,7 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-  display: none;
-  /* display: grid; */
+  display: none; /*TODO: use loader, change to flex*/
   justify-content: center;
   align-items: center;
   background-color: #112b1a;
@@ -123,7 +48,7 @@ body {
 }
 
 .loader-container > p {
-  display: grid;
+  display: flex;
   width: 100%;
   justify-content: center;
   align-self: start;
@@ -134,8 +59,8 @@ body {
 
 
 .loader {
-  display: grid;
-  border: 1rem dotted var(--main-theme); /* Light grey */
+  display: flex;
+  border: 1rem dotted var(--light-green); /* Light grey */
   border-top: 1rem solid transparent;
   border-radius: 50%;
   width: 120px;
@@ -178,52 +103,92 @@ button:active {
           box-shadow: none;
 }
 
+main.dashboard-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scrollbar-width: none;          /* Hides scrollbar in Firefox */
+  -ms-overflow-style: none;       /* Hides scrollbar in IE and Edge */
+}
 
+main.dashboard-content::-webkit-scrollbar {
+  display: none;                  /* Hides scrollbar in Chrome, Safari, and Opera */
+}
+
+main * {
+  color: white;
+}
 
 main, main section {
-  display: grid;
+  display: flex;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow-y: scroll;
   position: relative;
   top: 0;
   right: 0;
   padding: 0;
   margin: 0;
+  
+  background: var(--deep-green) !important;
 }
 
 main section {
+  padding: 0;
+  width: 100%;
+  max-width: 1408px;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #386435;
+  border-radius: 32px;
+  overflow: hidden;
+  margin-right: 24px;
+}
+
+main section.dash-tab {
   display: none;
-  height: calc(100vh - 20px);
   align-items: center;
   align-self: center;
   justify-content: center;
   justify-self: center;
   gap: 1em;
-  overflow-y: scroll;
 }
 
 
-main * {
-  color: white;
+main section.dash-tab h1 {
+  font-size: 3rem;
+  color: var(--light-green);
+  text-align: center;
 }
+
+
+main section.dash-tab>div {
+  width: 100%;
+  height: 100%;
+}
+
+
 
 
 /* Style the input fields */
 input{
   display: -webkit-box;
-  display: -ms-flexbox;
+  /*display: -ms-flexbox;*/
   display: flex;
   padding: 10px;
   width: 80%;
   font-size: 17px;
-  border: 1px solid #48B86E;
+  border: 1px solid var(--light-green);
   border-radius: 20px;
   margin-top: 50px;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 100%;
-          flex: 0 1 100%;
+  /*-webkit-box-flex: 0;*/
+  /*    -ms-flex: 0 1 100%;*/
+  /*        flex: 0 1 100%;*/
 }
+
 input:focus {
   outline: none;
 }
@@ -248,12 +213,24 @@ div#heightModal span {
 }
 
 
-/* Mobile Media Query */
+@media only screen and (max-width: 920px) {
+  body {
+    flex-direction: column-reverse;
+  /*  this is to make the nav appear on the bottom instead of left*/
+    align-items: center;
+  }
+
+  main {
+    padding: 2rem 0;
+  }
+
+  main section.dash-tab {
+    margin: 0 2rem
+  }
+}
+
 @media only screen and (max-width: 600px) {
 
-  body {
-    grid-template-columns: 1fr 9fr;
-  }
 
   main > *{
     overflow-x: hidden;
@@ -264,7 +241,7 @@ div#heightModal span {
   }
 
   .checkbox-container > label{
-    -ms-flex-wrap: nowrap;
+    /*-ms-flex-wrap: nowrap;*/
         flex-wrap: nowrap;
   }
 
@@ -280,7 +257,7 @@ div#heightModal span {
   }
 
   .loader {
-    border: 1rem solid var(--main-theme); /* Light grey */
+    border: 1rem solid var(--light-green); /* Light grey */
     border-top: 1rem solid transparent;
   }
 
@@ -291,4 +268,60 @@ div#heightModal span {
     font-size: 1.5rem;
   }
 
+}
+
+/* Dashboard shell: navigation and workspace meet flush at the viewport edges. */
+:root {
+  --dashboard-bg: #102d1d;
+  --dashboard-surface: #183a27;
+  --dashboard-surface-raised: #214a31;
+  --dashboard-line: rgba(202, 235, 207, 0.14);
+  --dashboard-text-muted: #acc7b0;
+  --dashboard-accent: #b6ec9d;
+}
+
+body {
+  background: #0b2217;
+  min-height: 100dvh;
+  column-gap: 0;
+}
+
+main.dashboard-content {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 100dvh;
+  background: var(--dashboard-bg);
+}
+
+main.dashboard-content,
+main.dashboard-content > section.dash-tab {
+  height: 100dvh;
+  min-height: 100dvh;
+  max-height: none;
+}
+
+main.dashboard-content > section.dash-tab {
+  box-sizing: border-box;
+  min-width: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: var(--deep-green);
+}
+
+main.dashboard-content ::-webkit-scrollbar { width: 0.55rem; height: 0.55rem; }
+main.dashboard-content ::-webkit-scrollbar-thumb { background: rgba(182, 236, 157, 0.38); border-radius: 999px; }
+main.dashboard-content ::-webkit-scrollbar-track { background: transparent; }
+
+@media only screen and (max-width: 920px) {
+  body {
+    flex-direction: column;
+    row-gap: 0;
+  }
+
+  main.dashboard-content,
+  main.dashboard-content > section.dash-tab {
+    height: calc(100dvh - 75px);
+    min-height: calc(100dvh - 75px);
+  }
 }

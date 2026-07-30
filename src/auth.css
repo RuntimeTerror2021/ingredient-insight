@@ -1,336 +1,234 @@
-:root {
-  --text-color: #ffffff;
-  --text-shadow: 5px 5px 4px rgba(0,0,0, 0.25);
-  --main-theme: #48B86E;
-  --accent: #ffffff;
-  font-family: "JockeyOne", system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  /* color-scheme: light dark; */
-  /* color: rgba(255, 255, 255, 0.87); */
-  /* background-color: #242424; */
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-
-  --main-bg-color: #ffffff;
-  --main-form-bg-color: #d4d4d4;
-  --main-link-color: #adadad;
-  --main-accent-color: #48B86E;
-  --logo-font-weight: 800;
-}
-
-
-@font-face {
-  font-family: "JockeyOne";
-  src: url("../fonts/JockeyOne-Regular.ttf");
-}
+@import url("root.css");
 
 * {
-  margin: 0;
-  padding: 0;
-  transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
-html,
-body {
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-  overflow-x: hidden;
-  box-sizing: border-box;
-  background: var(--main-bg-color);
-  color: black;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", "OPTIFranklinGothic-Medium", "Franklin Gothic Medium", sans-serif;
+    background: var(--darkest-green);
+    color: #f7fcf5;
 }
 
-
 body {
-  background-color: #06100a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(ellipse at 50% 0%, rgba(182, 236, 157, 0.06) 0%, transparent 60%),
+                var(--darkest-green);
+    padding: 1.5rem;
 }
 
 main {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 420px;
 }
 
-main > a {
-  color: white;
+.auth-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--dashboard-text-muted, #acc7b0);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.auth-back:hover {
+    color: var(--dashboard-accent, #b6ec9d);
 }
 
 form {
-  background: white;
-  padding: 35px;
-  border-radius: 25px;
-
+    display: none;
+    flex-direction: column;
+    background: var(--deep-green, #183a27);
+    border: 1px solid rgba(202, 235, 207, 0.14);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 18px 38px rgba(0, 12, 5, 0.25);
 }
 
-main #join-form {
-  position: relative;
-  height: fit-content;
-  width: fit-content;
-  display: flex;
-  flex-direction: column;
+form#join-form,
+form#login-form {
+    display: none;
 }
 
-main #join-form h1 {
-  font-size: 42px;
+.auth-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
 }
 
-main p {
-  margin-bottom: 42px;
-  font-size: large;
-  color:rgba(0,0,0, 0.55);
+.auth-logo {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 1rem;
+    background: linear-gradient(135deg, var(--dashboard-accent, #b6ec9d) 0%, #8fd975 100%);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
 }
 
-main #join-form input {
-  background: var(--main-form-bg-color);
-  font-family: "JockeyOne", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  color: black;
-  border: 1px solid transparent;
-  outline: 1px solid transparent;
-  padding: 16px 16px 16px;
-  border-radius: 15px;
-  margin-top: 8px;
-  margin-bottom: 16px;
-  transition: 0.3s ease;
+.auth-header h1 {
+    margin: 0 0 0.35rem;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
-main #join-form input:hover {
-  filter: brightness(0.9);
+.auth-header p {
+    margin: 0;
+    color: var(--dashboard-text-muted, #acc7b0);
+    font-size: 0.9rem;
 }
 
-main #join-form input:focus {
-  border: 1px solid var(--main-accent-color);
+.auth-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
 }
 
-
-main #join-form button {
-  background: var(--main-accent-color);
-  font-family: "JockeyOne", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  color: black;
-  border: 1px solid transparent;
-  outline: 1px solid transparent;
-  cursor: pointer;
-  padding: 16px 16px 16px;
-  border-radius: 15px;
-  font-size: 15px;
-  margin-top: 12px;
-  font-weight: 700;
-  transition: 0.3s ease;
+.auth-fields label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--dashboard-text-muted, #acc7b0);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 0.5rem;
 }
 
-button:hover {
-  filter: brightness(0.9);
-  cursor: pointer;
+.auth-fields label:first-child {
+    margin-top: 0;
 }
 
-main #join-form a {
-  font-size: 15px;
-  margin-top: 8px;
+.auth-fields input {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(202, 235, 207, 0.12);
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
+    color: #f7fcf5;
+    font-size: 0.95rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
 }
 
-a {
-  text-decoration: underline;
-  color: black;
+.auth-fields input::placeholder {
+    color: rgba(172, 199, 176, 0.45);
 }
 
-main #join-form a:hover {
-  cursor: pointer;
+.auth-fields input:focus {
+    border-color: var(--dashboard-accent, #b6ec9d);
+    background: rgba(255, 255, 255, 0.08);
 }
 
-main #join-form span.or {
-  display: block;
-  margin: auto;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  color: var(--main-link-color);
-  font-weight: 700;
-  word-spacing: 15px;
+.auth-submit {
+    margin-top: 1.25rem;
+    padding: 0.85rem;
+    border: none;
+    border-radius: 12px;
+    background: var(--dashboard-accent, #b6ec9d);
+    color: #14321c;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: filter 0.2s, transform 0.15s;
 }
 
-main #join-form span.or::before {
-  content: "——————————— ";
-}
-main #join-form span.or::after {
-  content: " ———————————";
+.auth-submit:hover {
+    filter: brightness(1.1);
 }
 
-main #join-form #join-with-google-btn {
-  background: var(--main-form-bg-color);
-  font-weight: 400;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.3s ease;
+.auth-submit:active {
+    transform: scale(0.98);
 }
 
-main #join-form #join-with-google-btn img {
-  height: 20px;
-  width: 20px;
-  margin-right: 10px;
+.auth-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 1.25rem 0;
+    color: var(--dashboard-text-muted, #acc7b0);
+    font-size: 0.8rem;
+    font-weight: 500;
 }
 
-main #login-form {
-  display: none;
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(202, 235, 207, 0.14);
 }
 
-main #login-form #login-with-google-btn {
-  background: var(--main-form-bg-color);
-  font-weight: 400;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.3s ease;
+.auth-google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 0.8rem;
+    border: 1px solid rgba(202, 235, 207, 0.12);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #f7fcf5;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
-main #login-form #login-with-google-btn:hover {
-  filter: brightness(0.9);
-  cursor: pointer;
+.auth-google:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
-main #login-form #login-with-google-btn img {
-  height: 20px;
-  width: 20px;
-  margin-right: 10px;
+.auth-google img {
+    width: 20px;
+    height: 20px;
 }
 
-main #login-form {
-  position: relative;
-  display: none;
-  height: fit-content;
-  width: fit-content;
-  flex-direction: column;
+.auth-switch {
+    margin: 1.25rem 0 0;
+    text-align: center;
+    color: var(--dashboard-text-muted, #acc7b0);
+    font-size: 0.85rem;
 }
 
-main #login-form h1 {
-  font-size: 42px;
+.auth-switch a {
+    color: var(--dashboard-accent, #b6ec9d);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: filter 0.2s;
 }
 
-main #login-form p {
-  margin-bottom: 42px;
-  font-size: large;
+.auth-switch a:hover {
+    filter: brightness(1.2);
+    text-decoration: underline;
 }
 
-main #login-form input {
-  background: var(--main-form-bg-color);
-  color: black;
-  border: 1px solid transparent;
-  outline: 1px solid transparent;
-  padding: 16px 16px 16px;
-  border-radius: 15px;
-  margin-top: 8px;
-  margin-bottom: 16px;
-  transition: 0.3s ease;
-  font-family: "JockeyOne", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
+@media (max-width: 480px) {
+    body {
+        padding: 1rem;
+        align-items: flex-start;
+        padding-top: 2.5rem;
+    }
 
-main #login-form input:hover {
-  filter: brightness(1.2);
-}
+    form {
+        padding: 1.5rem;
+        border-radius: 16px;
+    }
 
-main #login-form input:focus {
-  border: 1px solid var(--main-accent-color);
-}
-
-main #login-form button {
-  background: var(--main-accent-color);
-  color: black;
-  border: 1px solid transparent;
-  outline: 1px solid transparent;
-  cursor: pointer;
-  padding: 16px 16px 16px;
-  border-radius: 15px;
-  font-size: 15px;
-  margin-top: 12px;
-  font-weight: 700;
-  transition: 0.3s ease;
-  font-family: "JockeyOne", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
-main #login-form a {
-  font-size: 15px;
-  margin-top: 8px;
-}
-
-main #login-form a:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-main #login-form span.or {
-  display: block;
-  margin: auto;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  color: var(--main-link-color);
-  word-spacing: 15px;
-}
-
-main #login-form span.or::before {
-  content: "——————————— ";
-}
-main #login-form span.or::after {
-  content: " ———————————";
-}
-
-button, .home-btn > a {
-  display: flex;
-  justify-content: center;
-  justify-self: stretch;
-  align-items: center;
-  text-decoration: none;
-  
-}
-
-.home-btn > a {
-  color: white;
-  flex: 0 0 100%;
-  width: 100%;
-  height: calc(100% - 12px);
-  padding: 1rem 1rem 1rem;
-}
-
-main #login-form button.home-btn, main #join-form button.home-btn {
-  background-color: #06100a;
-  height: fit-content;
-  padding: 0;
-  
-}
-
-button.home-btn:hover {
-  background-color: black !important;
-}
-
-button.home-btn a:hover, button.home-btn a:active {
-  text-decoration: none !important; 
-}
-
-@media only screen and (max-width: 600px) {
-  /* mobile media queries */
-
-  body {
-    background: white;
-  }
-
-  main #login-form {
-    width: 85dvw;
-    height: 95dvh;
-    transform: scale(0.95);
-  }
-
-  main #join-form span.or::before,
-  main #join-form span.or::after,
-  main #login-form span.or::before, 
-  main #login-form span.or::after {
-    content: "";
-  }
-
+    .auth-header h1 {
+        font-size: 1.35rem;
+    }
 }

@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta Tags -->
-    <title>Ingredient Insight - Transform Your Kitchen Into a Culinary Haven | Recipe Discovery App</title>
-    <meta name="description" content="Discover delicious recipes using ingredients you already have. Ingredient Insight helps you cook with confidence, manage dietary restrictions, and plan meals effortlessly. Join thousands of home cooks today!">
-    <meta name="keywords" content="recipe app, ingredient search, meal planning, dietary filters, cooking app, recipe finder, kitchen helper, food allergies, meal prep">
-    <meta name="author" content="Ingredient Insight">
+    <title>Ingredient Insight | Smart Recipe Discovery</title>
+    <meta name="description" content="Discover delicious recipes using ingredients you already have. Join the waitlist for early access to the smartest way to cook with confidence.">
+    <meta name="keywords" content="recipe app, ingredient search, meal planning, cooking app, recipe finder, waitlist">
+    <meta name="author" content="Octane Studio">
     <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="iTDkkwh5dljRrud-quB5frQUdYHbe7mHwcHmfLhq5M4" />
 
     <!-- Open Graph Meta Tags for Social Sharing -->
     <meta property="og:title" content="Ingredient Insight - Transform Your Kitchen Into a Culinary Haven">
@@ -35,8 +36,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/70b8bf7978.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+
 
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
@@ -66,7 +70,7 @@
 </head>
 <body>
 <!-- Skip to main content for accessibility -->
-<a href="#main-content" class="skip-link" style="position: absolute; top: -40px; left: 6px; background: var(--primary-green); color: var(--white); padding: 8px; text-decoration: none; border-radius: var(--radius-md); z-index: 10000; transition: top var(--transition-fast);">Skip to main content</a>
+<a href="#features" class="skip-link" style="position: absolute; top: -40px; left: 6px; background: var(--darker-green); color: var(--white); padding: 8px; text-decoration: none; border-radius: var(--radius-md); z-index: 10000; transition: top var(--transition-fast);">Skip to main content</a>
 
 <!-- Navigation -->
 <nav class="navbar" id="navbar">
@@ -80,13 +84,13 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#features" class="nav-link">Features</a></li>
-                <li><a href="#testimonials" class="nav-link">Reviews</a></li>
-<!--                <li><a href="#pricing" class="nav-link">Pricing</a></li>-->
+                <li><a href="#waitlist" class="nav-link">Waitlist</a></li>
+                <li><a href="https://theoctane.studio/about" class="nav-link" target="_blank" rel="noopener noreferrer">About</a></li>
+                <li class="nav-menu-cta"><a href="#waitlist" class="btn btn-primary nav-waitlist-btn">Join the Waitlist</a></li>
             </ul>
 
             <div class="nav-actions">
-                <a href="javascript:alert('Site under construction, check back later for updates!')" class="btn btn-secondary">Log In</a>
-                <a href="javascript:alert('Site under construction, check back later for updates!')" class="btn btn-primary">Get Started</a>
+                <a href="#waitlist" class="btn btn-primary">Join the Waitlist</a>
                 <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
                     <span></span>
                     <span></span>
@@ -106,14 +110,13 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Transform Your Kitchen Into a Culinary Haven</h1>
+                    <h1>What's in Your Fridge?<br>Let's Make Something Amazing.</h1>
                     <p class="hero-subtitle">
-                        Stop wondering "what's for dinner?" and start creating magic with what you already have.
+                        Stop staring into the fridge. Start cooking with what you have.
                     </p>
                     <p class="hero-description">
-                        Discover thousands of delicious recipes using ingredients you already have at home.
-                        Whether you're a culinary expert or just starting out, Ingredient Insight makes
-                        cooking exciting, accessible, and stress-free.
+                        Ingredient Insight finds delicious recipes from the ingredients you already own.
+                        Smart filters, meal plans, and grocery lists, all in one place.
                     </p>
 
                     <div class="hero-stats">
@@ -122,7 +125,7 @@
                             <span class="stat-label">Happy Cooks</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number" data-target="365000">0</span>
+                            <span class="stat-number" data-target="65000">0</span>
                             <span class="stat-label">Recipes Found</span>
                         </div>
                         <div class="stat">
@@ -132,15 +135,10 @@
                     </div>
 
                     <div class="hero-actions">
-                        <a href="javascript:alert('Site under construction, check back later for updates!')" class="btn btn-white btn-large">
-                            <i class="fas fa-search" aria-hidden="true"></i>
-                            Find Recipes Now
+                        <a href="#waitlist" class="btn btn-white btn-large">
+                            <i class="fa-solid fa-rocket" aria-hidden="true"></i>
+                            Get Early Access
                         </a>
-<!--                        TODO: Video-->
-<!--                        <a href="#features" class="btn btn-secondary btn-large">-->
-<!--                            <i class="fas fa-play" aria-hidden="true"></i>-->
-<!--                            See How It Works-->
-<!--                        </a>-->
                     </div>
                 </div>
 
@@ -167,86 +165,81 @@
         </div>
     </section>
 
-    <!-- Features Section -->
     <section id="features" class="features">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header scroll-animate">
                 <h2>Everything You Need to Cook with Confidence</h2>
                 <p class="section-subtitle">
-                    Powerful features designed to make cooking easier, safer, and more enjoyable
+                    Built for real kitchens. Search by ingredient, filter by diet, plan your week.
                 </p>
             </div>
 
             <div class="features-grid">
-                <!-- Ingredient-Based Search -->
-                <div class="feature-card scroll-animate">
+                <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-search" aria-hidden="true"></i>
+                        <i class="fa-solid fa-search" aria-hidden="true"></i>
                     </div>
                     <h3>Ingredient-Based Search</h3>
                     <p>
-                        Turn your kitchen into a gourmet haven starting from the ingredients you already have!
-                        Simply input what's in your pantry and discover amazing recipes.
+                        Type what's in your pantry and we'll find recipes that use it. No more
+                        "I have nothing to eat" moments.
                     </p>
                     <ul class="feature-benefits">
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Search by multiple ingredients</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Smart recipe matching</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Reduce food waste</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Save money on groceries</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Search by multiple ingredients</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Smart recipe matching</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Reduce food waste</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Save money on groceries</li>
                     </ul>
                 </div>
 
-                <!-- Dietary Filters -->
-                <div class="feature-card scroll-animate">
+                <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-sliders" aria-hidden="true"></i>
+                        <i class="fa-solid fa-sliders" aria-hidden="true"></i>
                     </div>
                     <h3>Advanced Dietary Filters</h3>
                     <p>
-                        Cook with confidence and peace of mind, knowing that every recipe you find
-                        meets your dietary requirements perfectly.
+                        Allergies? Preferences? Restrictions? Every recipe you find will match
+                        your needs — no second-guessing.
                     </p>
                     <ul class="feature-benefits">
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Allergy-safe recipes</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Dietary preference filters</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Nutritional information</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Custom restrictions</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Allergy-safe recipes</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Dietary preference filters</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Nutritional information</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Custom restrictions</li>
                     </ul>
                 </div>
 
-                <!-- Grocery List Generation -->
-                <div class="feature-card scroll-animate">
+                <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                        <i class="fa-solid fa-shopping-cart" aria-hidden="true"></i>
                     </div>
                     <h3>Smart Grocery Lists</h3>
                     <p>
-                        Streamline your shopping and save time with intelligent grocery list generation
-                        that makes your culinary adventures hassle-free.
+                        Pick a recipe, get a list. Organized by section, calculated by quantity.
+                        Shopping has never been this smooth.
                     </p>
                     <ul class="feature-benefits">
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Auto-generated lists</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Organized by store sections</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Quantity calculations</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Share with family</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Auto-generated lists</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Organized by store sections</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Quantity calculations</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Share with family</li>
                     </ul>
                 </div>
 
-                <!-- Meal Planning -->
-                <div class="feature-card scroll-animate">
+                <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                        <i class="fa-solid fa-calendar-alt" aria-hidden="true"></i>
                     </div>
                     <h3>Personalized Meal Planning</h3>
                     <p>
-                        Achieve your health and fitness goals effortlessly with personalized meal plans
-                        tailored to your lifestyle and preferences.
+                        Plan your week in minutes. Track calories, optimize prep time, and
+                        keep the whole family happy.
                     </p>
                     <ul class="feature-benefits">
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Weekly meal plans</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Calorie tracking</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Prep time optimization</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Family-friendly options</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Weekly meal plans</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Calorie tracking</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Prep time optimization</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Family-friendly options</li>
                     </ul>
                 </div>
             </div>
@@ -256,10 +249,10 @@
     <!-- Social Proof Section -->
     <section id="testimonials" class="social-proof">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header scroll-animate">
                 <h2>Loved by Home Cooks Everywhere</h2>
                 <p class="section-subtitle">
-                    Join thousands of satisfied users who've transformed their cooking experience
+                    Real people, real kitchens, real results.
                 </p>
             </div>
 
@@ -267,16 +260,15 @@
                 <div class="testimonial-card scroll-animate">
                     <div class="testimonial-content">
                         <div class="stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
                         </div>
                         <p class="testimonial-text">
-                            "This app completely changed how I cook! I used to throw away so much food,
-                            but now I can find amazing recipes with whatever I have in my fridge.
-                            It's like having a personal chef!"
+                            "I used to throw away so much food. Now I just type in what's in my fridge
+                            and find amazing recipes. It's like magic."
                         </p>
                     </div>
                     <div class="testimonial-author">
@@ -291,15 +283,15 @@
                 <div class="testimonial-card scroll-animate">
                     <div class="testimonial-content">
                         <div class="stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
                         </div>
                         <p class="testimonial-text">
-                            "As someone with multiple food allergies, finding safe recipes was always stressful.
-                            Ingredient Insight's dietary filters give me complete confidence in what I'm cooking."
+                            "Multiple food allergies made cooking stressful. The dietary filters
+                            gave me confidence again. I actually enjoy cooking now."
                         </p>
                     </div>
                     <div class="testimonial-author">
@@ -314,15 +306,15 @@
                 <div class="testimonial-card scroll-animate">
                     <div class="testimonial-content">
                         <div class="stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
                         </div>
                         <p class="testimonial-text">
-                            "The meal planning feature is a game-changer! I've lost 15 pounds just by following
-                            the personalized meal plans. It makes healthy eating so much easier."
+                            "Meal planning used to take hours. Now I do it in minutes. Lost 15 pounds
+                            and kept it off. This app changed my life."
                         </p>
                     </div>
                     <div class="testimonial-author">
@@ -336,58 +328,54 @@
             </div>
 
             <div class="trust-indicators">
-                <div class="trust-item">
-                    <i class="fas fa-users" aria-hidden="true"></i>
-                    <div>
-                        <div class="trust-number">50+</div>
-                        <div>Active Users</div>
-                    </div>
+                <div class="trust-card">
+                    <div class="trust-card-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
+                    <div class="trust-number">50+</div>
+                    <div class="trust-label">Active Users</div>
                 </div>
-                <div class="trust-item">
-                    <i class="fas fa-star" aria-hidden="true"></i>
-                    <div>
-                        <div class="trust-number">4.5/5</div>
-                        <div>Average User Rating</div>
-                    </div>
+                <div class="trust-card">
+                    <div class="trust-card-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+                    <div class="trust-number">4.5/5</div>
+                    <div class="trust-label">Average Rating</div>
                 </div>
-                <div class="trust-item">
-                    <i class="fas fa-utensils" aria-hidden="true"></i>
-                    <div>
-                        <div class="trust-number">365,000+</div>
-                        <div>Recipes Discovered</div>
-                    </div>
+                <div class="trust-card">
+                    <div class="trust-card-icon"><i class="fa-solid fa-utensils" aria-hidden="true"></i></div>
+                    <div class="trust-number">365K+</div>
+                    <div class="trust-label">Recipes Discovered</div>
                 </div>
-                <div class="trust-item">
-                    <i class="fas fa-clock" aria-hidden="true"></i>
-                    <div>
-                        <div class="trust-number">3 mins</div>
-                        <div>Average Search Time</div>
-                    </div>
+                <div class="trust-card">
+                    <div class="trust-card-icon"><i class="fa-solid fa-clock" aria-hidden="true"></i></div>
+                    <div class="trust-number">3 min</div>
+                    <div class="trust-label">Avg Search Time</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Call-to-Action Section -->
-    <section class="cta-section">
+    <!-- Waitlist Section -->
+    <section id="waitlist" class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to Transform Your Cooking?</h2>
-                <p>
-                    Join thousands of home cooks who've discovered the joy of stress-free,
-                    delicious cooking. Start your culinary journey today – it's completely free!
+                <h2 class="scroll-animate">Be the First to Cook Smarter</h2>
+                <p class="scroll-animate">
+                    Coming soon. Join the waitlist and get early access — plus a few
+                    surprises for our earliest supporters.
                 </p>
-                <div class="cta-actions">
-                    <a href="javascript:alert('Site under construction, check back later for updates!')" class="btn btn-primary btn-large">
-                        <i class="fas fa-rocket" aria-hidden="true"></i>
-                        Start Cooking Now
-                    </a>
-<!--                    TODO: Create Demo Video and link here: (use modal player)-->
-<!--                    <a href="#" class="btn btn-white btn-large">-->
-<!--                        <i class="fas fa-play" aria-hidden="true"></i>-->
-<!--                        Watch Demo-->
-<!--                    </a>-->
-                </div>
+                <form class="waitlist-form scroll-animate" id="waitlist-form">
+                    <input
+                        type="email"
+                        id="waitlist-email"
+                        class="waitlist-input"
+                        placeholder="Enter your email"
+                        required
+                        autocomplete="email"
+                    >
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <i class="fa-solid fa-rocket" aria-hidden="true"></i>
+                        Join the Waitlist
+                    </button>
+                </form>
+                <p class="waitlist-message" id="waitlist-message"></p>
             </div>
         </div>
     </section>
@@ -403,8 +391,7 @@
                     <span>Ingredient Insight</span>
                 </div>
                 <p class="footer-description">
-                    Transform your kitchen into a culinary haven with smart recipe discovery,
-                    dietary filters, and personalized meal planning.
+                    Made with 🧠
                 </p>
             </div>
 
@@ -421,35 +408,32 @@
             <div class="footer-section">
                 <h4>Company</h4>
                 <ul class="footer-links">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Press</a></li>
+                    <li><a href="https://theoctane.studio/about" target="_blank" rel="noopener noreferrer">About Us</a></li>
+                    <li><a href="#waitlist">Waitlist</a></li>
                 </ul>
             </div>
 
             <div class="footer-section">
                 <h4>Support</h4>
                 <ul class="footer-links">
-                    <li><a href="#">Help Center</a></li>
                     <li><a href="mailto:insightingredient@gmail.com">Contact Us</a></li>
                     <li><a href="privacy.html">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
+<!--                    <li><a href="#">Terms of Service</a></li>-->
                 </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2025 Ingredient Insight. All rights reserved.</p>
+            <p>&copy; 2026 <a href="https://theoctane.studio/" target="_blank" rel="noopener noreferrer" style="color: var(--green);">Octane</a>. All rights reserved.</p>
             <div class="footer-bottom-links">
                 <a href="privacy.html">Privacy</a>
-                <a href="#">Terms</a>
-<!--                <a href="#">Cookies</a>-->
+<!--                <a href="#">Terms</a>-->
             </div>
         </div>
     </div>
 </footer>
 
 <script type="module" src="src/main.js"></script>
+
 </body>
 </html>

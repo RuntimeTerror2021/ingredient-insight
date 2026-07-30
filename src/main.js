@@ -14,15 +14,19 @@ TABLE OF CONTENTS:
 ==============================================
 */
 
+import {animate, inView, stagger, scroll} from "motion"
+import { app } from './firebase-config.js';
+import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
+
+const db = getFirestore(app);
+
 // =========== 1. DOM Content Loaded Event ===========
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all functionality when DOM is ready
     initializeNavigation();
     initializeScrollEffects();
     initializeHeroEffects();
     initializeScrollAnimations();
-
-    // console.log('Ingredient Insight redesigned website initialized successfully');
+    initializeWaitlist();
 });
 
 // =========== 2. Navigation & Mobile Menu ===========
@@ -92,6 +96,7 @@ function initializeNavigation() {
 // =========== 3. Scroll Effects & Animations ===========
 function initializeScrollEffects() {
     const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
 
     window.addEventListener('scroll', debounce(function() {
         const scrollTop = document.documentElement.scrollTop;
@@ -102,6 +107,14 @@ function initializeScrollEffects() {
         } else {
             navbar.classList.remove('scrolled');
         }
+
+        // Hide on scroll down, show on scroll up
+        if (scrollTop > lastScroll && scrollTop > 80) {
+            navbar.classList.add('nav-hidden');
+        } else {
+            navbar.classList.remove('nav-hidden');
+        }
+        lastScroll = scrollTop;
     }, 10));
 }
 
@@ -294,5 +307,53 @@ document.addEventListener('click', function(e) {
         }
     }
 });
+//
+// const animation = animate('.floating-card',
+//     {transform: ['none', 'translateX(200px)']},
+//     {ease: 'easeOut',});
+//
+// scroll(animation);
 
-// console.log('Ingredient Insight loaded successfully');
+// Waitlist signup
+function initializeWaitlist() {
+    const form = document.getElementById('waitlist-form');
+    const emailInput = document.getElementById('waitlist-email');
+    const messageEl = document.getElementById('waitlist-message');
+
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const email = emailInput.value.trim();
+        if (!email) return;
+
+        messageEl.textContent = '';
+        messageEl.className = 'waitlist-message';
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Joining...';
+
+        try {
+            await addDoc(collection(db, 'waitlist'), {
+                email,
+                createdAt: serverTimestamp(),
+                source: 'landing-page'
+            });
+
+            messageEl.textContent = "You're on the list! We'll be in touch soon.";
+            messageEl.classList.add('success');
+            emailInput.value = '';
+        } catch (error) {
+            console.error('Waitlist error:', error);
+            messageEl.textContent = 'Something went wrong. Please try again.';
+            messageEl.classList.add('error');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fa-solid fa-rocket" aria-hidden="true"></i> Join the Waitlist';
+            messageEl.textContent = "";
+            messageEl.className = "waitlist-message";
+        }
+    });
+}
+

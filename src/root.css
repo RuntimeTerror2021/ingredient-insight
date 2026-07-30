@@ -1,0 +1,106 @@
+/* =========== 1. CSS Variables & Reset =========== */
+@font-face {
+    font-family: 'OPTIFranklinGothic-Medium';
+    src:url('../fonts/OPTIFranklinGothic-Medium.ttf.woff') format('woff'),
+    url('../fonts/OPTIFranklinGothic-Medium.ttf.svg#OPTIFranklinGothic-Medium') format('svg'),
+    url('../fonts/OPTIFranklinGothic-Medium.ttf.eot'),
+    url('../fonts/OPTIFranklinGothic-Medium.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    /* Color Palette - Green, Black, White */
+    /*--primary-green: rgb(34, 139, 34);*/
+    /*--primary-green-dark: rgb(26, 110, 26);*/
+    /*--primary-green-light: rgb(37, 152, 37);*/
+    /*--accent-green: #10b937;*/
+    /*--accent-green-dark: rgba(5, 150, 17, 0.99);*/
+
+    --deep-green: #002101;
+    --darkest-green: #0f3510;
+    --darker-green: #1e481e;
+    --dark-green: #386435;
+    --semidark-green: #558450;
+    --green: #71a46b;
+    --light-green: #91c78a;
+    --white: #f9f9f9;
+    --off-white: rgba(249, 249, 249, 0.95);
+
+
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    --black: #000000;
+
+    /* Typography */
+    --font-primary: 'OPTIFranklinGothic-Medium', 'Franklin Gothic Medium', sans-serif;
+    --font-display: 'OPTIFranklinGothic-Medium', 'Franklin Gothic Medium', sans-serif;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+    --spacing-4xl: 6rem;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-green: 0 10px 15px -3px rgba(34, 197, 94, 0.2), 0 4px 6px -2px rgba(34, 197, 94, 0.1);
+
+    /* Transitions */
+    --transition-fast: 0.15s ease-in-out;
+    --transition-normal: 0.3s ease-in-out;
+    --transition-slow: 0.5s ease-in-out;
+
+    --tooltip-delay: 500ms;
+
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+
+    /* Container */
+    --container-max-width: 1200px;
+
+    /* Z-Index Scale */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal: 1040;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    font-family: 'OPTIFranklinGothic-Medium', 'Franklin Gothic Medium', sans-serif;
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}

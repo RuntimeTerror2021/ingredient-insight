@@ -1,0 +1,157 @@
+main section.articles-tab {
+	display: none;
+	justify-content: space-evenly !important;
+	width: 100%;
+	max-height: none;
+	align-items: flex-start;
+	flex-direction: column;
+	/*padding: 0 clamp(1.25rem, 3vw, 2.5rem) !important;*/
+	padding: 0;
+	background: var(--dashboard-bg);
+}
+
+section.articles-tab .scroll-container {
+	overflow-y: scroll;
+	scrollbar-color: var(--semidark-green) var(--darker-green);
+	scroll-padding-bottom: 4rem;
+}
+
+section.articles-tab .scroll-container hr {
+	width: 75%;
+	min-width: 120px;
+	border-color: var(--semidark-green) var(--darker-green) var(--darker-green);
+	margin: 2rem auto;
+}
+
+section.articles-tab .featured-content {
+	padding: 0 1rem;
+}
+
+section.articles-tab .featured-content h1 {
+	margin: 2rem 0;
+	font-family: OPTIFranklinGothic-Medium, Helvetica, sans-serif, serif;
+	font-size: clamp(32px, 10vw, 3rem);
+	letter-spacing: -3%;
+}
+
+section.articles-tab .cards-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	column-gap: 1rem;
+	row-gap: 1.5rem;
+}
+
+section.articles-tab .cards-container .story-card {
+	width: fit-content;
+	overflow: hidden;
+	border: 1px solid var(--darker-green);
+	border-radius: 1rem;
+	background-color: var(--darker-green);
+	box-shadow: 0 0.75rem 1.75rem rgba(0, 24, 10, 0.14);
+}
+
+section.articles-tab .cards-container .story-card:active,
+section.articles-tab .cards-container .story-card:hover {
+	transform: scale(1.001) translateY(-2px);
+	box-shadow: 0 0.25rem .5rem rgba(255, 255, 255, 0.24);
+	cursor: pointer;
+}
+
+section.articles-tab .cards-container .story-card .story-img-container {
+	display: flex;
+	position: relative;
+	justify-content: center;
+	background: var(--dashboard-surface);
+}
+
+section.articles-tab .cards-container .story-card .story-img-container::after {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to bottom, transparent 35%, var(--darker-green) 100%);
+	content: "";
+	pointer-events: none;
+}
+
+section.articles-tab .cards-container .story-card .story-img-container .story-img {
+	object-fit: cover;
+	margin: 0;
+	border: 0;
+	border-radius: 0;
+	filter: blur(.25px);
+	-webkit-mask-image: linear-gradient(to bottom, #000 90%, transparent 100%);
+	mask-image: linear-gradient(to bottom, #000 90%, transparent 100%);
+}
+
+section.articles-tab .cards-container .story-card .story-info {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	padding: 0 1rem 1rem;
+}
+
+section.articles-tab .cards-container .story-card .story-info h4 {
+	display: inline-block;
+	width: 250px;
+	overflow: hidden;
+	color: #fff;
+	font-family: OPTIFranklinGothic-Medium, Helvetica, sans-serif, serif;
+	font-size: 1rem;
+	text-overflow: "...";
+	text-wrap: nowrap;
+}
+
+section.articles-tab .cards-container .story-card .story-info p {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	margin-left: 0;
+	padding-left: 0;
+	color: #fff;
+	font-family: OPTIFranklinGothic-Medium, Helvetica, sans-serif, serif;
+	font-size: .75rem;
+}
+
+section.articles-tab .cards-container .story-card .story-info p::after {
+	margin-left: auto;
+	color: var(--dashboard-accent);
+	content: "\f35d";
+	font-family: "Font Awesome 5 Free";
+	font-size: 0.85rem;
+	font-weight: 900;
+}
+
+section.articles-tab .featured-content .cards-container .story-card {
+	border-color: rgba(182, 236, 157, 0.72);
+	background-color: var(--dashboard-accent);
+}
+
+section.articles-tab .featured-content .cards-container .story-img-container {
+	background: var(--dashboard-accent);
+}
+
+section.articles-tab .featured-content .cards-container .story-img-container::after {
+	background: linear-gradient(to bottom, transparent 35%, var(--dashboard-accent) 100%);
+}
+
+section.articles-tab .featured-content .cards-container .story-card .story-info h4,
+section.articles-tab .featured-content .cards-container .story-card .story-info p,
+section.articles-tab .featured-content .cards-container .story-card .story-info p::after {
+	color: #14321c;
+}
+
+section.articles-tab .suggested-content {
+	padding: 0 1rem 4rem;
+}
+
+section.articles-tab .suggested-content h2 {
+	margin: 2rem 0;
+	font-family: OPTIFranklinGothic-Medium, Helvetica, sans-serif, serif;
+	font-size: clamp(24px, 10vw, 2.25rem);
+	text-align: center;
+	letter-spacing: -2%;
+}
