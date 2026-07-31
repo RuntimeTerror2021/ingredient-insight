@@ -61,7 +61,7 @@ main section.search-tab .search-bar-container button.filters {
 	font-size: 1rem;
 	max-height: 2.25rem;
 	width: fit-content;
-	font-family: "Jockey One";
+	font-family: "Jockey One", OPTIFranklinGothic-Medium, "OPTIFranklinGothic-Medium", sans-serif;
 }
 
 
@@ -601,7 +601,7 @@ main section.search-tab .search-group .search-topics .search-topic-opts-containe
 }
 
 main section.search-tab .search-group .search-topics .search-topic-opts-container button.search-topic-opt span {
-	font-family: "Jockey One", serif;
+	font-family: "Jockey One", OPTIFranklinGothic-Medium, "Franklin Gothic Medium", sans-serif, serif;
 	font-size: 1rem;
 	padding: 2px;
 }
