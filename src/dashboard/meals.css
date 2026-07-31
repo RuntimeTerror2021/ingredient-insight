@@ -67,12 +67,12 @@
   color: white !important;
   font-size: clamp(2rem, 4vw, 3rem) !important;
   text-align: left !important;
-  letter-spacing: -5%;
+  letter-spacing: -3%;
 }
 
 .meal-subtitle {
   max-width: 480px;
-  margin-bottom: 0;
+  margin-bottom: 12px;
   color: var(--dashboard-text-muted) !important;
   font-size: 1rem;
   margin-left: 0 !important;
@@ -83,7 +83,7 @@
   height: 44px;
   padding: 0 18px;
   border-radius: 12px;
-  background: #285d38;
+  background: oklch(from var(--darkest-green) .5 c h / 1);
   box-shadow: none;
   color: white !important;
   font-size: 0.88rem;
@@ -108,7 +108,7 @@
 .meal-recipes {
   border: 1px solid var(--dashboard-line, rgba(202, 235, 207, 0.14));
   border-radius: 20px;
-  background: var(--darkest-green, #183a27);
+  background: oklch(from var(--darker-green) l c h / 0.5);
   box-shadow: 0 18px 38px rgba(0, 12, 5, 0.2);
 }
 
@@ -141,10 +141,10 @@
   height: 32px;
   padding: 0;
   border: 1px solid var(--dashboard-line, rgba(202, 235, 207, 0.14));
-  border-radius: 9px;
-  background: var(--dashboard-surface-raised, #214a31);
+  border-radius: .85rem;
+  background: var(--deep-green, #214a31);
   box-shadow: none;
-  color: var(--dashboard-accent, #b6ec9d) !important;
+  color: var(--light-green, #b6ec9d) !important;
   font-size: 0.75rem;
 }
 
@@ -391,7 +391,7 @@
 }
 
 .meal-meal-type {
-  justify-content: space-between;
+  justify-content: center;
   padding-top: 15px;
   border-top: 1px solid var(--dashboard-line, rgba(202, 235, 207, 0.14));
   color: var(--dashboard-text-muted, #acc7b0) !important;
@@ -406,18 +406,19 @@
 
 .meal-meal-type button {
   width: auto;
-  height: 27px;
-  padding: 0 7px;
-  border-radius: 7px;
+  height: 32px;
+  padding: 5px 10px;
+  border-radius: 0.85rem;
   background: transparent;
   box-shadow: none;
   color: var(--dashboard-text-muted, #acc7b0) !important;
   font-size: 0.66rem;
+  border: 1px solid var(--dark-green);
 }
 
 .meal-meal-type button.active {
-  background: rgba(182, 236, 157, 0.13);
-  color: var(--dashboard-accent, #b6ec9d) !important;
+  background: var(--light-green);
+  color: var(--deep-green) !important;
 }
 
 /* Saved recipes */

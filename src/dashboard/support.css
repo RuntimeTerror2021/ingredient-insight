@@ -109,7 +109,7 @@ nav#sidebar .support-nav-separator {
 .legal-help {
   border: 1px solid var(--dashboard-line);
   border-radius: 1.25rem;
-  background: var(--dashboard-surface);
+  background: oklch(from var(--darkest-green) l c h / 0.5);;
   box-shadow: 0 1.1rem 2.75rem rgba(0, 12, 5, 0.18);
 }
 
@@ -337,7 +337,7 @@ nav#sidebar .support-nav-separator {
   display: flex;
   flex-direction: column;
   /*gap: 0.55rem;*/
-  background: var(--dashboard-surface);
+  background: oklch(from var(--darkest-green) l c h / 0.5);
 }
 
 .feedback-note h2 {
@@ -377,7 +377,7 @@ nav#sidebar .support-nav-separator {
 
 .feedback-contact {
   /*background: rgba(182, 236, 157, 0.1);*/
-  background: var(--dashboard-surface);
+  background: var(--dark-green);
 }
 
 .feedback-contact > i {
@@ -478,6 +478,7 @@ nav#sidebar .support-nav-separator {
   display: flex;
   gap: 1rem;
   padding: 1rem 1.25rem;
+  background: oklch(from var(--darkest-green) l c h / 0.5);
 }
 
 .legal-document-icon {

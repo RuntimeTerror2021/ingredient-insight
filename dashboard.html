@@ -24,7 +24,7 @@
 
 
     <!-- run ASAP -->
-    <script async type="module" src="src/app.js"></script>
+    <script type="module" src="src/app.js"></script>
 <!--    <script src="src/trigram.js" type="module"></script>-->
     
 
@@ -720,7 +720,7 @@
               <h1>Meal Planner</h1>
               <p class="meal-subtitle">Choose a day, then add a recipe you’ll be excited to make.</p>
             </div>
-            <button type="button" class="meal-grocery-action"><i class="fas fa-cart-shopping"></i> Make grocery list</button>
+<!--            <button type="button" class="meal-grocery-action"><i class="fas fa-cart-shopping"></i> Make grocery list</button>-->
           </header>
 
           <div class="meal-planner-grid">
@@ -741,15 +741,15 @@
             <aside class="meal-day-panel" aria-live="polite">
               <div class="meal-day-heading">
                 <div><p class="meal-eyebrow">Plan for</p><h2 id="meal-selected-date">Select a day</h2></div>
-                <span class="meal-day-icon"><i class="fas fa-utensils"></i></span>
+<!--                <span class="meal-day-icon"><i class="fas fa-utensils"></i></span>-->
               </div>
-              <div class="meal-empty-state" id="meal-empty-state"><i class="fas fa-calendar-plus"></i><p>No meal planned yet.</p><span>Pick one from your saved recipes below.</span></div>
+              <div class="meal-empty-state" id="meal-empty-state"><i class="fas fa-calendar-plus"></i><p>No meal planned yet.</p><span>Pick one from your saved recipes.</span></div>
               <article class="meal-assignment" id="meal-assignment" hidden>
                 <div class="meal-assignment-image"><img id="meal-assignment-image" src="" alt=""><span id="meal-assignment-type">Dinner</span></div>
                 <div><h3 id="meal-assignment-name"></h3><p id="meal-assignment-meta"></p></div>
                 <button type="button" class="meal-remove-button" id="meal-remove" aria-label="Remove planned meal"><i class="fas fa-xmark"></i></button>
               </article>
-              <div class="meal-meal-type"><span>Meal: </span><div id="meal-type-options"><button class="active" type="button" data-meal-type="Dinner">Dinner</button><button type="button" data-meal-type="Lunch">Lunch</button><button type="button" data-meal-type="Breakfast">Breakfast</button><button type="button" data-meal-type="Snack">Snack</button></div></div>
+              <div class="meal-meal-type"><div id="meal-type-options"><button class="active" type="button" data-meal-type="Dinner">Dinner</button><button type="button" data-meal-type="Lunch">Lunch</button><button type="button" data-meal-type="Breakfast">Breakfast</button><button type="button" data-meal-type="Snack">Snack</button></div></div>
             </aside>
           </div>
 

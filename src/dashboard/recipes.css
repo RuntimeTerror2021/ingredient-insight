@@ -50,7 +50,7 @@ main section.recipes-tab::-webkit-scrollbar-thumb {
     font-family: OPTIFranklinGothic-Medium, sans-serif;
     font-size: clamp(2rem, 4vw, 3rem);
     text-align: left !important;
-    letter-spacing: -5%;
+    letter-spacing: -3%;
 }
 
 .recipes-subtitle {

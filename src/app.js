@@ -132,6 +132,43 @@ function fromHTML(html, trim = true) {
     return result.length === 1 ? result[0] : result;
 }
 
+/*
+ * Delays execution of `func` until `wait` ms have passed since the last
+ * invocation. Used to wait for the user to pause typing before firing a
+ * request.
+ */
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func.apply(this, args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+/*
+ * Ensures `func` runs at most once every `limit` ms, even if called more
+ * often. Used to cap API request frequency and reduce usage.
+ */
+function throttle(func, limit) {
+    let lastRun = 0;
+    return function throttledFunction(...args) {
+        const now = Date.now();
+        if (now - lastRun >= limit) {
+            lastRun = now;
+            func.apply(this, args);
+        }
+    };
+}
+
+// Autocomplete request pacing: fire 550ms after the user pauses typing,
+// capped at one request per second to limit Spoonacular API usage.
+const AUTOCOMPLETE_DEBOUNCE_MS = 550;
+const AUTOCOMPLETE_THROTTLE_MS = 1000;
+
 // =============================================================================
 // 3. FIRESTORE HELPERS
 // =============================================================================
@@ -797,9 +834,10 @@ settingsIcon.addEventListener("click", () => {
 /*
  * The search flow is driven by a single keyup listener on the ingredients input.
  *
- *   ┌─ Space ──► Autocomplete (ingredientsAPI.autocompleteIngredientSearch)
- *   │           Creates <li> items in the autocomplete dropdown; clicking one
- *   │           creates an ingredient tag.
+ *   ┌─ Pause typing ──► Autocomplete (ingredientsAPI.autocompleteIngredientSearch)
+ *   │                   Debounced 550ms + throttled to 1 req/sec, then cached by
+ *   │                   query. Creates <li> items in the autocomplete dropdown;
+ *   │                   clicking one creates an ingredient tag.
  *   ├─ Backspace ──► Delete last ingredient tag if input is empty.
  *   ├─ Escape ──► Hide autocomplete dropdown.
  *   └─ Enter ──► Run the search (see runSearch() below).
@@ -875,9 +913,6 @@ function actVisible(isVisible) {
         autocorrectContainer.classList.remove("active");
     }
 }
-
-//TODO: use throttle func
-//TODO: use caching to minimize requests
 
 // =============================================================================
 // 6b. FILTER MODAL
@@ -1166,6 +1201,70 @@ async function runSearch() {
     }
 }
 
+// ── Ingredient autocomplete: debounced + throttled + cached ─────────────────
+const autocompleteCache = new Map();
+
+/*
+ * Fetch ingredient autocomplete suggestions for the current input value and
+ * render them into the autocorrect container. Results are cached by query so
+ * repeating the same pause never re-hits the Spoonacular API.
+ */
+function fetchAutocompleteSuggestions() {
+    const query = ingInput.value;
+    if (!query) return;
+
+    if (autocompleteCache.has(query)) {
+        renderAutocompleteResults(autocompleteCache.get(query));
+        return;
+    }
+
+    ingredientsAPI.autocompleteIngredientSearch(query, {
+        "number": 10,
+        "metaInformation": true
+    }, (error, data, response) => {
+        if (error) {
+            console.error(error)
+            return;
+        }
+        autocompleteCache.set(query, data);
+        renderAutocompleteResults(data);
+    });
+}
+
+/*
+ * Render autocomplete results into the autocorrect container. Clears existing
+ * <li> items, wires up click-to-add-tag handlers, and shows the container.
+ */
+function renderAutocompleteResults(data) {
+    while (acResultsUl.lastElementChild) {
+        acResultsUl.removeChild(acResultsUl.lastElementChild)
+    }
+
+    data.forEach(el => {
+        const newAcLi = fromHTML(`<li tabindex="0" id="${el.id}">${el.name}</li>`)
+        acResultsUl.appendChild(newAcLi)
+
+        let acLiElement = document.getElementById(el.id)
+        acLiElement.addEventListener('click', () => {
+            ingInput.value = acLiElement.innerText
+            autocorrectContainer.style.display = "none";
+            createTag()
+            ingInput.focus()
+        })
+    });
+
+    if (acResultsUl.children.length === 0) {
+        let noneLabel = fromHTML(`<li disabled class="ac-result">No items found</li>`)
+        acResultsUl.appendChild(noneLabel)
+    }
+
+    autocorrectContainer.style.display = "unset"
+    actVisible(true);
+}
+
+// Fires 550ms after the user stops typing, capped at 1 request per second.
+const requestAutocomplete = throttle(debounce(fetchAutocompleteSuggestions, AUTOCOMPLETE_DEBOUNCE_MS), AUTOCOMPLETE_THROTTLE_MS);
+
 ingInput.addEventListener("keyup", e => {
 
     //disable autocorrect container after user begins typing
@@ -1174,97 +1273,38 @@ ingInput.addEventListener("keyup", e => {
     //filter input
     ingInput.value = ingInput.value.toLowerCase().trim().replaceAll(/[^a-zA-Z]/g, "")
 
-
     if (e.key === "Escape") {
         actVisible(false);
         return;
     }
-    //if not deleting and at least 1 non-filtered character present, show autocorrect container
-    //TODO: link to state var and update only when request is returned from later statement, potentially get rid of this clause and move it further down
-    else if (!(e.key === "Backspace" || e.code === "Backspace") && ingInput.value.length >= 1) {
-        window.setTimeout(e => actVisible(true), 550)
-    }
 
     // ingredient tag handler
-    if ((e.key === "Backspace" || e.code === "Backspace")) {
-        actVisible(false);
-
+    if (e.key === "Backspace" || e.code === "Backspace") {
         //begin to delete existing tags
-        if(ingInput.value.length === 0 && parentUl.children.length > 0) {
+        if (ingInput.value.length === 0 && parentUl.children.length > 0) {
             parentUl.removeChild(
                 parentUl.children[parentUl.children.length - 1]
             );
         }
 
-        // if (parentUl.children.length === 1 || ingInput.value.length === 1) {
-        //
-        //     ingInput.placeholder = "Search..."
-        // }
+        // if text remains after deleting, schedule a fresh autocomplete
+        if (ingInput.value.length >= 1) requestAutocomplete();
 
-    } else if (e.code === "Space" && ingInput.value.length > 0) {
-        //add whatever is in the input to tag ul
-        // createTag()
+    } else if (e.key === "Enter") {
+        if (removeChoiceBtns.length > 0) {
+            e.preventDefault();
+            runSearch();
+        }
 
-        //request autocompletion
-        ingredientsAPI.autocompleteIngredientSearch(ingInput.value, {
-          "number": 10,
-          "metaInformation": true
-        }, (error, data, response) => {
-          if (error) {
-            console.error(error)
-            return;
-          }
-           console.log("Returned API data: " + JSON.stringify(data))
-
-          while (acResultsUl.lastElementChild) {
-            acResultsUl.removeChild(acResultsUl.lastElementChild)
-          }
-
-          data.forEach(el => {
-
-            const newAcLi = fromHTML(`<li tabindex="0" id="${el.id}">${el.name}</li>`)
-
-            acResultsUl.appendChild(newAcLi)
-
-            let acLiElement = document.getElementById(el.id)
-
-            acLiElement.addEventListener('click', () => {
-              ingInput.value = acLiElement.innerText
-              autocorrectContainer.style.display = "none";
-              createTag()
-              ingInput.focus()
-            })
-
-
-          });
-
-          //   var acLis = document.querySelectorAll('.ac-result')
-
-          //   for(var li of acLis) {
-          //     li.addEventListener('click', () => {
-
-          //     })
-          //   }
-
-          if (acResultsUl.children.length === 0) {
-
-            let noneLabel = fromHTML(`<li disabled class="ac-result">No items found</li>`)
-
-            acResultsUl.appendChild(noneLabel)
-          }
-
-          autocorrectContainer.style.display = "unset"
-
-          autocorrectContainer.scrollTop = 0;
-
-        })
-
-
-    } else if (e.key === "Enter" && removeChoiceBtns.length > 0) {
-        e.preventDefault();
-        runSearch();
+    } else if (ingInput.value.length >= 1) {
+        // wait for the user to pause typing, then request suggestions
+        requestAutocomplete();
     }
 
+})
+
+document.querySelector(".search-group .search-bar-container i.fas.fa-search").addEventListener("click", () => {
+    if (removeChoiceBtns.length > 0) runSearch()
 })
 
 ingInput.addEventListener("click", e => {

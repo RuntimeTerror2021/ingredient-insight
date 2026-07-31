@@ -227,6 +227,10 @@ section:first-of-type {
     letter-spacing: -2%;
 }
 
+.nav-container .btn-primary:hover {
+    color: white;
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
@@ -342,7 +346,7 @@ section:first-of-type {
 .hero-content {
     width: 100vw;
     z-index: 1;
-    /*padding-right: 2rem;*/
+    /*padding: 0 2rem;*/
     /*margin: 0 auto;*/
     display: flex;
     justify-content: center;
@@ -727,6 +731,8 @@ section:first-of-type {
     font-size: 1.25rem;
     color: var(--gray-300);
     margin-bottom: var(--spacing-2xl);
+    text-wrap: balance;
+    padding: 0 24px;
 }
 
 .waitlist-form {
@@ -807,6 +813,19 @@ section:first-of-type {
     gap: var(--spacing-2xl);
     margin-bottom: var(--spacing-2xl);
     padding: 0 2rem;
+}
+
+.footer-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.footer-section * {
+    text-align: center;
+    text-wrap: balance;
 }
 
 .footer-section h4 {
@@ -926,6 +945,26 @@ section:first-of-type {
 }
 
 /* =========== 11. Responsive Design =========== */
+
+@media (max-width: 1330px) {
+    .hero-content {
+     flex-wrap: balance;
+        margin-top: 60px;
+    }
+    
+    .hero-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    .hero-image .floating-card {
+        width: 100%;
+    }
+    
+}
+
 @media (max-width: 1024px) {
     .nav-logo span {
         font-size: 20px;

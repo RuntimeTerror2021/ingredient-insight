@@ -57,7 +57,7 @@ main section.grocery-tab::-webkit-scrollbar-thumb {
 .grocery-list-title h2 {
   color: #fff !important;
   font-family: OPTIFranklinGothic-Medium, sans-serif;
-  letter-spacing: -5%;
+  letter-spacing: -3%;
 }
 
 .grocery-header h1 {

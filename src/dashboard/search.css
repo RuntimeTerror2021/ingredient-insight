@@ -649,7 +649,8 @@ section.search-tab .search-results-container .search-result-card .result-img-con
   margin: 0 0 0.5rem;
   font-size: 1rem;
   font-weight: 600;
-  color: #2f4d3c;
+  color: var(--light-green);
+	flex: 0;
 }
 
 .search-empty-state span {
